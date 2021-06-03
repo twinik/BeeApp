@@ -5,10 +5,10 @@ import LottieView from 'lottie-react-native';
 import { AuthContext } from "../../AuthContext";
 
 const windowHeight = Dimensions.get('window').height;
-export default function Info2  ({ navigation }) {
+export default function Info2  ({ navigation ,route}) {
 
   const { primeraVez } = React.useContext(AuthContext);
-
+  
   
 
   return(

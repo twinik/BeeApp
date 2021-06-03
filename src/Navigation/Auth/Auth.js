@@ -27,13 +27,12 @@ export default function AuthStackScreen () {
             component={SignIn}
             options={{title:"Sign In"}}
             />
+            
             <AuthStack.Screen 
             name="SignUpIndex"
             component={IndexSignUp}
             options={{title:"SignUpIndex"}}
             />   
-
-            
 
             <AuthStack.Screen 
             name="SignUp"

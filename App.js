@@ -13,7 +13,6 @@ export default function App() {
   // Seteo El token de Sesion y la pantalla de carga
 const [isLoading, setIsLoading] = React.useState(true);
 const [userToken, setUserToken] = React.useState(null);
-const [firstTime, setFirstTime] = React.useState(true);
 const [UserRol, setUserRol] = React.useState(null);
 
 // Incializo las funciones del contexto
@@ -32,9 +31,6 @@ const authContext = React.useMemo(() => {
     signOut: () => {
       setIsLoading(false)
       setUserToken(null)
-    },
-    primeraVez: ()=>{
-      setFirstTime(false)
     },
   };
 }, []);
@@ -55,7 +51,7 @@ React.useEffect(() => {
 
 
       <NavigationContainer>
-        <RootStack firstTime={firstTime} userToken={userToken} userRol={UserRol}/>
+        <RootStack  userToken={userToken} userRol={UserRol}/>
       </NavigationContainer>
 
     </AuthContext.Provider>

@@ -39,7 +39,7 @@ const authContext = React.useMemo(() => {
 React.useEffect(() => {
   setTimeout(() => {
     setIsLoading(false);
-  }, 3000);
+  }, 1);
 }, []);
 
   if(isLoading){

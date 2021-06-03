@@ -12,7 +12,7 @@ export default function Bienvenido  ({ navigation }) {
         </View>
 
         <View style={[estilos.containerTexto]}>
-            <Text style={estilos.titulo}>Encontra {"\n"} cualquier servicio {"\n"}que necesites en{"\n"}cualquier momento</Text>
+            <Text style={estilos.titulo}>Encontrá {"\n"} cualquier servicio {"\n"}que necesites en{"\n"}cualquier momento</Text>
             <BotonGrande title="Crear Cuenta"  onPress={() => navigation.navigate("SignUpIndex")}></BotonGrande>
         </View>
        <View style={estilos.row}>

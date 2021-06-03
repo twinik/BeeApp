@@ -29,6 +29,6 @@ class BotonGrande extends React.Component  {
     },
     texto:{
       color:'#fff',
-      fontSize: 28,
+      fontSize: 24,
     }
   });

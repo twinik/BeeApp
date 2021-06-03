@@ -15,6 +15,7 @@ import {
 
 
 import BotonSiguiente from "../../../Components/BotonSiguiente";
+import { AntDesign } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
 
 const { width, height } = Dimensions.get("window");
@@ -91,12 +92,13 @@ export default function Verificacion({ navigation }) {
             </View>
 
             <View style={{ flex: 1, flexDirection: "row" }}>
-              <View style={styles.containerVolver}>
-                <BotonSiguiente
+            <View style={styles.containerVolver}>
+                <TouchableOpacity
                   style={styles.Boton}
-                  title="Volver"
                   onPress={() => navigation.goBack()}
-                />
+                >
+                  <AntDesign name="left" size={32} color="#9E5FB0" />
+                </TouchableOpacity>
               </View>
               <View style={styles.containerBoton}>
                 <BotonSiguiente

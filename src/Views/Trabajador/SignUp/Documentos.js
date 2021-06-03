@@ -4,22 +4,29 @@ import {
   Text,
   View,
   Dimensions,
-  Image,
-  TouchableOpacity,
-  Touchable,
-  Alert,
   ImageBackground,
-  TextInput,
+  Platform,
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
   Keyboard,
+  TouchableOpacity
 } from "react-native";
-import { back } from "react-native/Libraries/Animated/src/Easing";
 import BotonSiguiente from "../../../Components/BotonSiguiente";
+import Picker from '../../../Components/ImagePicker'
+import PickerDocument from '../../../Components/DocumentPicker';
 import { AntDesign } from "@expo/vector-icons";
 const { width, height } = Dimensions.get("window");
 
-export default function Servicio({ navigation }) {
+export default function Verificacion({ navigation }) {
+  const [selectedImage, setSelectedImage] = React.useState({
+    1:{estado:null,texto:"Foto frontal de su Dni"},
+    2:{estado:null,texto:"Foto trasera de su Dni"},
+    
+  });
+  const [selectedDocument,setSelectedDocument] = React.useState({estado:null,texto:"Foto de su CV (curriculum vitae)"})
+  
+  const [selectedTitle,setSelectedTitle] = React.useState({estado:null,texto:"Foto de su titulo de terciario/secundario"})
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -31,20 +38,23 @@ export default function Servicio({ navigation }) {
             style={styles.container}
             source={require("../../../../assets/wallpaper.png")}
           >
-            <View style={{ flex: 4.5, alignItems: "center" }}>
+            <View style={{ flex: 4.5, alignItems: "center" ,}}>
               <View style={styles.containerTitulo}>
-                <Text style={styles.titulo}>Servicio</Text>
-                <Text style={styles.text2}>
+                <Text style={styles.titulo}>Ultimos{"\n"}Documentos</Text>
+                <Text style={[styles.text2]}>
                   Elija que servicio provera usted. Puede elegir hasta tres de
                   una categoria
                 </Text>
               </View>
             </View>
 
-            <View style={{ flex: 4, alignItems: "center" }}></View>
+            <View style={{ flex: 4,justifyContent:'space-evenly', marginHorizontal: "10%"}}>
+            {Object.entries(selectedImage).map((x)=>(<Picker objeto={x}  setImagen={setSelectedImage} />))}
+            <PickerDocument texto={selectedDocument.texto} estado={selectedDocument.estado} setImagen={setSelectedDocument}/>
+            </View>
 
-            <View style={{ flex: 1, flexDirection: "row" }}>
-              <View style={styles.containerVolver}>
+            <View style={{ flex: 0.8, flexDirection: "row" }}>
+            <View style={styles.containerVolver}>
                 <TouchableOpacity
                   style={styles.Boton}
                   onPress={() => navigation.goBack()}
@@ -56,7 +66,7 @@ export default function Servicio({ navigation }) {
                 <BotonSiguiente
                   style={styles.Boton}
                   title="Siguiente"
-                  onPress={() => navigation.navigate("documentos")}
+                  onPress={() => navigation.navigate("servicio")}
                 />
               </View>
             </View>

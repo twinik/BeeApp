@@ -9,14 +9,17 @@ import {
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
   Keyboard,
-  Platform
+  Platform,
+  TouchableOpacity,
 } from "react-native";
 import BotonSiguiente from "../../../Components/BotonSiguiente";
+import { AntDesign } from "@expo/vector-icons";
+
+import ModalDropdown from "react-native-modal-dropdown";
 
 const { width, height } = Dimensions.get("window");
 
 export default function Verificacion({ navigation }) {
-
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -47,17 +50,50 @@ export default function Verificacion({ navigation }) {
                   style={styles.input}
                   placeholder="Dirección 2 (opcional)"
                 ></TextInput>
-
+                <ModalDropdown
+                isFullWidth={true}
+                dropdownTextStyle={{color:'black', fontSize:16}}
+                defaultTextStyle={{color: "#939393"}}
+                  textStyle={{ color:'black', fontSize:16 }}
+                  defaultValue="Provincia"
+                  style={styles.input}
+                  options={[
+                    "Buenos Aires",
+                    "Capital Federal",
+                    "Chaco",
+                    "Chubut",
+                    "Córdoba",
+                    "Corrientes",
+                    "Entre Ríos",
+                    "Formosa",
+                    "Jujuy",
+                    "La Pampa",
+                    "La Rioja",
+                    "Mendoza",
+                    "Misiones",
+                    "Neuquén",
+                    "Río Negro",
+                    "Salta",
+                    "San Juan",
+                    "San Luis",
+                    "Santa Cruz",
+                    "Santa Fe",
+                    "Santiago del Estero",
+                    "Tierra del Fuego",
+                    "Tucumán",
+                  ]}
+                />
               </View>
             </View>
 
             <View style={{ flex: 1, flexDirection: "row" }}>
               <View style={styles.containerVolver}>
-                <BotonSiguiente
+                <TouchableOpacity
                   style={styles.Boton}
-                  title="Volver"
                   onPress={() => navigation.goBack()}
-                />
+                >
+                  <AntDesign name="left" size={32} color="#9E5FB0" />
+                </TouchableOpacity>
               </View>
               <View style={styles.containerBoton}>
                 <BotonSiguiente
@@ -113,6 +149,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     margin: 10,
     padding: 10,
+    fontSize: 16,
+    height:50
   },
 
   titulo: {

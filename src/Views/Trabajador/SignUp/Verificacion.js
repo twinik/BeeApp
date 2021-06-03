@@ -3,20 +3,17 @@ import {
   StyleSheet,
   Text,
   View,
-
   Dimensions,
-
   TouchableOpacity,
- 
   ImageBackground,
-
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
   Keyboard,
-  Platform
+  Platform,
 } from "react-native";
 
 import BotonSiguiente from "../../../Components/BotonSiguiente";
+import { AntDesign } from "@expo/vector-icons";
 import {
   CodeField,
   Cursor,
@@ -42,10 +39,10 @@ export default function Verificacion({ navigation }) {
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <>
           <ImageBackground
-            style={{flex:1}}
+            style={{ flex: 1 }}
             source={require("../../../../assets/wallpaper.png")}
           >
-            <View style={{ flex: 4.5, alignItems: "center", }}>
+            <View style={{ flex: 4.5, alignItems: "center" }}>
               <View style={styles.containerTitulo}>
                 <Text style={styles.titulo}>Verificación</Text>
                 <Text style={styles.text2}>
@@ -62,7 +59,7 @@ export default function Verificacion({ navigation }) {
             </View>
 
             <View style={styles.containerInputs}>
-            <CodeField
+              <CodeField
                 ref={ref}
                 {...props}
                 // Use `caretHidden={false}` when users can't paste a text value, because context menu doesn't appear
@@ -84,13 +81,14 @@ export default function Verificacion({ navigation }) {
               />
             </View>
 
-            <View style={{ flex: 1, flexDirection: "row"}}>
+            <View style={{ flex: 1, flexDirection: "row" }}>
               <View style={styles.containerVolver}>
-                <BotonSiguiente
+                <TouchableOpacity
                   style={styles.Boton}
-                  title="Volver"
                   onPress={() => navigation.goBack()}
-                />
+                >
+                  <AntDesign name="left" size={32} color="#9E5FB0" />
+                </TouchableOpacity>
               </View>
               <View style={styles.containerBoton}>
                 <BotonSiguiente
@@ -116,7 +114,6 @@ const styles = StyleSheet.create({
   containerTitulo: {
     flex: 1,
     justifyContent: "flex-end",
-    
   },
 
   containerTexto: {
@@ -124,12 +121,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 
-
   containerInputs: {
     flex: 2,
-    justifyContent: 'center',
-    marginHorizontal:'5%'
-    
+    justifyContent: "center",
+    marginHorizontal: "5%",
   },
 
   containerBoton: {
@@ -176,7 +171,7 @@ const styles = StyleSheet.create({
     width: width / 1.2,
     color: "#1679C0",
   },
-  codeFieldRoot: { marginTop: 20 ,marginHorizontal:'5%'},
+  codeFieldRoot: { marginTop: 20, marginHorizontal: "5%" },
   cell: {
     width: 60,
     height: 60,
@@ -190,5 +185,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   focusCell: {
-    backgroundColor: "#DBDBDC",}
-})
+    backgroundColor: "#DBDBDC",
+  },
+});

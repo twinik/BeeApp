@@ -9,23 +9,28 @@ import {
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
   Keyboard,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
 import BotonSiguiente from "../../../Components/BotonSiguiente";
-import Picker from '../../../Components/ImagePicker'
-import PickerDocument from '../../../Components/DocumentPicker';
+import Picker from "../../../Components/ImagePicker";
+import PickerDocument from "../../../Components/DocumentPicker";
 import { AntDesign } from "@expo/vector-icons";
 const { width, height } = Dimensions.get("window");
 
 export default function Verificacion({ navigation }) {
   const [selectedImage, setSelectedImage] = React.useState({
-    1:{estado:null,texto:"Foto frontal de su Dni"},
-    2:{estado:null,texto:"Foto trasera de su Dni"},
-    
+    1: { estado: null, texto: "Foto frontal de su Dni" },
+    2: { estado: null, texto: "Foto trasera de su Dni" },
   });
-  const [selectedDocument,setSelectedDocument] = React.useState({estado:null,texto:"Foto de su CV (curriculum vitae)"})
-  
-  const [selectedTitle,setSelectedTitle] = React.useState({estado:null,texto:"Foto de su titulo de terciario/secundario"})
+  const [selectedDocument, setSelectedDocument] = React.useState({
+    estado: null,
+    texto: "Foto de su CV (curriculum vitae)",
+  });
+
+  const [selectedTitle, setSelectedTitle] = React.useState({
+    estado: null,
+    texto: "Foto de su titulo de terciario/secundario",
+  });
 
   return (
     <KeyboardAvoidingView
@@ -38,7 +43,7 @@ export default function Verificacion({ navigation }) {
             style={styles.container}
             source={require("../../../../assets/wallpaper.png")}
           >
-            <View style={{ flex: 4.5, alignItems: "center" ,}}>
+            <View style={{ flex: 4.5, alignItems: "center" }}>
               <View style={styles.containerTitulo}>
                 <Text style={styles.titulo}>Ultimos{"\n"}Documentos</Text>
                 <Text style={[styles.text2]}>
@@ -48,13 +53,25 @@ export default function Verificacion({ navigation }) {
               </View>
             </View>
 
-            <View style={{ flex: 4,justifyContent:'space-evenly', marginHorizontal: "10%"}}>
-            {Object.entries(selectedImage).map((x)=>(<Picker objeto={x} key={x[0]} setImagen={setSelectedImage} />))}
-            <PickerDocument texto={selectedDocument.texto} estado={selectedDocument.estado} setImagen={setSelectedDocument}/>
+            <View
+              style={{
+                flex: 4,
+                justifyContent: "space-evenly",
+                marginHorizontal: "10%",
+              }}
+            >
+              {Object.entries(selectedImage).map((x) => (
+                <Picker objeto={x} key={x[0]} setImagen={setSelectedImage} />
+              ))}
+              <PickerDocument
+                texto={selectedDocument.texto}
+                estado={selectedDocument.estado}
+                setImagen={setSelectedDocument}
+              />
             </View>
 
             <View style={{ flex: 0.8, flexDirection: "row" }}>
-            <View style={styles.containerVolver}>
+              <View style={styles.containerVolver}>
                 <TouchableOpacity
                   style={styles.Boton}
                   onPress={() => navigation.goBack()}
@@ -63,11 +80,12 @@ export default function Verificacion({ navigation }) {
                 </TouchableOpacity>
               </View>
               <View style={styles.containerBoton}>
-                <BotonSiguiente
+                <TouchableOpacity
                   style={styles.Boton}
-                  title="Siguiente"
                   onPress={() => navigation.navigate("finRegistro")}
-                />
+                >
+                  <AntDesign name="right" size={32} color="#9E5FB0" />
+                </TouchableOpacity>
               </View>
             </View>
           </ImageBackground>

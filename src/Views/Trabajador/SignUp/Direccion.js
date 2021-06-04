@@ -31,7 +31,7 @@ export default function Verificacion({ navigation }) {
             style={styles.container}
             source={require("../../../../assets/wallpaper.png")}
           >
-            <View style={{ flex: 4.5, alignItems: "center" }}>
+            <View style={{ flex: 4, alignItems: "center" }}>
               <View style={styles.containerTitulo}>
                 <Text style={styles.titulo}>Dirección</Text>
                 <Text style={styles.text2}>
@@ -96,11 +96,12 @@ export default function Verificacion({ navigation }) {
                 </TouchableOpacity>
               </View>
               <View style={styles.containerBoton}>
-                <BotonSiguiente
+              <TouchableOpacity
                   style={styles.Boton}
-                  title="Siguiente"
                   onPress={() => navigation.navigate("servicio")}
-                />
+                >
+                  <AntDesign name="right" size={32} color="#9E5FB0" />
+                </TouchableOpacity>
               </View>
             </View>
           </ImageBackground>

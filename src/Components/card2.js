@@ -7,7 +7,7 @@ export default function card({ title, onPress, image }) {
     <TouchableOpacity style={estilitos.container} onPress={onPress}>
       <View style={{ flex: 1, alignItems: "center", flexDirection: "row" }}>
         <View style={{ flex: 1, marginLeft: 40 }}>
-          <FontAwesome5 name="user-tie" size={45} color="#fff" />
+          <FontAwesome5 name="user-astronaut" size={45} color="#7936E4" />
         </View>
         <View style={{ flex: 2, justifyContent: "center" }}>
           <Text style={estilitos.titulo}>{title}</Text>
@@ -22,9 +22,11 @@ const estilitos = StyleSheet.create({
     alignItems: "center",
     width: '100%',
     height: 65,
-    backgroundColor: "#7936E4",
+    backgroundColor: "#fff",
     borderRadius: 10,
-    marginVertical: 30,
+    marginHorizontal: 15,
+    borderColor: "#7936E4",
+    borderWidth: 2,
 
     shadowColor: "#000",
     shadowOffset: {
@@ -37,7 +39,7 @@ const estilitos = StyleSheet.create({
     elevation: 14,
   },
   titulo: {
-    color: "#fff",
+    color: "#7936E4",
     fontSize: 28,
   },
 });

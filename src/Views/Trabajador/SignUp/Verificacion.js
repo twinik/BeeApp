@@ -42,7 +42,7 @@ export default function Verificacion({ navigation }) {
             style={{ flex: 1 }}
             source={require("../../../../assets/wallpaper.png")}
           >
-            <View style={{ flex: 4.5, alignItems: "center" }}>
+            <View style={{ flex: 5.2, marginHorizontal: "8%", }}>
               <View style={styles.containerTitulo}>
                 <Text style={styles.titulo}>Verificación</Text>
                 <Text style={styles.text2}>
@@ -91,11 +91,12 @@ export default function Verificacion({ navigation }) {
                 </TouchableOpacity>
               </View>
               <View style={styles.containerBoton}>
-                <BotonSiguiente
-                  style={styles.Boton}
-                  title="Siguiente"
-                  onPress={() => navigation.navigate("fotoPerfil")}
-                />
+              <TouchableOpacity
+                style={styles.Boton}
+                onPress={() => navigation.navigate("fotoPerfil")}
+              >
+                <AntDesign name="right" size={32} color="#9E5FB0" />
+              </TouchableOpacity>
               </View>
             </View>
           </ImageBackground>
@@ -122,9 +123,10 @@ const styles = StyleSheet.create({
   },
 
   containerInputs: {
-    flex: 2,
+    flex: 3,
     justifyContent: "center",
     marginHorizontal: "5%",
+
   },
 
   containerBoton: {
@@ -157,18 +159,17 @@ const styles = StyleSheet.create({
   },
 
   text2: {
-    fontSize: 15,
+    fontSize: 16,
   },
 
   text3: {
-    fontSize: 15,
-    width: width / 1.2,
+    fontSize: 16,
     marginTop: 20,
   },
 
   text4: {
-    fontSize: 15,
-    width: width / 1.2,
+    fontSize: 16,
+
     color: "#1679C0",
   },
   codeFieldRoot: { marginTop: 20, marginHorizontal: "5%" },

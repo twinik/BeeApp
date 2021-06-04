@@ -42,23 +42,23 @@ export default function Servicio({ navigation }) {
               </View>
             </View>
 
-            <View style={{ flex: 4, alignItems: "center" ,marginHorizontal:'5%'}}>
-            <ModalDropdown
+            <View
+              style={{ flex: 4, alignItems: "center", marginHorizontal: "5%" }}
+            >
+              <ModalDropdown
                 isFullWidth={true}
-                dropdownTextStyle={{color:'black', fontSize:16}}
-                defaultTextStyle={{color: "#939393"}}
-                  textStyle={{ color:'black', fontSize:16 }}
-                  defaultValue="Rubro"
-                  style={styles.input2}
-                  options={[
-                    "Buenos Aires",
-                    "Capital Federal",
-                    "Chaco",
-                    
-                  ]}
-                />
-                <Text style={[{marginTop:'10%'},styles.text2]}>Cuentenos porque quiere participar de este proyecto, no sea muy extenso por favor </Text>
-                <TextInput placeholder="" style={styles.input3}></TextInput>
+                dropdownTextStyle={{ color: "black", fontSize: 16 }}
+                defaultTextStyle={{ color: "#939393" }}
+                textStyle={{ color: "black", fontSize: 16 }}
+                defaultValue="Rubro"
+                style={styles.input2}
+                options={["Buenos Aires", "Capital Federal", "Chaco"]}
+              />
+              <Text style={[{ marginTop: "10%" }, styles.text2]}>
+                Cuentenos porque quiere participar de este proyecto, no sea muy
+                extenso por favor{" "}
+              </Text>
+              <TextInput placeholder="" style={styles.input3}></TextInput>
             </View>
 
             <View style={{ flex: 1, flexDirection: "row" }}>
@@ -71,11 +71,12 @@ export default function Servicio({ navigation }) {
                 </TouchableOpacity>
               </View>
               <View style={styles.containerBoton}>
-                <BotonSiguiente
+                <TouchableOpacity
                   style={styles.Boton}
-                  title="Siguiente"
                   onPress={() => navigation.navigate("documentos")}
-                />
+                >
+                  <AntDesign name="right" size={32} color="#9E5FB0" />
+                </TouchableOpacity>
               </View>
             </View>
           </ImageBackground>
@@ -140,15 +141,15 @@ const styles = StyleSheet.create({
     margin: 10,
     padding: 10,
     fontSize: 16,
-    height:50
+    height: 50,
   },
   input3: {
     width: "100%",
-    height: '30%',
+    height: "30%",
     backgroundColor: "#E5E5E5",
     borderRadius: 10,
     margin: 10,
     padding: 10,
-    textAlignVertical:'top'
+    textAlignVertical: "top",
   },
 });

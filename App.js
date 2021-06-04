@@ -44,7 +44,7 @@ React.useEffect(() => {
 }, []);
 
   if(isLoading){
-    return <Text>Hola</Text>
+    return <></>
   }
 
   return (

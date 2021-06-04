@@ -17,7 +17,7 @@ class UserCard extends React.Component  {
     container:{
         width:100,
         height:100,
-        backgroundColor:'#9E5FB0',
+        backgroundColor:'#7936E4',
         alignItems:'center',
         justifyContent:'center',
         borderRadius:50

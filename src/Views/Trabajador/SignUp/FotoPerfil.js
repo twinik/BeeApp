@@ -10,9 +10,8 @@ import {
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
   Keyboard,
-  Platform
+  Platform,
 } from "react-native";
-
 
 import BotonSiguiente from "../../../Components/BotonSiguiente";
 import { AntDesign } from "@expo/vector-icons";
@@ -73,7 +72,10 @@ export default function Verificacion({ navigation }) {
               <View style={styles.containerFoto}>
                 <TouchableOpacity onPress={openImagePickerAsync}>
                   <Image
-                    style={[styles.foto,selectedImage!= null ? {borderWidth:0}:{}]}
+                    style={[
+                      styles.foto,
+                      selectedImage != null ? { borderWidth: 0 } : {},
+                    ]}
                     source={{
                       uri:
                         selectedImage !== null
@@ -85,14 +87,14 @@ export default function Verificacion({ navigation }) {
               </View>
               <View style={styles.containerTextPoints}>
                 <Text style={{ fontSize: 18 }}>
-                • Foto actual{"\n"}• Fondo limpio y simple{"\n"}• Buena iluminacion y foto no movida
-                  
+                  • Foto actual{"\n"}• Fondo limpio y simple{"\n"}• Buena
+                  iluminacion y foto no movida
                 </Text>
               </View>
             </View>
 
             <View style={{ flex: 1, flexDirection: "row" }}>
-            <View style={styles.containerVolver}>
+              <View style={styles.containerVolver}>
                 <TouchableOpacity
                   style={styles.Boton}
                   onPress={() => navigation.goBack()}
@@ -101,11 +103,12 @@ export default function Verificacion({ navigation }) {
                 </TouchableOpacity>
               </View>
               <View style={styles.containerBoton}>
-                <BotonSiguiente
+                <TouchableOpacity
                   style={styles.Boton}
-                  title="Siguiente"
                   onPress={() => navigation.navigate("direccion")}
-                />
+                >
+                  <AntDesign name="right" size={32} color="#9E5FB0" />
+                </TouchableOpacity>
               </View>
             </View>
           </ImageBackground>
@@ -193,11 +196,11 @@ const styles = StyleSheet.create({
   },
 
   foto: {
-    borderRadius:90,
+    borderRadius: 90,
     borderColor: "#343434",
     borderWidth: 4,
     width: 180,
     height: 180,
-    resizeMode:'cover'
+    resizeMode: "cover",
   },
 });

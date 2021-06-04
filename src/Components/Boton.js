@@ -15,7 +15,7 @@ class Boton extends React.Component  {
 
   const estilos = StyleSheet.create({
     boton:{
-        backgroundColor:"#9E5FB0",
+        backgroundColor:"#7936E4",
         marginTop:20,
         padding:10,
         borderRadius:10,

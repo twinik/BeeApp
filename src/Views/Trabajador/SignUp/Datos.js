@@ -12,7 +12,7 @@ import {
   Dimensions,
   TouchableWithoutFeedback,
   StatusBar,
-  Keyboard
+  Keyboard,
 } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import UserCard from "../../../Components/userCard";
@@ -21,12 +21,12 @@ const { width, height } = Dimensions.get("window");
 import Boton from "../../../Components/Boton";
 import BotonSiguiente from "../../../Components/BotonSiguiente";
 import * as ImagePicker from "expo-image-picker";
+import { AntDesign } from "@expo/vector-icons";
 
 export default function Datos({ navigation }) {
   const [isSelected, setSelection] = useState(false);
 
   const [selectedImage, setSelectedImage] = useState(null);
-
 
   let openImagePickerAsync = async () => {
     let permissionResult =
@@ -53,61 +53,92 @@ export default function Datos({ navigation }) {
     setSelectedImage({ localUri: pickerResult.uri });
   };
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={estilitos.container}
-    >
-      
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      
-        <ImageBackground
-          style={estilitos.container}
-          source={require("../../../../assets/wallpaper.png")}
-        >
-          <View style={estilitos.containerHeader}>
-            <Text style={estilitos.titulo}>Datos</Text>
-            <Text style={estilitos.subtitulo}>
-              Ingresa información básica sobre usted
-            </Text>
-          </View>
-          <View style={estilitos.containerDatos}>
-            <View style={estilitos.containerImagen}>
-              
-                <TextInput style={[estilitos.input1,]} placeholder="Nombre"   placeholderTextColor="#B1AEAE"/>
-                <TextInput style={[estilitos.input1,]} placeholder="Apellido"   placeholderTextColor="#B1AEAE"/>
-                <TextInput style={[estilitos.input1,]} placeholder="Numero de Telefono"   placeholderTextColor="#B1AEAE"/>
-              <TextInput style={[estilitos.input1,]} placeholder="Email"   placeholderTextColor="#B1AEAE"/>
-              <TextInput style={[estilitos.input1,]} placeholder="Contraseña"   placeholderTextColor="#B1AEAE"/>
-              
+    <>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={estilitos.container}
+      >
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <ImageBackground
+            style={estilitos.container}
+            source={require("../../../../assets/wallpaper.png")}
+          >
+            <View style={estilitos.containerHeader}>
+              <Text style={estilitos.titulo}>Datos</Text>
+              <Text style={estilitos.subtitulo}>
+                Ingresa información básica sobre usted
+              </Text>
+            </View>
+            <View style={estilitos.containerDatos}>
+              <View style={estilitos.containerInputs}>
+                <TextInput
+                  style={[estilitos.input1]}
+                  placeholder="Nombre"
+                  placeholderTextColor="#B1AEAE"
+                />
+                <TextInput
+                  style={[estilitos.input1]}
+                  placeholder="Apellido"
+                  placeholderTextColor="#B1AEAE"
+                />
+                <TextInput
+                  style={[estilitos.input1]}
+                  placeholder="Numero de Telefono"
+                  dataDetectorTypes="phoneNumber"
+                  keyboardType="number-pad"
+                  maxLength={10}
+                  placeholderTextColor="#B1AEAE"
+                />
+                <TextInput
+                  style={[estilitos.input1]}
+                  placeholder="Email"
+                  keyboardType="email-address"
+                  placeholderTextColor="#B1AEAE"
+                />
+                <TextInput
+                  style={[estilitos.input1]}
+                  placeholder="Contraseña"
+                  autoCompleteType="password"
+                  placeholderTextColor="#B1AEAE"
+                  secureTextEntry={true}
+                />
+              </View>
+              <CheckBox
+                title="Acepto los terminos de uso"
+                checked={isSelected}
+                containerStyle={{
+                  borderWidth: 0,
+                  backgroundColor: "transparent",
+                }}
+                onPress={() =>
+                  isSelected ? setSelection(false) : setSelection(true)
+                }
+                titleProps={{ style: { color: "#1679C0" } }}
+              />
             </View>
 
-            <CheckBox
-              title='Acepto los terminos de uso'
-              checked={isSelected}
-              containerStyle={{borderWidth:0,backgroundColor:'transparent',flex:0.1}}
-              onPress={() => isSelected ? setSelection(false) : setSelection(true)}
-              titleProps={{style:{color:'#1679C0'}}}
-            />
-          </View>
-          <View style={{ flex: 1, flexDirection: "row" }}>
-            <View style={estilitos.containerVolver}>
-              <BotonSiguiente
-                style={estilitos.Boton}
-                title="Volver"
-                onPress={() => navigation.goBack()}
-              />
+            <View style={{ flex: 1, flexDirection: "row" }}>
+              <View style={estilitos.containerVolver}>
+                <TouchableOpacity
+                  style={estilitos.Boton}
+                  onPress={() => navigation.goBack()}
+                >
+                  <AntDesign name="left" size={32} color="#9E5FB0" />
+                </TouchableOpacity>
+              </View>
+              <View style={estilitos.containerBoton}>
+                <TouchableOpacity
+                  style={estilitos.Boton}
+                  onPress={() => navigation.navigate("verify")}
+                >
+                  <AntDesign name="right" size={32} color="#9E5FB0" />
+                </TouchableOpacity>
+              </View>
             </View>
-            <View style={estilitos.containerBoton}>
-              <BotonSiguiente
-                style={estilitos.Boton}
-                title="Siguiente"
-                onPress={() => navigation.navigate("verify")}
-              />
-            </View>
-          </View>
-        </ImageBackground>
-      </TouchableWithoutFeedback>
-    </KeyboardAvoidingView>
+          </ImageBackground>
+        </TouchableWithoutFeedback>
+      </KeyboardAvoidingView>
+    </>
   );
 }
 
@@ -116,15 +147,14 @@ const estilitos = StyleSheet.create({
     flex: 1,
   },
   containerHeader: {
-    flex: 3,
-    marginHorizontal: "5%",
+    flex: 4,
+    marginHorizontal: "8%",
     justifyContent: "flex-end",
   },
   containerDatos: {
     flex: 4,
-    marginLeft: "5%",
-    marginRight:'20%',
-    marginTop:'2%'
+    marginLeft: "8%",
+    width: width / 1.5,
   },
   titulo: {
     fontSize: 36,
@@ -134,9 +164,10 @@ const estilitos = StyleSheet.create({
     alignItems: "center",
   },
   input1: {
+    height: 40,
     backgroundColor: "#E5E5E5",
     padding: 10,
-    borderRadius: 10,
+    borderRadius: 5,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -145,7 +176,8 @@ const estilitos = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 1.41,
     elevation: 3,
-    width: '100%'
+    width: "100%",
+    marginVertical: "3%",
   },
   datos2: {
     backgroundColor: "#FFF",
@@ -165,24 +197,11 @@ const estilitos = StyleSheet.create({
     marginHorizontal: 10,
   },
   subtitulo: {
-    fontSize: 15,
+    fontSize: 16,
   },
-  foto: {
-    borderRadius: 50,
-    borderColor: "#343434",
-    borderWidth: 1.5,
-    width: 100,
-    height: 100,
-    resizeMode: "cover",
-  },
-  containerImagen: {
+  containerInputs: {
     flex: 3,
-    alignItems:'center',
-    justifyContent:'space-evenly',
-    
+    alignItems: "center",
+    marginVertical: "5%",
   },
-  containerExtra:{
-    flex: 2,
-    justifyContent:'space-evenly'
-  }
 });

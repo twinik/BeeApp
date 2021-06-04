@@ -13,10 +13,12 @@ export default function PickerDocument({ texto, estado, setImagen }) {
     let result = await DocumentPicker.getDocumentAsync({});
     alert(result.uri);
     console.log(result);
-    setImagen((prevState) => ({
-      ...prevState,
-      estado: true,
-    }));
+    if(result.uri != null){
+      setImagen((prevState) => ({
+        ...prevState,
+        estado: true,
+      }));
+    }
   };
 
   return (

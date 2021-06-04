@@ -49,7 +49,7 @@ export default function Verificacion({ navigation }) {
             </View>
 
             <View style={{ flex: 4,justifyContent:'space-evenly', marginHorizontal: "10%"}}>
-            {Object.entries(selectedImage).map((x)=>(<Picker objeto={x}  setImagen={setSelectedImage} />))}
+            {Object.entries(selectedImage).map((x)=>(<Picker objeto={x} key={x[0]} setImagen={setSelectedImage} />))}
             <PickerDocument texto={selectedDocument.texto} estado={selectedDocument.estado} setImagen={setSelectedDocument}/>
             </View>
 
@@ -66,7 +66,7 @@ export default function Verificacion({ navigation }) {
                 <BotonSiguiente
                   style={styles.Boton}
                   title="Siguiente"
-                  onPress={() => navigation.navigate("servicio")}
+                  onPress={() => navigation.navigate("finRegistro")}
                 />
               </View>
             </View>

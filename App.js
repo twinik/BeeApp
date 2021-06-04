@@ -26,7 +26,8 @@ const authContext = React.useMemo(() => {
     },
     signUp: () => {
       setIsLoading(false);
-      setUserToken("asdf");
+      setUserToken("pepe")
+      setUserRol("Cliente")
     },
     signOut: () => {
       setIsLoading(false)

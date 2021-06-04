@@ -9,8 +9,10 @@ import {
 import BotonSiguiente from "../../Components/BotonSiguiente";
 
 const { width, height } = Dimensions.get("window");
-
+import { AuthContext } from "../../AuthContext";
 export default function Verificacion({ navigation }) {
+  
+const { signUp } = React.useContext(AuthContext);
   return (
     <ImageBackground
       style={styles.container}
@@ -24,7 +26,7 @@ export default function Verificacion({ navigation }) {
         <BotonSiguiente
           style={styles.Boton}
           title="Finalizar"
-          onPress={() => alert("Menu Principal")}
+          onPress={() => signUp()}
         />
       </View>
     </ImageBackground>

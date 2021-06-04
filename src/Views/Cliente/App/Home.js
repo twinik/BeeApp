@@ -66,25 +66,25 @@ export default function Bienvenido  ({ navigation }) {
     marginHorizontal:20
   },
   "containerTexto":{
-    flex:2,
+    flex:1,
     
   },
   "containeRubros":{
     flex:3,
-    
+    justifyContent:'flex-start',
     alignItems:'center'
     
   },
   containerCard:{
-    flex: 1,
+    
    
     flexDirection:'row',
     alignItems:'center'
     
   },
   containerCard2:{
-    flex: 1,
-    
+   
+    justifyContent:'flex-start',
     flexDirection:'row',
     alignItems:'center'
     

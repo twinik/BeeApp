@@ -8,7 +8,7 @@ export default function Bienvenido  ({ navigation }) {
     <View style={estilos.container}>
     
         <View style={estilos.containerImage}>
-            <Image source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }} style={estilos.logo} />
+            <Image source={require('../../../assets/splash.png')} style={estilos.logo} />
         </View>
 
         <View style={[estilos.containerTexto]}>
@@ -31,9 +31,9 @@ export default function Bienvenido  ({ navigation }) {
 
  const estilos=StyleSheet.create({
     logo: {
-        marginBottom: 10,
-        width: 122,
-        height: 116,
+        
+        width: 200,
+        height: 200,
       },
       container:{
           flex: 1,
@@ -42,7 +42,7 @@ export default function Bienvenido  ({ navigation }) {
       },
       containerImage:{
         flex: 3,
-        justifyContent:'center'
+        justifyContent:'flex-end'
       },
       containerTexto:{
         flex: 4,

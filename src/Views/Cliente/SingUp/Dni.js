@@ -45,7 +45,7 @@ export default function Verificacion({ navigation }) {
             </View>
 
             <View style={{ flex: 4,justifyContent:'space-evenly', marginHorizontal: "10%"}}>
-            {Object.entries(selectedImage).map((x)=>(<Picker objeto={x}  setImagen={setSelectedImage} />))}
+            {Object.entries(selectedImage).map((x)=>(<Picker objeto={x} key={x[0]} setImagen={setSelectedImage} />))}
             </View>
             <View style={{ flex: 0.8, flexDirection: "row" }}>
               <View style={styles.containerVolver}>

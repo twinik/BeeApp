@@ -56,7 +56,7 @@ export default function Verificacion({ navigation }) {
                 defaultTextStyle={{color: "#939393"}}
                   textStyle={{ color:'black', fontSize:16 }}
                   defaultValue="Provincia"
-                  style={styles.input}
+                  style={styles.input2}
                   options={[
                     "Buenos Aires",
                     "Capital Federal",
@@ -144,6 +144,15 @@ const styles = StyleSheet.create({
   },
 
   input: {
+    width: "100%",
+    backgroundColor: "#E5E5E5",
+    borderRadius: 10,
+    margin: 10,
+    padding: 10,
+    fontSize: 16,
+    height:50
+  },
+  input2: {
     width: "100%",
     backgroundColor: "#E5E5E5",
     borderRadius: 10,

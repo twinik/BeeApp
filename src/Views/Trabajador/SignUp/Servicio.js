@@ -18,6 +18,7 @@ import { back } from "react-native/Libraries/Animated/src/Easing";
 import BotonSiguiente from "../../../Components/BotonSiguiente";
 import { AntDesign } from "@expo/vector-icons";
 const { width, height } = Dimensions.get("window");
+import ModalDropdown from "react-native-modal-dropdown";
 
 export default function Servicio({ navigation }) {
   return (
@@ -41,7 +42,24 @@ export default function Servicio({ navigation }) {
               </View>
             </View>
 
-            <View style={{ flex: 4, alignItems: "center" }}></View>
+            <View style={{ flex: 4, alignItems: "center" ,marginHorizontal:'5%'}}>
+            <ModalDropdown
+                isFullWidth={true}
+                dropdownTextStyle={{color:'black', fontSize:16}}
+                defaultTextStyle={{color: "#939393"}}
+                  textStyle={{ color:'black', fontSize:16 }}
+                  defaultValue="Rubro"
+                  style={styles.input2}
+                  options={[
+                    "Buenos Aires",
+                    "Capital Federal",
+                    "Chaco",
+                    
+                  ]}
+                />
+                <Text style={[{marginTop:'10%'},styles.text2]}>Cuentenos porque quiere participar de este proyecto, no sea muy extenso por favor </Text>
+                <TextInput placeholder="" style={styles.input3}></TextInput>
+            </View>
 
             <View style={{ flex: 1, flexDirection: "row" }}>
               <View style={styles.containerVolver}>
@@ -114,5 +132,23 @@ const styles = StyleSheet.create({
 
   text2: {
     fontSize: 15,
+  },
+  input2: {
+    width: "100%",
+    backgroundColor: "#E5E5E5",
+    borderRadius: 10,
+    margin: 10,
+    padding: 10,
+    fontSize: 16,
+    height:50
+  },
+  input3: {
+    width: "100%",
+    height: '30%',
+    backgroundColor: "#E5E5E5",
+    borderRadius: 10,
+    margin: 10,
+    padding: 10,
+    textAlignVertical:'top'
   },
 });

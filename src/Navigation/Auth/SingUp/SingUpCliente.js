@@ -1,6 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 
+import Slider from "../../../Views/Cliente/SingUp/Slider";
 import Datos from "../../../Views/Cliente/SingUp/Datos";
 import Verify from "../../../Views/Cliente/SingUp/Verificacion";
 
@@ -12,9 +13,15 @@ export default function RootStackScreen() {
   return (
     <SingUpCliente.Navigator headerMode="none">
       <SingUpCliente.Screen
-        name="SignUpInde"
+        name="Slider"
+        component={Slider}
+        options={{ title: "Slider" }}
+      />
+
+      <SingUpCliente.Screen
+        name="Datos"
         component={Datos}
-        options={{ title: "SignUpInde" }}
+        options={{ title: "Datos" }}
       />
 
       <SingUpCliente.Screen

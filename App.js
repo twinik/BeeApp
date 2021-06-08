@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {AuthContext} from './src/AuthContext'
 import { Text } from 'react-native';
@@ -6,7 +5,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import RootStack from './src/Navigation/Root'
 import { set } from 'react-native-reanimated';
 
-
+//Diseño responsive
+//width: wp(50), height: hp(50)
+//paddingTop: StatusBar.currentHeight
 
 export default function App() {
 

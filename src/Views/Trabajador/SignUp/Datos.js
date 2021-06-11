@@ -22,6 +22,9 @@ import Boton from "../../../Components/Boton";
 import BotonSiguiente from "../../../Components/BotonSiguiente";
 import * as ImagePicker from "expo-image-picker";
 import { AntDesign } from "@expo/vector-icons";
+import ContainerKeyboardView from "./../../../Components/ContainerKeyboardView";
+import HeaderRegistro from "./../../../Components/HeaderRegistro";
+import ContenidoRegistro from "./../../../Components/ContenidoRegistro";
 
 export default function Datos({ navigation }) {
   const [isSelected, setSelection] = useState(false);
@@ -53,58 +56,54 @@ export default function Datos({ navigation }) {
     setSelectedImage({ localUri: pickerResult.uri });
   };
   return (
-    <>
-      <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
-        style={estilitos.container}
+    <ContainerKeyboardView>
+      <ImageBackground
+        style={{ flex: 1 }}
+        source={require("../../../../assets/wallpaper.png")}
       >
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          <ImageBackground
-            style={estilitos.container}
-            source={require("../../../../assets/wallpaper.png")}
-          >
-            <View style={estilitos.containerHeader}>
-              <Text style={estilitos.titulo}>Datos</Text>
-              <Text style={estilitos.subtitulo}>
-                Ingresa información básica sobre usted
-              </Text>
-            </View>
-            <View style={estilitos.containerDatos}>
-              <View style={estilitos.containerInputs}>
-                <TextInput
-                  style={[estilitos.input1]}
-                  placeholder="Nombre"
-                  placeholderTextColor="#B1AEAE"
-                />
-                <TextInput
-                  style={[estilitos.input1]}
-                  placeholder="Apellido"
-                  placeholderTextColor="#B1AEAE"
-                />
-                <TextInput
-                  style={[estilitos.input1]}
-                  placeholder="Numero de Telefono"
-                  dataDetectorTypes="phoneNumber"
-                  keyboardType="number-pad"
-                  maxLength={10}
-                  placeholderTextColor="#B1AEAE"
-                />
-                <TextInput
-                  style={[estilitos.input1]}
-                  placeholder="Email"
-                  keyboardType="email-address"
-                  placeholderTextColor="#B1AEAE"
-                />
-                <TextInput
-                  style={[estilitos.input1]}
-                  placeholder="Contraseña"
-                  autoCompleteType="password"
-                  placeholderTextColor="#B1AEAE"
-                  secureTextEntry={true}
-                />
-              </View>
+        <>
+          <HeaderRegistro>
+            <Text style={estilitos.titulo}>Datos</Text>
+          </HeaderRegistro>
+          <ContenidoRegistro addStyle={{ width: width / 1.4 }}>
+            <Text style={estilitos.subtitulo}>
+              Ingresa información básica sobre usted
+            </Text>
+            <TextInput
+              style={[estilitos.input1]}
+              placeholder="Nombre"
+              placeholderTextColor="#B1AEAE"
+            />
+            <TextInput
+              style={[estilitos.input1]}
+              placeholder="Apellido"
+              placeholderTextColor="#B1AEAE"
+            />
+            <TextInput
+              style={[estilitos.input1]}
+              placeholder="Numero de Telefono"
+              dataDetectorTypes="phoneNumber"
+              keyboardType="number-pad"
+              maxLength={10}
+              placeholderTextColor="#B1AEAE"
+            />
+            <TextInput
+              style={[estilitos.input1]}
+              placeholder="Email"
+              keyboardType="email-address"
+              placeholderTextColor="#B1AEAE"
+            />
+            <TextInput
+              style={[estilitos.input1]}
+              placeholder="Contraseña"
+              autoCompleteType="password"
+              placeholderTextColor="#B1AEAE"
+              secureTextEntry={true}
+            />
+
+            <View style={{ flex: 1 }}>
               <CheckBox
-                title="Acepto los terminos de uso"
+                title="Acepto los términos de uso"
                 checked={isSelected}
                 containerStyle={{
                   borderWidth: 0,
@@ -116,29 +115,29 @@ export default function Datos({ navigation }) {
                 titleProps={{ style: { color: "#1679C0" } }}
               />
             </View>
+          </ContenidoRegistro>
 
-            <View style={{ flex: 1, flexDirection: "row" }}>
-              <View style={estilitos.containerVolver}>
-                <TouchableOpacity
-                  style={estilitos.Boton}
-                  onPress={() => navigation.goBack()}
-                >
-                  <AntDesign name="left" size={32} color="#9E5FB0" />
-                </TouchableOpacity>
-              </View>
-              <View style={estilitos.containerBoton}>
-                <TouchableOpacity
-                  style={estilitos.Boton}
-                  onPress={() => navigation.navigate("verify")}
-                >
-                  <AntDesign name="right" size={32} color="#9E5FB0" />
-                </TouchableOpacity>
-              </View>
+          <View style={{ flex: 1, flexDirection: "row" }}>
+            <View style={estilitos.containerVolver}>
+              <TouchableOpacity
+                style={estilitos.Boton}
+                onPress={() => navigation.goBack()}
+              >
+                <AntDesign name="left" size={32} color="#9E5FB0" />
+              </TouchableOpacity>
             </View>
-          </ImageBackground>
-        </TouchableWithoutFeedback>
-      </KeyboardAvoidingView>
-    </>
+            <View style={estilitos.containerBoton}>
+              <TouchableOpacity
+                style={estilitos.Boton}
+                onPress={() => navigation.navigate("verify")}
+              >
+                <AntDesign name="right" size={32} color="#9E5FB0" />
+              </TouchableOpacity>
+            </View>
+          </View>
+        </>
+      </ImageBackground>
+    </ContainerKeyboardView>
   );
 }
 
@@ -200,7 +199,7 @@ const estilitos = StyleSheet.create({
     fontSize: 16,
   },
   containerInputs: {
-    flex: 3,
+    flex: 4,
     alignItems: "center",
     marginVertical: "5%",
   },

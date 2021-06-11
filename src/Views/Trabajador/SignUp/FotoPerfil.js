@@ -16,6 +16,9 @@ import {
 import BotonSiguiente from "../../../Components/BotonSiguiente";
 import { AntDesign } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
+import ContainerKeyboardView from "./../../../Components/ContainerKeyboardView";
+import HeaderRegistro from "./../../../Components/HeaderRegistro";
+import ContenidoRegistro from "./../../../Components/ContenidoRegistro";
 
 const { width, height } = Dimensions.get("window");
 
@@ -48,73 +51,68 @@ export default function Verificacion({ navigation }) {
   };
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={styles.container}
-    >
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <>
-          <ImageBackground
-            style={styles.container}
-            source={require("../../../../assets/wallpaper.png")}
-          >
-            <View style={{ flex: 4.5, alignItems: "center" }}>
-              <View style={styles.containerTitulo}>
-                <Text style={styles.titulo}>Foto de perfil</Text>
-                <Text style={styles.text2}>
-                  Necesitamos una foto de usted para que{"\n"}nos podamos
-                  asegurar que es usted
-                </Text>
-              </View>
-            </View>
+    <ContainerKeyboardView>
+      <ImageBackground
+        style={styles.container}
+        source={require("../../../../assets/wallpaper.png")}
+      >
+        <HeaderRegistro>
+          <View style={styles.containerTitulo}>
+            <Text style={styles.titulo}>Foto de perfil</Text>
+          </View>
+        </HeaderRegistro>
 
-            <View style={styles.containerFotoTexto}>
-              <View style={styles.containerFoto}>
-                <TouchableOpacity onPress={openImagePickerAsync}>
-                  <Image
-                    style={[
-                      styles.foto,
-                      selectedImage != null ? { borderWidth: 0 } : {},
-                    ]}
-                    source={{
-                      uri:
-                        selectedImage !== null
-                          ? selectedImage.localUri
-                          : "https://freepikpsd.com/media/2019/10/default-user-profile-image-png-6-Transparent-Images.png",
-                    }}
-                  ></Image>
-                </TouchableOpacity>
-              </View>
-              <View style={styles.containerTextPoints}>
-                <Text style={{ fontSize: 18 }}>
-                  • Foto actual{"\n"}• Fondo limpio y simple{"\n"}• Buena
-                  iluminacion y foto no movida
-                </Text>
-              </View>
+        <ContenidoRegistro>
+          <Text style={styles.text2}>
+            Necesitamos una foto de usted para que{"\n"}nos podamos asegurar que
+            es usted
+          </Text>
+          <View style={styles.containerFotoTexto}>
+            <View style={styles.containerFoto}>
+              <TouchableOpacity onPress={openImagePickerAsync}>
+                <Image
+                  style={[
+                    styles.foto,
+                    selectedImage != null ? { borderWidth: 0 } : {},
+                  ]}
+                  source={{
+                    uri:
+                      selectedImage !== null
+                        ? selectedImage.localUri
+                        : "https://freepikpsd.com/media/2019/10/default-user-profile-image-png-6-Transparent-Images.png",
+                  }}
+                ></Image>
+              </TouchableOpacity>
             </View>
+            <View style={styles.containerTextPoints}>
+              <Text style={{ fontSize: 18 }}>
+                • Foto actual{"\n"}• Fondo limpio y simple{"\n"}• Buena
+                iluminacion y foto no movida
+              </Text>
+            </View>
+          </View>
+        </ContenidoRegistro>
 
-            <View style={{ flex: 1, flexDirection: "row" }}>
-              <View style={styles.containerVolver}>
-                <TouchableOpacity
-                  style={styles.Boton}
-                  onPress={() => navigation.goBack()}
-                >
-                  <AntDesign name="left" size={32} color="#9E5FB0" />
-                </TouchableOpacity>
-              </View>
-              <View style={styles.containerBoton}>
-                <TouchableOpacity
-                  style={styles.Boton}
-                  onPress={() => navigation.navigate("direccion")}
-                >
-                  <AntDesign name="right" size={32} color="#9E5FB0" />
-                </TouchableOpacity>
-              </View>
-            </View>
-          </ImageBackground>
-        </>
-      </TouchableWithoutFeedback>
-    </KeyboardAvoidingView>
+        <View style={{ flex: 1, flexDirection: "row" }}>
+          <View style={styles.containerVolver}>
+            <TouchableOpacity
+              style={styles.Boton}
+              onPress={() => navigation.goBack()}
+            >
+              <AntDesign name="left" size={32} color="#9E5FB0" />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.containerBoton}>
+            <TouchableOpacity
+              style={styles.Boton}
+              onPress={() => navigation.navigate("direccion")}
+            >
+              <AntDesign name="right" size={32} color="#9E5FB0" />
+            </TouchableOpacity>
+          </View>
+        </View>
+      </ImageBackground>
+    </ContainerKeyboardView>
   );
 }
 

@@ -12,7 +12,7 @@ import {
   Dimensions,
   TouchableWithoutFeedback,
   StatusBar,
-  Keyboard
+  Keyboard,
 } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import UserCard from "../../../Components/userCard";
@@ -21,12 +21,15 @@ const { width, height } = Dimensions.get("window");
 import Boton from "../../../Components/Boton";
 import BotonSiguiente from "../../../Components/BotonSiguiente";
 import * as ImagePicker from "expo-image-picker";
+import { AntDesign } from "@expo/vector-icons";
+import ContainerKeyboardView from "./../../../Components/ContainerKeyboardView";
+import HeaderRegistro from "./../../../Components/HeaderRegistro";
+import ContenidoRegistro from "./../../../Components/ContenidoRegistro";
 
 export default function Datos({ navigation }) {
   const [isSelected, setSelection] = useState(false);
 
   const [selectedImage, setSelectedImage] = useState(null);
-
 
   let openImagePickerAsync = async () => {
     let permissionResult =
@@ -53,76 +56,109 @@ export default function Datos({ navigation }) {
     setSelectedImage({ localUri: pickerResult.uri });
   };
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={estilitos.container}
-    >
-      
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      
-        <ImageBackground
-          style={estilitos.container}
-          source={require("../../../../assets/wallpaper.png")}
-        >
-          <View style={estilitos.containerHeader}>
+    <ContainerKeyboardView>
+      <ImageBackground
+        style={{ flex: 1 }}
+        source={require("../../../../assets/wallpaper.png")}
+      >
+        <>
+          <HeaderRegistro>
             <Text style={estilitos.titulo}>Datos</Text>
+          </HeaderRegistro>
+          <ContenidoRegistro addStyle={{ width: width / 1.4 }}>
             <Text style={estilitos.subtitulo}>
               Ingresa información básica sobre usted
             </Text>
-          </View>
-          <View style={estilitos.containerDatos}>
-            <View style={estilitos.containerImagen}>
-              <TouchableOpacity onPress={openImagePickerAsync}>
-              <Image
-                style={[
-                  estilitos.foto,
-                  selectedImage != null ? { borderWidth: 0 } : {},
-                ]}
-                source={{
-                  uri:
-                    selectedImage !== null
-                      ? selectedImage.localUri
-                      : "https://freepikpsd.com/media/2019/10/default-user-profile-image-png-6-Transparent-Images.png",
-                }}
-              ></Image>
-              </TouchableOpacity>
-              <View style={{flex:1,marginLeft:'5%',justifyContent:'flex-start'}}>
-                <TextInput style={[estilitos.input1,{marginBottom:5}]} placeholder="Nombre"   placeholderTextColor="#B1AEAE"/>
-                <TextInput style={[estilitos.input1,{marginTop:5}]} placeholder="Apellido"   placeholderTextColor="#B1AEAE"/>
+            <View style={{ flexDirection: "row" }}>
+              <View style={{ flex: 1.2, justifyContent:'center',  }}>
+                <TouchableOpacity onPress={openImagePickerAsync}>
+                  <Image
+                    style={[
+                      estilitos.foto,
+                      selectedImage != null ? { borderWidth: 0 } : {},
+                    ]}
+                    source={{
+                      uri:
+                        selectedImage !== null
+                          ? selectedImage.localUri
+                          : "https://happytravel.viajes/wp-content/uploads/2020/04/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png",
+                    }}
+                  ></Image>
+                </TouchableOpacity>
+              </View>
+              <View style={{ flex: 2 }}>
+                <TextInput
+                  style={[estilitos.input1]}
+                  placeholder="Nombre"
+                  placeholderTextColor="#B1AEAE"
+                />
+                <TextInput
+                  style={[estilitos.input1]}
+                  placeholder="Apellido"
+                  placeholderTextColor="#B1AEAE"
+                />
               </View>
             </View>
-            <View style={estilitos.containerExtra}>
-            <TextInput style={[estilitos.input1,]} placeholder="Numero de Telefono"   placeholderTextColor="#B1AEAE"/>
-            <TextInput style={[estilitos.input1,]} placeholder="Email"   placeholderTextColor="#B1AEAE"/>
-            <TextInput style={[estilitos.input1,]} placeholder="Contraseña"   placeholderTextColor="#B1AEAE"/>
-            </View>
-            <CheckBox
-              title='Acepto los terminos de uso'
-              checked={isSelected}
-              containerStyle={{borderWidth:0,backgroundColor:'transparent',flex:0.1}}
-              onPress={() => isSelected ? setSelection(false) : setSelection(true)}
-              titleProps={{style:{color:'#1679C0'}}}
+
+            <TextInput
+              style={[estilitos.input1]}
+              placeholder="Numero de Telefono"
+              dataDetectorTypes="phoneNumber"
+              keyboardType="number-pad"
+              maxLength={10}
+              placeholderTextColor="#B1AEAE"
             />
-          </View>
+            <TextInput
+              style={[estilitos.input1]}
+              placeholder="Email"
+              keyboardType="email-address"
+              placeholderTextColor="#B1AEAE"
+            />
+            <TextInput
+              style={[estilitos.input1]}
+              placeholder="Contraseña"
+              autoCompleteType="password"
+              placeholderTextColor="#B1AEAE"
+              secureTextEntry={true}
+            />
+
+            <View style={{ flex: 1 }}>
+              <CheckBox
+                title="Acepto los términos de uso"
+                checked={isSelected}
+                containerStyle={{
+                  borderWidth: 0,
+                  backgroundColor: "transparent",
+                }}
+                onPress={() =>
+                  isSelected ? setSelection(false) : setSelection(true)
+                }
+                titleProps={{ style: { color: "#1679C0" } }}
+              />
+            </View>
+          </ContenidoRegistro>
+
           <View style={{ flex: 1, flexDirection: "row" }}>
             <View style={estilitos.containerVolver}>
-              <BotonSiguiente
+              <TouchableOpacity
                 style={estilitos.Boton}
-                title="Volver"
                 onPress={() => navigation.goBack()}
-              />
+              >
+                <AntDesign name="left" size={32} color="#9E5FB0" />
+              </TouchableOpacity>
             </View>
             <View style={estilitos.containerBoton}>
-              <BotonSiguiente
+              <TouchableOpacity
                 style={estilitos.Boton}
-                title="Siguiente"
                 onPress={() => navigation.navigate("verify")}
-              />
+              >
+                <AntDesign name="right" size={32} color="#9E5FB0" />
+              </TouchableOpacity>
             </View>
           </View>
-        </ImageBackground>
-      </TouchableWithoutFeedback>
-    </KeyboardAvoidingView>
+        </>
+      </ImageBackground>
+    </ContainerKeyboardView>
   );
 }
 
@@ -131,15 +167,14 @@ const estilitos = StyleSheet.create({
     flex: 1,
   },
   containerHeader: {
-    flex: 3,
-    marginHorizontal: "5%",
+    flex: 4,
+    marginHorizontal: "8%",
     justifyContent: "flex-end",
   },
   containerDatos: {
     flex: 4,
-    marginLeft: "5%",
-    marginRight:'20%',
-    marginTop:'2%'
+    marginLeft: "8%",
+    width: width / 1.5,
   },
   titulo: {
     fontSize: 36,
@@ -149,9 +184,10 @@ const estilitos = StyleSheet.create({
     alignItems: "center",
   },
   input1: {
+    height: 40,
     backgroundColor: "#E5E5E5",
     padding: 10,
-    borderRadius: 10,
+    borderRadius: 5,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -159,8 +195,9 @@ const estilitos = StyleSheet.create({
     },
     shadowOpacity: 0.3,
     shadowRadius: 1.41,
-
     elevation: 3,
+    width: "100%",
+    marginVertical: "3%",
   },
   datos2: {
     backgroundColor: "#FFF",
@@ -180,25 +217,19 @@ const estilitos = StyleSheet.create({
     marginHorizontal: 10,
   },
   subtitulo: {
-    fontSize: 15,
+    fontSize: 16,
+  },
+  containerInputs: {
+    flex: 4,
+    alignItems: "center",
+    marginVertical: "5%",
   },
   foto: {
-    borderRadius: 50,
+    borderRadius: 40,
     borderColor: "#343434",
-    borderWidth: 1.5,
-    width: 100,
-    height: 100,
+    borderWidth: 1,
+    width: 80,
+    height: 80,
     resizeMode: "cover",
   },
-  containerImagen: {
-    flex: 1,
-    flexDirection: "row",
-    alignItems:'center',
-  
-    
-  },
-  containerExtra:{
-    flex: 2,
-    justifyContent:'space-evenly'
-  }
 });

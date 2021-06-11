@@ -12,6 +12,9 @@ import {
   Platform,
 } from "react-native";
 
+import ContainerKeyboardView from "./../../../Components/ContainerKeyboardView";
+import HeaderRegistro from "./../../../Components/HeaderRegistro";
+import ContenidoRegistro from "./../../../Components/ContenidoRegistro";
 import BotonSiguiente from "../../../Components/BotonSiguiente";
 import { AntDesign } from "@expo/vector-icons";
 import {
@@ -32,33 +35,28 @@ export default function Verificacion({ navigation }) {
     setValue,
   });
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={styles.container}
-    >
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+    <ContainerKeyboardView>
+      <ImageBackground
+        style={{ flex: 1 }}
+        source={require("../../../../assets/wallpaper.png")}
+      >
         <>
-          <ImageBackground
-            style={{ flex: 1 }}
-            source={require("../../../../assets/wallpaper.png")}
-          >
-            <View style={{ flex: 5.2, marginHorizontal: "8%", }}>
-              <View style={styles.containerTitulo}>
-                <Text style={styles.titulo}>Verificación</Text>
-                <Text style={styles.text2}>
-                  Hemos enviado un código de{"\n"}verificación a su celular.
-                  {"\n"}Ingrese el código de 4 digitos que ha recibido
-                </Text>
-                <Text style={styles.text3}>
-                  ¿No has recibido ningun codigo?
-                </Text>
-                <TouchableOpacity onPress={() => alert("Vuelve a enviar")}>
-                  <Text style={styles.text4}>Volver a enviar</Text>
-                </TouchableOpacity>
-              </View>
+          <HeaderRegistro>
+            <View style={styles.containerTitulo}>
+              <Text style={styles.titulo}>Verificación</Text>
             </View>
+          </HeaderRegistro>
 
-            <View style={styles.containerInputs}>
+          <ContenidoRegistro>
+            <Text style={styles.text2}>
+              Hemos enviado un código de verificación a su celular.
+              {"\n"}Ingrese el código de 4 digitos que ha recibido
+            </Text>
+            <Text style={styles.text3}>¿No has recibido ningun codigo?</Text>
+            <TouchableOpacity onPress={() => alert("Vuelve a enviar")}>
+              <Text style={styles.text4}>Volver a enviar</Text>
+            </TouchableOpacity>
+            <View style={{ flex: 1, justifyContent:'center'}}>
               <CodeField
                 ref={ref}
                 {...props}
@@ -80,29 +78,29 @@ export default function Verificacion({ navigation }) {
                 )}
               />
             </View>
+          </ContenidoRegistro>
 
-            <View style={{ flex: 1, flexDirection: "row" }}>
-              <View style={styles.containerVolver}>
-                <TouchableOpacity
-                  style={styles.Boton}
-                  onPress={() => navigation.goBack()}
-                >
-                  <AntDesign name="left" size={32} color="#9E5FB0" />
-                </TouchableOpacity>
-              </View>
-              <View style={styles.containerBoton}>
+          <View style={{ flex: 1, flexDirection: "row" }}>
+            <View style={styles.containerVolver}>
+              <TouchableOpacity
+                style={styles.Boton}
+                onPress={() => navigation.goBack()}
+              >
+                <AntDesign name="left" size={32} color="#9E5FB0" />
+              </TouchableOpacity>
+            </View>
+            <View style={styles.containerBoton}>
               <TouchableOpacity
                 style={styles.Boton}
                 onPress={() => navigation.navigate("fotoPerfil")}
               >
                 <AntDesign name="right" size={32} color="#9E5FB0" />
               </TouchableOpacity>
-              </View>
             </View>
-          </ImageBackground>
+          </View>
         </>
-      </TouchableWithoutFeedback>
-    </KeyboardAvoidingView>
+      </ImageBackground>
+    </ContainerKeyboardView>
   );
 }
 
@@ -110,6 +108,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
+  },
+
+  header: {
+    flex: 7,
+    marginHorizontal: "8%",
+    justifyContent: "flex-end",
   },
 
   containerTitulo: {
@@ -123,10 +127,9 @@ const styles = StyleSheet.create({
   },
 
   containerInputs: {
-    flex: 3,
+    flex: 4,
     justifyContent: "center",
     marginHorizontal: "5%",
-
   },
 
   containerBoton: {

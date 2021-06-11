@@ -4,9 +4,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Slider from "../../../Views/Cliente/SingUp/Slider";
 import Datos from "../../../Views/Cliente/SingUp/Datos";
 import Verify from "../../../Views/Cliente/SingUp/Verificacion";
-
 import FinRegistro from "../../../Views/General/FinRegistro";
-import Dni from '../../../Views/Cliente/SingUp/Dni'
+import Documentos from '../../../Views/Cliente/SingUp/Documentos'
 const SingUpCliente = createStackNavigator();
 
 export default function RootStackScreen() {
@@ -31,9 +30,9 @@ export default function RootStackScreen() {
       />
 
       <SingUpCliente.Screen
-        name="dni"
-        component={Dni}
-        options={{ title: "Dni" }}
+        name="Documentos"
+        component={Documentos}
+        options={{ title: "Documentos" }}
       />
       <SingUpCliente.Screen
         name="finRegistro"

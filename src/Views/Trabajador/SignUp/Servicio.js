@@ -19,70 +19,64 @@ import BotonSiguiente from "../../../Components/BotonSiguiente";
 import { AntDesign } from "@expo/vector-icons";
 const { width, height } = Dimensions.get("window");
 import ModalDropdown from "react-native-modal-dropdown";
+import ContainerKeyboardView from "./../../../Components/ContainerKeyboardView";
+import HeaderRegistro from "./../../../Components/HeaderRegistro";
+import ContenidoRegistro from "./../../../Components/ContenidoRegistro";
 
 export default function Servicio({ navigation }) {
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={styles.container}
-    >
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <>
-          <ImageBackground
-            style={styles.container}
-            source={require("../../../../assets/wallpaper.png")}
-          >
-            <View style={{ flex: 4.5, alignItems: "center" }}>
-              <View style={styles.containerTitulo}>
-                <Text style={styles.titulo}>Servicio</Text>
-                <Text style={styles.text2}>
-                  Elija que servicio provera usted. Puede elegir hasta tres de
-                  una categoria
-                </Text>
-              </View>
-            </View>
+    <ContainerKeyboardView>
+      <ImageBackground
+        style={styles.container}
+        source={require("../../../../assets/wallpaper.png")}
+      >
+        <HeaderRegistro>
+          <View style={styles.containerTitulo}>
+            <Text style={styles.titulo}>Servicio</Text>
+          </View>
+        </HeaderRegistro>
 
-            <View
-              style={{ flex: 4, alignItems: "center", marginHorizontal: "5%" }}
+        <ContenidoRegistro>
+          <Text style={styles.subTitulo}>
+            Elija que servicio provera usted. Puede elegir hasta tres de una
+            categoria
+          </Text>
+          <ModalDropdown
+            isFullWidth={true}
+            dropdownTextStyle={{ color: "black", fontSize: 16 }}
+            defaultTextStyle={{ color: "#939393" }}
+            textStyle={{ color: "black", fontSize: 16 }}
+            defaultValue="Rubro"
+            style={styles.input2}
+            options={["Sado masoquista", "Asesino", "Peluquero"]}
+          />
+          <Text style={ styles.subTitulo }>
+            Cuentenos porque quiere participar de este proyecto, no sea muy
+            extenso por favor{" "}
+          </Text>
+          <TextInput placeholder="" style={styles.input3}></TextInput>
+        </ContenidoRegistro>
+
+        <View style={{ flex: 1, flexDirection: "row" }}>
+          <View style={styles.containerVolver}>
+            <TouchableOpacity
+              style={styles.Boton}
+              onPress={() => navigation.goBack()}
             >
-              <ModalDropdown
-                isFullWidth={true}
-                dropdownTextStyle={{ color: "black", fontSize: 16 }}
-                defaultTextStyle={{ color: "#939393" }}
-                textStyle={{ color: "black", fontSize: 16 }}
-                defaultValue="Rubro"
-                style={styles.input2}
-                options={["Buenos Aires", "Capital Federal", "Chaco"]}
-              />
-              <Text style={[{ marginTop: "10%" }, styles.text2]}>
-                Cuentenos porque quiere participar de este proyecto, no sea muy
-                extenso por favor{" "}
-              </Text>
-              <TextInput placeholder="" style={styles.input3}></TextInput>
-            </View>
-
-            <View style={{ flex: 1, flexDirection: "row" }}>
-              <View style={styles.containerVolver}>
-                <TouchableOpacity
-                  style={styles.Boton}
-                  onPress={() => navigation.goBack()}
-                >
-                  <AntDesign name="left" size={32} color="#9E5FB0" />
-                </TouchableOpacity>
-              </View>
-              <View style={styles.containerBoton}>
-                <TouchableOpacity
-                  style={styles.Boton}
-                  onPress={() => navigation.navigate("documentos")}
-                >
-                  <AntDesign name="right" size={32} color="#9E5FB0" />
-                </TouchableOpacity>
-              </View>
-            </View>
-          </ImageBackground>
-        </>
-      </TouchableWithoutFeedback>
-    </KeyboardAvoidingView>
+              <AntDesign name="left" size={32} color="#9E5FB0" />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.containerBoton}>
+            <TouchableOpacity
+              style={styles.Boton}
+              onPress={() => navigation.navigate("documentos")}
+            >
+              <AntDesign name="right" size={32} color="#9E5FB0" />
+            </TouchableOpacity>
+          </View>
+        </View>
+      </ImageBackground>
+    </ContainerKeyboardView>
   );
 }
 
@@ -131,14 +125,15 @@ const styles = StyleSheet.create({
     fontSize: 36,
   },
 
-  text2: {
+  subTitulo: {
     fontSize: 15,
   },
+
   input2: {
     width: "100%",
     backgroundColor: "#E5E5E5",
     borderRadius: 10,
-    margin: 10,
+    marginVertical:10,
     padding: 10,
     fontSize: 16,
     height: 50,
@@ -148,7 +143,7 @@ const styles = StyleSheet.create({
     height: "30%",
     backgroundColor: "#E5E5E5",
     borderRadius: 10,
-    margin: 10,
+    marginVertical: 10,
     padding: 10,
     textAlignVertical: "top",
   },

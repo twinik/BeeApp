@@ -14,100 +14,92 @@ import {
 } from "react-native";
 import BotonSiguiente from "../../../Components/BotonSiguiente";
 import { AntDesign } from "@expo/vector-icons";
-
+import ContainerKeyboardView from "./../../../Components/ContainerKeyboardView";
+import HeaderRegistro from "./../../../Components/HeaderRegistro";
+import ContenidoRegistro from "./../../../Components/ContenidoRegistro";
 import ModalDropdown from "react-native-modal-dropdown";
 
 const { width, height } = Dimensions.get("window");
 
 export default function Verificacion({ navigation }) {
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={styles.container}
-    >
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <>
-          <ImageBackground
-            style={styles.container}
-            source={require("../../../../assets/wallpaper.png")}
-          >
-            <View style={{ flex: 4, alignItems: "center" }}>
-              <View style={styles.containerTitulo}>
-                <Text style={styles.titulo}>Dirección</Text>
-                <Text style={styles.text2}>
-                  Esta información no será compartida con nadie
-                </Text>
-              </View>
-            </View>
+    <ContainerKeyboardView>
+      <ImageBackground
+        style={styles.container}
+        source={require("../../../../assets/wallpaper.png")}
+      >
+        <HeaderRegistro>
+          <View style={styles.containerTitulo}>
+            <Text style={styles.titulo}>Dirección</Text>
+          </View>
+        </HeaderRegistro>
 
-            <View style={{ flex: 4, alignItems: "center" }}>
-              <View style={styles.containerInputs}>
-                <TextInput
-                  style={styles.input}
-                  placeholder="Dirección"
-                ></TextInput>
-                <TextInput
-                  style={styles.input}
-                  placeholder="Dirección 2 (opcional)"
-                ></TextInput>
-                <ModalDropdown
-                isFullWidth={true}
-                dropdownTextStyle={{color:'black', fontSize:16}}
-                defaultTextStyle={{color: "#939393"}}
-                  textStyle={{ color:'black', fontSize:16 }}
-                  defaultValue="Provincia"
-                  style={styles.input2}
-                  options={[
-                    "Buenos Aires",
-                    "Capital Federal",
-                    "Chaco",
-                    "Chubut",
-                    "Córdoba",
-                    "Corrientes",
-                    "Entre Ríos",
-                    "Formosa",
-                    "Jujuy",
-                    "La Pampa",
-                    "La Rioja",
-                    "Mendoza",
-                    "Misiones",
-                    "Neuquén",
-                    "Río Negro",
-                    "Salta",
-                    "San Juan",
-                    "San Luis",
-                    "Santa Cruz",
-                    "Santa Fe",
-                    "Santiago del Estero",
-                    "Tierra del Fuego",
-                    "Tucumán",
-                  ]}
-                />
-              </View>
-            </View>
+        <ContenidoRegistro>
+          <Text style={styles.text2}>
+            Esta información no será compartida con nadie
+          </Text>
+          <View style={styles.containerInputs}>
+            <TextInput style={styles.input} placeholder="Dirección"></TextInput>
+            <TextInput
+              style={styles.input}
+              placeholder="Dirección 2 (opcional)"
+            ></TextInput>
+            <ModalDropdown
+              isFullWidth={true}
+              dropdownTextStyle={{ color: "black", fontSize: 16 }}
+              defaultTextStyle={{ color: "#939393" }}
+              textStyle={{ color: "black", fontSize: 16 }}
+              defaultValue="Provincia"
+              style={styles.input2}
+              options={[
+                "Buenos Aires",
+                "Capital Federal",
+                "Chaco",
+                "Chubut",
+                "Córdoba",
+                "Corrientes",
+                "Entre Ríos",
+                "Formosa",
+                "Jujuy",
+                "La Pampa",
+                "La Rioja",
+                "Mendoza",
+                "Misiones",
+                "Neuquén",
+                "Río Negro",
+                "Salta",
+                "San Juan",
+                "San Luis",
+                "Santa Cruz",
+                "Santa Fe",
+                "Santiago del Estero",
+                "Tierra del Fuego",
+                "Tucumán",
+              ]}
+            />
+          </View>
+        </ContenidoRegistro>
 
-            <View style={{ flex: 1, flexDirection: "row" }}>
-              <View style={styles.containerVolver}>
-                <TouchableOpacity
-                  style={styles.Boton}
-                  onPress={() => navigation.goBack()}
-                >
-                  <AntDesign name="left" size={32} color="#9E5FB0" />
-                </TouchableOpacity>
-              </View>
-              <View style={styles.containerBoton}>
-              <TouchableOpacity
-                  style={styles.Boton}
-                  onPress={() => navigation.navigate("servicio")}
-                >
-                  <AntDesign name="right" size={32} color="#9E5FB0" />
-                </TouchableOpacity>
-              </View>
-            </View>
-          </ImageBackground>
-        </>
-      </TouchableWithoutFeedback>
-    </KeyboardAvoidingView>
+        <View style={{ flex: 1, flexDirection: "row" }}>
+          <View style={styles.containerVolver}>
+            <TouchableOpacity
+              style={styles.Boton}
+              onPress={() => navigation.goBack()}
+            >
+              <AntDesign name="left" size={32} color="#9E5FB0" />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.containerBoton}>
+            <TouchableOpacity
+              style={styles.Boton}
+              onPress={() => navigation.navigate("servicio")}
+            >
+              <AntDesign name="right" size={32} color="#9E5FB0" />
+            </TouchableOpacity>
+          </View>
+        </View>
+      </ImageBackground>
+    </ContainerKeyboardView>
   );
 }
 
@@ -125,7 +117,7 @@ const styles = StyleSheet.create({
 
   containerInputs: {
     alignItems: "center",
-    width: width / 1.2,
+    width: width/1.3
   },
 
   containerBoton: {
@@ -151,7 +143,7 @@ const styles = StyleSheet.create({
     margin: 10,
     padding: 10,
     fontSize: 16,
-    height:50
+    height: 50,
   },
   input2: {
     width: "100%",
@@ -160,7 +152,7 @@ const styles = StyleSheet.create({
     margin: 10,
     padding: 10,
     fontSize: 16,
-    height:50
+    height: 50,
   },
 
   titulo: {

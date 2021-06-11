@@ -3,20 +3,20 @@ import {
   StyleSheet,
   Text,
   View,
-
   Dimensions,
-
   TouchableOpacity,
- 
   ImageBackground,
-
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
   Keyboard,
-  Platform
+  Platform,
 } from "react-native";
 
+import ContainerKeyboardView from "./../../../Components/ContainerKeyboardView";
+import HeaderRegistro from "./../../../Components/HeaderRegistro";
+import ContenidoRegistro from "./../../../Components/ContenidoRegistro";
 import BotonSiguiente from "../../../Components/BotonSiguiente";
+import { AntDesign } from "@expo/vector-icons";
 import {
   CodeField,
   Cursor,
@@ -35,34 +35,29 @@ export default function Verificacion({ navigation }) {
     setValue,
   });
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={styles.container}
-    >
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+    <ContainerKeyboardView>
+      <ImageBackground
+        style={{ flex: 1 }}
+        source={require("../../../../assets/wallpaper.png")}
+      >
         <>
-          <ImageBackground
-            style={{flex:1}}
-            source={require("../../../../assets/wallpaper.png")}
-          >
-            <View style={{ flex: 4.5, alignItems: "center", }}>
-              <View style={styles.containerTitulo}>
-                <Text style={styles.titulo}>Verificación</Text>
-                <Text style={styles.text2}>
-                  Hemos enviado un código de{"\n"}verificación a su celular.
-                  {"\n"}Ingrese el código de 4 digitos que ha recibido
-                </Text>
-                <Text style={styles.text3}>
-                  ¿No has recibido ningun codigo?
-                </Text>
-                <TouchableOpacity onPress={() => alert("Vuelve a enviar")}>
-                  <Text style={styles.text4}>Volver a enviar</Text>
-                </TouchableOpacity>
-              </View>
+          <HeaderRegistro>
+            <View style={styles.containerTitulo}>
+              <Text style={styles.titulo}>Verificación</Text>
             </View>
+          </HeaderRegistro>
 
-            <View style={styles.containerInputs}>
-            <CodeField
+          <ContenidoRegistro>
+            <Text style={styles.text2}>
+              Hemos enviado un código de verificación a su celular.
+              {"\n"}Ingrese el código de 4 digitos que ha recibido
+            </Text>
+            <Text style={styles.text3}>¿No has recibido ningun codigo?</Text>
+            <TouchableOpacity onPress={() => alert("Vuelve a enviar")}>
+              <Text style={styles.text4}>Volver a enviar</Text>
+            </TouchableOpacity>
+            <View style={{ flex: 1, justifyContent:'center'}}>
+              <CodeField
                 ref={ref}
                 {...props}
                 // Use `caretHidden={false}` when users can't paste a text value, because context menu doesn't appear
@@ -83,27 +78,29 @@ export default function Verificacion({ navigation }) {
                 )}
               />
             </View>
+          </ContenidoRegistro>
 
-            <View style={{ flex: 1, flexDirection: "row"}}>
-              <View style={styles.containerVolver}>
-                <BotonSiguiente
-                  style={styles.Boton}
-                  title="Volver"
-                  onPress={() => navigation.goBack()}
-                />
-              </View>
-              <View style={styles.containerBoton}>
-                <BotonSiguiente
-                  style={styles.Boton}
-                  title="Siguiente"
-                  onPress={() => navigation.navigate("dni")}
-                />
-              </View>
+          <View style={{ flex: 1, flexDirection: "row" }}>
+            <View style={styles.containerVolver}>
+              <TouchableOpacity
+                style={styles.Boton}
+                onPress={() => navigation.goBack()}
+              >
+                <AntDesign name="left" size={32} color="#9E5FB0" />
+              </TouchableOpacity>
             </View>
-          </ImageBackground>
+            <View style={styles.containerBoton}>
+              <TouchableOpacity
+                style={styles.Boton}
+                onPress={() => navigation.navigate("Documentos")}
+              >
+                <AntDesign name="right" size={32} color="#9E5FB0" />
+              </TouchableOpacity>
+            </View>
+          </View>
         </>
-      </TouchableWithoutFeedback>
-    </KeyboardAvoidingView>
+      </ImageBackground>
+    </ContainerKeyboardView>
   );
 }
 
@@ -113,10 +110,15 @@ const styles = StyleSheet.create({
     flexDirection: "column",
   },
 
+  header: {
+    flex: 7,
+    marginHorizontal: "8%",
+    justifyContent: "flex-end",
+  },
+
   containerTitulo: {
     flex: 1,
     justifyContent: "flex-end",
-    
   },
 
   containerTexto: {
@@ -124,12 +126,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 
-
   containerInputs: {
-    flex: 2,
-    justifyContent: 'center',
-    marginHorizontal:'5%'
-    
+    flex: 4,
+    justifyContent: "center",
+    marginHorizontal: "5%",
   },
 
   containerBoton: {
@@ -162,21 +162,20 @@ const styles = StyleSheet.create({
   },
 
   text2: {
-    fontSize: 15,
+    fontSize: 16,
   },
 
   text3: {
-    fontSize: 15,
-    width: width / 1.2,
+    fontSize: 16,
     marginTop: 20,
   },
 
   text4: {
-    fontSize: 15,
-    width: width / 1.2,
+    fontSize: 16,
+
     color: "#1679C0",
   },
-  codeFieldRoot: { marginTop: 20 ,marginHorizontal:'5%'},
+  codeFieldRoot: { marginTop: 20, marginHorizontal: "5%" },
   cell: {
     width: 60,
     height: 60,
@@ -190,5 +189,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   focusCell: {
-    backgroundColor: "#DBDBDC",}
-})
+    backgroundColor: "#DBDBDC",
+  },
+});

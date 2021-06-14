@@ -1,6 +1,5 @@
 import React from 'react';
 import { createStackNavigator } from "@react-navigation/stack";
-import Presentacion from './Presentacion'
 import AppIndex from './App/AppIndex'
 import Auth from './Auth/Auth'
 

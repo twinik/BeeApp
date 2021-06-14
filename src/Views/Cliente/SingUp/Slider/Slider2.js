@@ -33,12 +33,12 @@ const style = StyleSheet.create({
   },
   titulo: {
     fontWeight: "bold",
-    fontSize: 32,
+    fontSize: 30,
     textAlign: "center",
   },
   subTitulo: {
     marginTop: 15,
-    fontSize: 20,
+    fontSize: 18,
     textAlign: "center",
   },
 });

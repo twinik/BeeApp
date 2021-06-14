@@ -6,8 +6,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
-import { AntDesign } from "@expo/vector-icons";
-import { Ionicons } from '@expo/vector-icons';
+import { AntDesign, Ionicons, Entypo } from "@expo/vector-icons";
 import * as ImagePicker from 'expo-image-picker';
 
 
@@ -53,16 +52,16 @@ export default function PickerImage({objeto,setImagen}) {
           style={{ flexDirection: "row", alignItems: "center" }}
           onPress={openImagePickerAsync}
         >
-          <FontAwesome
-            name="address-card-o"
+          <AntDesign
+            name="idcard"
             size={iconSize}
             color="black"
             style={estilos.Icono}
           />
           <Text style={estilos.texto}>{texto}</Text>
           {estado == null ? (
-            <AntDesign
-              name="plussquareo"
+            <Entypo
+              name="plus"
               size={iconRightSize}
               color="black"
               style={estilos.IconRight}

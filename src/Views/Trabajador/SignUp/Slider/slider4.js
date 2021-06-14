@@ -40,12 +40,13 @@ const style = StyleSheet.create({
     alignItems: "center",
   },
   titulo: {
-    fontSize: 32,
+    fontWeight:'bold',
+    fontSize: 30,
     textAlign: "center",
   },
   subTitulo: {
     marginTop: 15,
-    fontSize: 15,
+    fontSize: 18,
     textAlign: "center",
   },
   textAgree: {

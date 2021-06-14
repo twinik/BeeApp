@@ -1,8 +1,7 @@
 import React from "react";
 import { Text, StyleSheet, TouchableOpacity } from "react-native";
 
-import { AntDesign } from "@expo/vector-icons";
-import { Ionicons } from "@expo/vector-icons";
+import { AntDesign, Ionicons, Entypo } from "@expo/vector-icons";
 import * as DocumentPicker from "expo-document-picker";
 
 export default function PickerDocument({ texto, estado, setImagen }) {
@@ -13,7 +12,7 @@ export default function PickerDocument({ texto, estado, setImagen }) {
     let result = await DocumentPicker.getDocumentAsync({});
     alert(result.uri);
     console.log(result);
-    if(result.uri != null){
+    if (result.uri != null) {
       setImagen((prevState) => ({
         ...prevState,
         estado: true,
@@ -27,11 +26,16 @@ export default function PickerDocument({ texto, estado, setImagen }) {
         style={{ flexDirection: "row", alignItems: "center" }}
         onPress={_pickDocument}
       >
-        <Ionicons name="document-text-outline" size={iconSize} color="black"style={estilos.Icono} />
+        <Ionicons
+          name="document-text-outline"
+          size={iconSize}
+          color="black"
+          style={estilos.Icono}
+        />
         <Text style={estilos.texto}>{texto}</Text>
         {estado == null ? (
-          <AntDesign
-            name="plussquareo"
+          <Entypo
+            name="plus"
             size={iconRightSize}
             color="black"
             style={estilos.IconRight}

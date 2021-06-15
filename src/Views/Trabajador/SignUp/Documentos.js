@@ -94,6 +94,7 @@ export default function Verificacion({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: "white",
     flex: 1,
     flexDirection: "column",
   },
@@ -121,8 +122,8 @@ const styles = StyleSheet.create({
   },
 
   Boton: {
-    marginBottom: 10,
-    marginHorizontal: 10,
+    marginBottom: 20,
+    marginHorizontal: 20,
   },
 
   input: {

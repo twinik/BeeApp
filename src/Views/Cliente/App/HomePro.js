@@ -18,7 +18,6 @@ export default function Bienvenido({ navigation }) {
     <View style={styles.container}>
       <Navbar
         onPressMenu={() => navigation.toggleDrawer()}
-        onPressName={() => navigation.navigate("HomePro")}
         onPressHelp={() => alert("*Chat*")}
         onPressSearch={() => navigation.navigate("Buscador")}
       />

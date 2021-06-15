@@ -27,9 +27,7 @@ class Navbar extends React.Component {
           </View>
 
           <View style={styles.headerCentral}>
-            <TouchableOpacity onPress={this.props.onPressName}>
-              <Text style={styles.titulo}>Servbee</Text>
-            </TouchableOpacity>
+            <Text style={styles.titulo}>Servbee</Text>
           </View>
 
           <View style={styles.headerRight}>

@@ -43,7 +43,7 @@ export default function Datos({ navigation }) {
           </HeaderRegistro>
           <ContenidoRegistro addStyle={{ width: width / 1.2 }}>
             <Text style={estilitos.subtitulo}>
-              Ingresa información básica sobre usted
+              Ingrese información básica sobre usted
             </Text>
             <View style={{ flexDirection: "row" }}>
               <Isao
@@ -53,7 +53,11 @@ export default function Datos({ navigation }) {
                 inputPadding={16}
                 labelHeight={24}
                 passiveColor={"#B3B3B3"}
-                inputStyle={{ color: "black", fontSize: 16, fontWeight:'normal'  }}
+                inputStyle={{
+                  color: "black",
+                  fontSize: 16,
+                  fontWeight: "normal",
+                }}
                 style={{ flex: 1, marginRight: 10 }}
               />
               <Isao
@@ -63,7 +67,11 @@ export default function Datos({ navigation }) {
                 inputPadding={16}
                 labelHeight={24}
                 passiveColor={"#B3B3B3"}
-                inputStyle={{ color: "black", fontSize: 16, fontWeight:'normal'  }}
+                inputStyle={{
+                  color: "black",
+                  fontSize: 16,
+                  fontWeight: "normal",
+                }}
                 style={{ flex: 1, marginLeft: 10 }}
               />
             </View>
@@ -78,7 +86,11 @@ export default function Datos({ navigation }) {
               dataDetectorTypes="phoneNumber"
               keyboardType="number-pad"
               maxLength={10}
-              inputStyle={{ color: "black", fontSize: 16, fontWeight:'normal'  }}
+              inputStyle={{
+                color: "black",
+                fontSize: 16,
+                fontWeight: "normal",
+              }}
             />
             <Isao
               label={"Email"}
@@ -89,21 +101,54 @@ export default function Datos({ navigation }) {
               passiveColor={"#B3B3B3"}
               keyboardType="email-address"
               autoCapitalize={"none"}
-              inputStyle={{ color: "black", fontSize: 16, fontWeight:'normal'  }}
+              inputStyle={{
+                color: "black",
+                fontSize: 16,
+                fontWeight: "normal",
+              }}
             />
-            <Isao
-              label={"Contraseña"}
-              activeColor={"#7936E4"}
-              borderHeight={8}
-              inputPadding={16}
-              labelHeight={24}
-              passiveColor={"#B3B3B3"}
-              autoCompleteType="password"
-              secureTextEntry={true}
-              inputStyle={{ color: "black", fontSize: 16, fontWeight:'normal'  }}
-            />
+            <View style={{ flexDirection: "row" }}>
+              <Isao
+                label={"Contraseña"}
+                activeColor={"#7936E4"}
+                borderHeight={8}
+                inputPadding={16}
+                labelHeight={24}
+                passiveColor={"#B3B3B3"}
+                autoCompleteType="password"
+                secureTextEntry={true}
+                inputStyle={{
+                  color: "black",
+                  fontSize: 16,
+                  fontWeight: "normal",
+                }}
+                style={{ flex: 1, marginRight: 10 }}
+              />
+              <Isao
+                label={"Confirme"}
+                activeColor={"#7936E4"}
+                borderHeight={8}
+                inputPadding={16}
+                labelHeight={24}
+                passiveColor={"#B3B3B3"}
+                autoCompleteType="password"
+                secureTextEntry={true}
+                inputStyle={{
+                  color: "black",
+                  fontSize: 16,
+                  fontWeight: "normal",
+                }}
+                style={{ flex: 1, marginLeft: 10 }}
+              />
+            </View>
 
-            <View style={{ flex: 1, justifyContent:'center', alignItems:'center' }}>
+            <View
+              style={{
+                flex: 1,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
               <CheckBox
                 title="Acepto los términos de uso"
                 checked={isSelected}
@@ -178,8 +223,8 @@ const estilitos = StyleSheet.create({
     justifyContent: "flex-end",
   },
   Boton: {
-    marginBottom: 10,
-    marginHorizontal: 10,
+    marginBottom: 20,
+    marginHorizontal: 20,
   },
   subtitulo: {
     fontSize: 16,

@@ -53,7 +53,8 @@ export default function Slider({ navigation }) {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    marginHorizontal:10
+    marginHorizontal:10,
+    backgroundColor:'white'
   },
 
   containerSlider: {

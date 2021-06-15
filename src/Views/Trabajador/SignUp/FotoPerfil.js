@@ -64,8 +64,7 @@ export default function Verificacion({ navigation }) {
 
         <ContenidoRegistro>
           <Text style={styles.text2}>
-            Necesitamos una foto de usted para que{"\n"}nos podamos asegurar que
-            es usted
+            Necesitamos una foto suya para que{"\n"}podamos comprobar su identidad
           </Text>
           <View style={styles.containerFotoTexto}>
             <View style={styles.containerFoto}>
@@ -118,6 +117,7 @@ export default function Verificacion({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: "white",
     flex: 1,
     flexDirection: "column",
   },
@@ -160,8 +160,8 @@ const styles = StyleSheet.create({
   },
 
   Boton: {
-    marginBottom: 10,
-    marginHorizontal: 10,
+    marginBottom: 20,
+    marginHorizontal: 20,
   },
 
   numInput: {

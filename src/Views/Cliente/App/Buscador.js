@@ -44,6 +44,7 @@ export default function Bienvenido({ navigation }) {
         <View style={{ flex: 1 }}>
           <TextInput
             style={styles.buscador}
+            autoFocus={true}
             placeholder="¿Que servicio quiere contratar?"
           ></TextInput>
         </View>

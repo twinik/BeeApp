@@ -25,41 +25,16 @@ import { AntDesign } from "@expo/vector-icons";
 import ContainerKeyboardView from "./../../../Components/ContainerKeyboardView";
 import HeaderRegistro from "./../../../Components/HeaderRegistro";
 import ContenidoRegistro from "./../../../Components/ContenidoRegistro";
+import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import { Isao } from "react-native-textinput-effects";
 
 export default function Datos({ navigation }) {
   const [isSelected, setSelection] = useState(false);
 
-  const [selectedImage, setSelectedImage] = useState(null);
-
-  let openImagePickerAsync = async () => {
-    let permissionResult =
-      await ImagePicker.requestMediaLibraryPermissionsAsync();
-
-    if (permissionResult.granted === false) {
-      alert("Se necesita permiso para acceder a la galeria de fotos");
-      return;
-    }
-
-    let pickerResult = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
-      allowsEditing: true,
-      quality: 1,
-      aspect: [3, 3],
-    });
-
-    console.log(pickerResult);
-
-    if (pickerResult.cancelled === true) {
-      return;
-    }
-
-    setSelectedImage({ localUri: pickerResult.uri });
-  };
   return (
     <ContainerKeyboardView>
       <ImageBackground
-        style={{ flex: 1 }}
+        style={{ flex: 1, backgroundColor: "white" }}
         source={require("../../../../assets/wallpaper.png")}
       >
         <>
@@ -68,94 +43,71 @@ export default function Datos({ navigation }) {
           </HeaderRegistro>
           <ContenidoRegistro addStyle={{ width: width / 1.2 }}>
             <Text style={estilitos.subtitulo}>
-              Ingresa información básica sobre usted
+              Ingrese información básica sobre usted
             </Text>
-            <View style={{ flex: 1, flexDirection: "row", marginTop: "5%" }}>
-              <View
-                style={{
-                  flex: 1.2,
-                  justifyContent: "center",
-                  backgroundColor: "green",
+            <View style={{ flexDirection: "row" }}>
+              <Isao
+                label={"Nombre"}
+                activeColor={"#7936E4"}
+                borderHeight={8}
+                inputPadding={16}
+                labelHeight={24}
+                passiveColor={"#B3B3B3"}
+                inputStyle={{
+                  color: "black",
+                  fontSize: 16,
+                  fontWeight: "normal",
                 }}
-              >
-                <TouchableOpacity onPress={openImagePickerAsync}>
-                  <Image
-                    style={[
-                      estilitos.foto,
-                      selectedImage != null ? { borderWidth: 0 } : {},
-                    ]}
-                    source={{
-                      uri:
-                        selectedImage !== null
-                          ? selectedImage.localUri
-                          : "https://happytravel.viajes/wp-content/uploads/2020/04/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png",
-                    }}
-                  ></Image>
-                </TouchableOpacity>
-              </View>
-              <View style={{ flex: 1 }}>
-                <Isao
-                  label={"Nombre"}
-                  activeColor={"#7936E4"}
-                  borderHeight={8}
-                  inputPadding={16}
-                  labelHeight={24}
-                  passiveColor={"#B3B3B3"}
-                  inputStyle={{
-                    color: "black",
-                    fontSize: 16,
-                    fontWeight: "normal",
-                  }}
-                  style={{ flex: 1, marginRight: 10 }}
-                />
-                <Isao
-                  label={"Apellido"}
-                  activeColor={"#7936E4"}
-                  borderHeight={8}
-                  inputPadding={16}
-                  labelHeight={24}
-                  passiveColor={"#B3B3B3"}
-                  inputStyle={{
-                    color: "black",
-                    fontSize: 16,
-                    fontWeight: "normal",
-                  }}
-                  style={{ flex: 1, marginLeft: 10 }}
-                />
-              </View>
+                style={{ flex: 1, marginRight: 10 }}
+              />
+              <Isao
+                label={"Apellido"}
+                activeColor={"#7936E4"}
+                borderHeight={8}
+                inputPadding={16}
+                labelHeight={24}
+                passiveColor={"#B3B3B3"}
+                inputStyle={{
+                  color: "black",
+                  fontSize: 16,
+                  fontWeight: "normal",
+                }}
+                style={{ flex: 1, marginLeft: 10 }}
+              />
             </View>
-            <View style={estilitos.otrosInputs}>
-              <Isao
-                label={"Numero de Telefono"}
-                activeColor={"#7936E4"}
-                borderHeight={8}
-                inputPadding={16}
-                labelHeight={24}
-                passiveColor={"#B3B3B3"}
-                dataDetectorTypes="phoneNumber"
-                keyboardType="number-pad"
-                maxLength={10}
-                inputStyle={{
-                  color: "black",
-                  fontSize: 16,
-                  fontWeight: "normal",
-                }}
-              />
-              <Isao
-                label={"Email"}
-                activeColor={"#7936E4"}
-                borderHeight={8}
-                inputPadding={16}
-                labelHeight={24}
-                passiveColor={"#B3B3B3"}
-                keyboardType="email-address"
-                autoCapitalize={"none"}
-                inputStyle={{
-                  color: "black",
-                  fontSize: 16,
-                  fontWeight: "normal",
-                }}
-              />
+
+            <Isao
+              label={"Numero de Telefono"}
+              activeColor={"#7936E4"}
+              borderHeight={8}
+              inputPadding={16}
+              labelHeight={24}
+              passiveColor={"#B3B3B3"}
+              dataDetectorTypes="phoneNumber"
+              keyboardType="number-pad"
+              maxLength={10}
+              inputStyle={{
+                color: "black",
+                fontSize: 16,
+                fontWeight: "normal",
+              }}
+            />
+            <Isao
+              label={"Email"}
+              activeColor={"#7936E4"}
+              borderHeight={8}
+              inputPadding={16}
+              labelHeight={24}
+              passiveColor={"#B3B3B3"}
+              keyboardType="email-address"
+              autoCapitalize={"none"}
+              inputStyle={{
+                color: "black",
+                fontSize: 16,
+                fontWeight: "normal",
+              }}
+            />
+            <View style={{ flexDirection: "row" }}>
               <Isao
                 label={"Contraseña"}
                 activeColor={"#7936E4"}
@@ -170,6 +122,23 @@ export default function Datos({ navigation }) {
                   fontSize: 16,
                   fontWeight: "normal",
                 }}
+                style={{ flex: 1, marginRight: 10 }}
+              />
+              <Isao
+                label={"Confirme"}
+                activeColor={"#7936E4"}
+                borderHeight={8}
+                inputPadding={16}
+                labelHeight={24}
+                passiveColor={"#B3B3B3"}
+                autoCompleteType="password"
+                secureTextEntry={true}
+                inputStyle={{
+                  color: "black",
+                  fontSize: 16,
+                  fontWeight: "normal",
+                }}
+                style={{ flex: 1, marginLeft: 10 }}
               />
             </View>
 
@@ -240,22 +209,6 @@ const estilitos = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
   },
-  input1: {
-    height: 40,
-    backgroundColor: "#E5E5E5",
-    padding: 10,
-    borderRadius: 5,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 1.41,
-    elevation: 3,
-    width: "100%",
-    marginVertical: "3%",
-  },
   datos2: {
     backgroundColor: "#FFF",
     marginTop: 10,
@@ -270,8 +223,8 @@ const estilitos = StyleSheet.create({
     justifyContent: "flex-end",
   },
   Boton: {
-    marginBottom: 10,
-    marginHorizontal: 10,
+    marginBottom: 20,
+    marginHorizontal: 20,
   },
   subtitulo: {
     fontSize: 16,
@@ -281,15 +234,4 @@ const estilitos = StyleSheet.create({
     alignItems: "center",
     marginVertical: "5%",
   },
-  foto: {
-    borderRadius: 40,
-    borderColor: "#343434",
-    borderWidth: 1,
-    width: 80,
-    height: 80,
-    resizeMode: "cover",
-  },
-  otrosInputs:{
-    flex:2
-  }
 });

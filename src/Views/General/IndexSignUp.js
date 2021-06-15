@@ -52,6 +52,7 @@ export default function SignUp({ navigation }) {
 const estilos = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor:'white'
   },
   containerTexto: {
     flex: 4,
@@ -86,7 +87,7 @@ const estilos = StyleSheet.create({
     justifyContent: "flex-end"
   },
   Boton: {
-    marginBottom: 10,
-    marginHorizontal: 10,
+    marginBottom: 20,
+    marginHorizontal: 20,
   },
 });

@@ -6,8 +6,7 @@ import Home from "../../Views/Cliente/App/Home";
 import Profile from "../../Views/Cliente/App/Profile";
 import HomePro from "../../Views/Cliente/App/HomePro";
 import Buscador from "../../Views/Cliente/App/Buscador";
-import { FontAwesome } from "@expo/vector-icons";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, Foundation, FontAwesome } from "@expo/vector-icons";
 import MenuCliente from "../../Components/Menu/MenuCliente";
 
 function setearColors(focused) {
@@ -37,7 +36,18 @@ export default function App() {
       <DrawerCliente.Screen
         name="HomePro"
         component={HomePro}
-        options={{ title: "HomePro" }}
+        options={{
+          title: "Inicio",
+          gestureEnabled: true,
+          gestureDirection: 'horizontal',
+          drawerIcon: ({ focused, size }) => (
+            <Foundation
+              name="home"
+              size={size}
+              color={setearColors(focused)}
+            />
+          ),
+        }}
       />
 
       <DrawerCliente.Screen
@@ -50,7 +60,7 @@ export default function App() {
         name="Profile"
         component={Profile}
         options={{
-          title: "Profile",
+          title: "Perfil",
           drawerIcon: ({ focused, size }) => (
             <Ionicons name="person" size={size} color={setearColors(focused)} />
           ),

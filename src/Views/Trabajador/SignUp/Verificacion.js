@@ -37,7 +37,7 @@ export default function Verificacion({ navigation }) {
   return (
     <ContainerKeyboardView>
       <ImageBackground
-        style={{ flex: 1 }}
+        style={{ flex: 1, backgroundColor: "white" }}
         source={require("../../../../assets/wallpaper.png")}
       >
         <>
@@ -144,8 +144,8 @@ const styles = StyleSheet.create({
   },
 
   Boton: {
-    marginBottom: 10,
-    marginHorizontal: 10,
+    marginBottom: 20,
+    marginHorizontal: 20,
   },
 
   numInput: {

@@ -18,6 +18,7 @@ import ContainerKeyboardView from "./../../../Components/ContainerKeyboardView";
 import HeaderRegistro from "./../../../Components/HeaderRegistro";
 import ContenidoRegistro from "./../../../Components/ContenidoRegistro";
 import ModalDropdown from "react-native-modal-dropdown";
+import { Isao } from "react-native-textinput-effects";
 
 const { width, height } = Dimensions.get("window");
 
@@ -34,23 +35,41 @@ export default function Verificacion({ navigation }) {
           </View>
         </HeaderRegistro>
 
-        <ContenidoRegistro>
+        <ContenidoRegistro addStyle={{ width: width / 1.2 }}>
           <Text style={styles.text2}>
             Esta información no será compartida con nadie
           </Text>
           <View style={styles.containerInputs}>
-            <TextInput style={styles.input} placeholder="Dirección"></TextInput>
-            <TextInput
-              style={styles.input}
-              placeholder="Dirección 2 (opcional)"
-            ></TextInput>
+            <Isao
+              label={"Dirección"}
+              activeColor={"#7936E4"}
+              borderHeight={8}
+              inputPadding={16}
+              labelHeight={24}
+              passiveColor={"#B3B3B3"}
+              dataDetectorTypes="address"
+              inputStyle={{ color: "black", fontSize: 16, fontWeight:'normal' }}
+              style={{ width: "100%" }}
+            />
+            <Isao
+              label={"Dirección 2 (opcional)"}
+              activeColor={"#7936E4"}
+              borderHeight={8}
+              inputPadding={16}
+              labelHeight={24}
+              passiveColor={"#B3B3B3"}
+              dataDetectorTypes="address"
+              inputStyle={{ color: "black", fontSize: 16, fontWeight:'normal' }}
+              style={{ width: "100%" }}
+            />
+
             <ModalDropdown
               isFullWidth={true}
               dropdownTextStyle={{ color: "black", fontSize: 16 }}
               defaultTextStyle={{ color: "#939393" }}
               textStyle={{ color: "black", fontSize: 16 }}
               defaultValue="Provincia"
-              style={styles.input2}
+              style={{width:'100%', margin: 10, padding: 10}}
               options={[
                 "Buenos Aires",
                 "Capital Federal",
@@ -117,7 +136,7 @@ const styles = StyleSheet.create({
 
   containerInputs: {
     alignItems: "center",
-    width: width/1.3
+    width: width / 1.3,
   },
 
   containerBoton: {

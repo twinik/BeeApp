@@ -25,83 +25,85 @@ import { AntDesign } from "@expo/vector-icons";
 import ContainerKeyboardView from "./../../../Components/ContainerKeyboardView";
 import HeaderRegistro from "./../../../Components/HeaderRegistro";
 import ContenidoRegistro from "./../../../Components/ContenidoRegistro";
+import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
+import { Isao } from "react-native-textinput-effects";
 
 export default function Datos({ navigation }) {
   const [isSelected, setSelection] = useState(false);
 
-  const [selectedImage, setSelectedImage] = useState(null);
-
-  let openImagePickerAsync = async () => {
-    let permissionResult =
-      await ImagePicker.requestMediaLibraryPermissionsAsync();
-
-    if (permissionResult.granted === false) {
-      alert("Se necesita permiso para acceder a la galeria de fotos");
-      return;
-    }
-
-    let pickerResult = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
-      allowsEditing: true,
-      quality: 1,
-      aspect: [3, 3],
-    });
-
-    console.log(pickerResult);
-
-    if (pickerResult.cancelled === true) {
-      return;
-    }
-
-    setSelectedImage({ localUri: pickerResult.uri });
-  };
   return (
     <ContainerKeyboardView>
       <ImageBackground
-        style={{ flex: 1 }}
+        style={{ flex: 1, backgroundColor: "white" }}
         source={require("../../../../assets/wallpaper.png")}
       >
         <>
           <HeaderRegistro>
             <Text style={estilitos.titulo}>Datos</Text>
           </HeaderRegistro>
-          <ContenidoRegistro addStyle={{ width: width / 1.4 }}>
+          <ContenidoRegistro addStyle={{ width: width / 1.2 }}>
             <Text style={estilitos.subtitulo}>
               Ingresa información básica sobre usted
             </Text>
-            <TextInput
-              style={[estilitos.input1]}
-              placeholder="Nombre"
-              placeholderTextColor="#B1AEAE"
-            />
-            <TextInput
-              style={[estilitos.input1]}
-              placeholder="Apellido"
-              placeholderTextColor="#B1AEAE"
-            />
-            <TextInput
-              style={[estilitos.input1]}
-              placeholder="Numero de Telefono"
+            <View style={{ flexDirection: "row" }}>
+              <Isao
+                label={"Nombre"}
+                activeColor={"#7936E4"}
+                borderHeight={8}
+                inputPadding={16}
+                labelHeight={24}
+                passiveColor={"#B3B3B3"}
+                inputStyle={{ color: "black", fontSize: 16, fontWeight:'normal'  }}
+                style={{ flex: 1, marginRight: 10 }}
+              />
+              <Isao
+                label={"Apellido"}
+                activeColor={"#7936E4"}
+                borderHeight={8}
+                inputPadding={16}
+                labelHeight={24}
+                passiveColor={"#B3B3B3"}
+                inputStyle={{ color: "black", fontSize: 16, fontWeight:'normal'  }}
+                style={{ flex: 1, marginLeft: 10 }}
+              />
+            </View>
+
+            <Isao
+              label={"Numero de Telefono"}
+              activeColor={"#7936E4"}
+              borderHeight={8}
+              inputPadding={16}
+              labelHeight={24}
+              passiveColor={"#B3B3B3"}
               dataDetectorTypes="phoneNumber"
               keyboardType="number-pad"
               maxLength={10}
-              placeholderTextColor="#B1AEAE"
+              inputStyle={{ color: "black", fontSize: 16, fontWeight:'normal'  }}
             />
-            <TextInput
-              style={[estilitos.input1]}
-              placeholder="Email"
+            <Isao
+              label={"Email"}
+              activeColor={"#7936E4"}
+              borderHeight={8}
+              inputPadding={16}
+              labelHeight={24}
+              passiveColor={"#B3B3B3"}
               keyboardType="email-address"
-              placeholderTextColor="#B1AEAE"
+              autoCapitalize={"none"}
+              inputStyle={{ color: "black", fontSize: 16, fontWeight:'normal'  }}
             />
-            <TextInput
-              style={[estilitos.input1]}
-              placeholder="Contraseña"
+            <Isao
+              label={"Contraseña"}
+              activeColor={"#7936E4"}
+              borderHeight={8}
+              inputPadding={16}
+              labelHeight={24}
+              passiveColor={"#B3B3B3"}
               autoCompleteType="password"
-              placeholderTextColor="#B1AEAE"
               secureTextEntry={true}
+              inputStyle={{ color: "black", fontSize: 16, fontWeight:'normal'  }}
             />
 
-            <View style={{ flex: 1 }}>
+            <View style={{ flex: 1, justifyContent:'center', alignItems:'center' }}>
               <CheckBox
                 title="Acepto los términos de uso"
                 checked={isSelected}
@@ -161,22 +163,6 @@ const estilitos = StyleSheet.create({
   datos1: {
     flexDirection: "row",
     alignItems: "center",
-  },
-  input1: {
-    height: 40,
-    backgroundColor: "#E5E5E5",
-    padding: 10,
-    borderRadius: 5,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 1.41,
-    elevation: 3,
-    width: "100%",
-    marginVertical: "3%",
   },
   datos2: {
     backgroundColor: "#FFF",

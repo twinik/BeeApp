@@ -14,6 +14,7 @@ import Navbar from "../../../Components/Menu/Navbar";
 const { width, height } = Dimensions.get("window");
 
 export default function Bienvenido({ navigation }) {
+  StatusBar.setBackgroundColor('#7936E4', true);
   return (
     <View style={styles.container}>
       <Navbar

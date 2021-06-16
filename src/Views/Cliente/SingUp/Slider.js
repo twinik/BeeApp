@@ -7,6 +7,7 @@ import {
   Dimensions,
   ImageBackground,
   TouchableOpacity,
+  StatusBar
 } from "react-native";
 import BotonGrande from "../../../Components/BotonGrande";
 import { Pages } from "react-native-pages";
@@ -18,6 +19,7 @@ const windowHeight = Dimensions.get("window").height;
 const windowWidth = Dimensions.get("window").width;
 
 export default function Slider({ navigation }) {
+  StatusBar.setBackgroundColor('white', true);
   return (
       <View style={style.container}>
         <View style={style.containerSlider}>
@@ -53,10 +55,8 @@ export default function Slider({ navigation }) {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    marginHorizontal:10,
-    backgroundColor:'white'
+    backgroundColor:'white',
   },
-
   containerSlider: {
     flex: 5,
   },

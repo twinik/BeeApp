@@ -17,9 +17,8 @@ import {
 } from "react-native";
 import {
   FontAwesome5,
-  FontAwesomeIcon,
+  MaterialIcons,
   MaterialCommunityIcons,
-  Ionicons,
 } from "@expo/vector-icons";
 import UserCard from "../../../Components/userCard";
 import { CheckBox } from "react-native-elements";
@@ -31,12 +30,10 @@ import { AntDesign } from "@expo/vector-icons";
 import ContainerKeyboardView from "./../../../Components/ContainerKeyboardView";
 import HeaderRegistro from "./../../../Components/HeaderRegistro";
 import ContenidoRegistro from "./../../../Components/ContenidoRegistro";
-import { Isao, Fumi, Sae } from "react-native-textinput-effects";
-import DatePicker from "@dietime/react-native-date-picker";
+import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
+import { Isao, Sae } from "react-native-textinput-effects";
 
 export default function Datos({ navigation }) {
-  const [date, setDate] = useState();
-
   return (
     <ContainerKeyboardView>
       <ImageBackground
@@ -49,19 +46,20 @@ export default function Datos({ navigation }) {
           </HeaderRegistro>
           <ContenidoRegistro addStyle={{ width: width / 1.2 }}>
             <Text style={estilitos.subtitulo}>
-              Porfavor ingrese su nombre, apellido y número de télefono
+              Ingrese información básica sobre usted
             </Text>
-
             <Sae
-              label={"Nombre"}
-              iconClass={FontAwesome5}
-              iconName={"user-alt"}
+              label={"Email"}
+              iconClass={MaterialIcons}
+              iconName={"email"}
               iconColor={"#7936E4"}
               labelStyle={{ color: "#B3B3B3", fontWeight: "normal" }}
               inputPadding={16}
               labelHeight={24}
               borderHeight={2}
               autoCorrect={false}
+              keyboardType="email-address"
+              autoCapitalize={"none"}
               inputStyle={{
                 color: "black",
                 fontSize: 16,
@@ -70,37 +68,19 @@ export default function Datos({ navigation }) {
             />
 
             <Sae
-              label={"Apellido"}
-              iconClass={FontAwesome5}
-              iconName={"user-alt"}
-              iconColor={"#7936E4"}
-              labelStyle={{ color: "#B3B3B3", fontWeight: "normal" }}
-              inputPadding={16}
-              labelHeight={24}
-              // active border height
-              borderHeight={2}
-              // TextInput props
-              autoCorrect={false}
-              inputStyle={{
-                color: "black",
-                fontSize: 16,
-                fontWeight: "normal",
-              }}
-            />
-
-            <Sae
-              label={"Número de Teléfono"}
+              label={"Contraseña"}
               iconClass={MaterialCommunityIcons}
-              iconName={"cellphone"}
+              iconName={"form-textbox-password"}
               iconColor={"#7936E4"}
               labelStyle={{ color: "#B3B3B3", fontWeight: "normal" }}
               inputPadding={16}
               labelHeight={24}
               borderHeight={2}
-              dataDetectorTypes="phoneNumber"
-              keyboardType="number-pad"
-              maxLength={10}
               autoCorrect={false}
+              keyboardType="default"
+              autoCapitalize={"none"}
+              autoCompleteType="password"
+              secureTextEntry={true}
               inputStyle={{
                 color: "black",
                 fontSize: 16,
@@ -109,24 +89,25 @@ export default function Datos({ navigation }) {
             />
 
             <Sae
-              label={"Fecha de nacimiento"}
-              iconClass={Ionicons}
-              iconName={"md-calendar-outline"}
+              label={"Confirme la contraseña"}
+              iconClass={MaterialCommunityIcons}
+              iconName={"form-textbox-password"}
               iconColor={"#7936E4"}
               labelStyle={{ color: "#B3B3B3", fontWeight: "normal" }}
               inputPadding={16}
               labelHeight={24}
               borderHeight={2}
-              dataDetectorTypes="calendarEvent"
-              maxLength={10}
-              autoCorrect={false}
+              keyboardType="default"
+              autoCapitalize={"none"}
+              autoCompleteType="password"
+              secureTextEntry={true}
               inputStyle={{
                 color: "black",
                 fontSize: 16,
                 fontWeight: "normal",
               }}
             />
-
+            
           </ContenidoRegistro>
 
           <View style={{ flex: 1, flexDirection: "row" }}>
@@ -141,7 +122,7 @@ export default function Datos({ navigation }) {
             <View style={estilitos.containerBoton}>
               <TouchableOpacity
                 style={estilitos.Boton}
-                onPress={() => navigation.navigate("Datos2")}
+                onPress={() => navigation.navigate("verify")}
               >
                 <AntDesign name="right" size={32} color="#9E5FB0" />
               </TouchableOpacity>

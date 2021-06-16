@@ -13,6 +13,7 @@ import {
   StatusBar,
 } from "react-native";
 import { Feather, MaterialIcons, Entypo } from "@expo/vector-icons";
+import { Searchbar } from "react-native-paper";
 const { width, height } = Dimensions.get("window");
 
 class Navbar extends React.Component {
@@ -39,7 +40,13 @@ class Navbar extends React.Component {
 
         <View style={{ flex: 1 }}>
           <TouchableOpacity onPress={this.props.onPressSearch}>
-            <Text style={styles.buscador}>¿Que servicio quiere contratar?</Text>
+            <Searchbar
+              editable={false}
+              style={styles.Searchbar}
+              inputStyle={{fontSize:14}}
+              placeholder="¿Que servicio quiere contratar?"
+              placeholderTextColor='#7878AB'
+            />
           </TouchableOpacity>
         </View>
       </View>
@@ -74,11 +81,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  buscador: {
-    color: "#7878AB",
-    fontSize: 13,
-    backgroundColor: "#f4f4f4",
-    padding: 10,
+  titulo: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 24,
+  },
+  Searchbar: {
     borderRadius: 30,
     width: width / 1.15,
     height: height / 20,
@@ -92,10 +100,5 @@ const styles = StyleSheet.create({
     shadowRadius: 4.65,
 
     elevation: 6,
-  },
-  titulo: {
-    color: "white",
-    fontWeight: "bold",
-    fontSize: 24,
   },
 });

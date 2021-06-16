@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   Touchable,
   ImageBackground,
+  StatusBar
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import Card from "../../Components/card";

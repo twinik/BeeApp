@@ -37,7 +37,7 @@ export default function Verificacion({ navigation }) {
   return (
     <ContainerKeyboardView>
       <ImageBackground
-        style={{ flex: 1 }}
+        style={styles.container}
         source={require("../../../../assets/wallpaper.png")}
       >
         <>
@@ -107,7 +107,7 @@ export default function Verificacion({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "column",
+    backgroundColor:'white'
   },
 
   header: {

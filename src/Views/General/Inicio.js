@@ -6,10 +6,12 @@ import {
   Button,
   Image,
   TouchableOpacity,
+  StatusBar
 } from "react-native";
 import BotonGrande from "./../../Components/BotonGrande";
 
 export default function Bienvenido({ navigation }) {
+  StatusBar.setBackgroundColor('white', true);
   return (
     <View style={estilos.container}>
       <View style={estilos.containerImage}>
@@ -49,6 +51,7 @@ const estilos = StyleSheet.create({
     backgroundColor: "white",
     marginTop: 30,
     alignItems: "center",
+    marginTop: StatusBar.currentHeight,
   },
   containerImage: {
     flex: 3,

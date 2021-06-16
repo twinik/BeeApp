@@ -11,16 +11,22 @@ import {
   TouchableOpacity,
   Dimensions,
   StatusBar,
-  Image
+  Image,
 } from "react-native";
 import BotonMenu from "../../../Components/BotonMenu";
 import CardMenu from "../../../Components/cardMenu";
 import { Feather, MaterialIcons, Entypo, Ionicons } from "@expo/vector-icons";
 import ContainerKeyboardView from "../../../Components/ContainerKeyboardView";
-import { SearchBar } from "react-native-elements";
+import { Searchbar } from "react-native-paper";
 const { width, height } = Dimensions.get("window");
 
 export default function Bienvenido({ navigation }) {
+  StatusBar.setBackgroundColor("white", true);
+
+  const [searchQuery, setSearchQuery] = React.useState("");
+  const onChangeSearch = (query) => setSearchQuery(query);
+  console.log(searchQuery);
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -42,11 +48,14 @@ export default function Bienvenido({ navigation }) {
         </View>
 
         <View style={{ flex: 1 }}>
-          <TextInput
-            style={styles.buscador}
-            autoFocus={true}
+          <Searchbar
+            style={styles.Searchbar}
+            inputStyle={{ fontSize: 15 }}
             placeholder="¿Que servicio quiere contratar?"
-          ></TextInput>
+            placeholderTextColor="#7878AB"
+            onChangeText={onChangeSearch}
+            value={searchQuery}
+          />
         </View>
       </View>
       <View style={styles.fragmentResultados}>
@@ -54,8 +63,8 @@ export default function Bienvenido({ navigation }) {
           source={require("../../../../assets/usingPhone.png")}
           style={styles.img}
         />
-        <Text style={styles.tituloDown} >Buscá en Servbee</Text>
-        <Text style={styles.subTitulo} >Encontrá el servicio que necesitas</Text>
+        <Text style={styles.tituloDown}>Buscá en Servbee</Text>
+        <Text style={styles.subTitulo}>Encontrá el servicio que necesitas</Text>
       </View>
     </View>
   );
@@ -69,11 +78,11 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: "center",
-    flex: 0.3,
+    flex: 0.2,
   },
   fragmentResultados: {
-    flex: 1,
-    alignItems:'center'
+    flex: 0.8,
+    alignItems: "center",
   },
   HeaderIcons: {
     flex: 1,
@@ -100,11 +109,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 26,
   },
-  buscador: {
-    color: "#7878AB",
-    fontSize: 16,
-    backgroundColor: "#f4f4f4",
-    padding: 10,
+  Searchbar: {
     borderRadius: 30,
     width: width / 1.15,
     height: height / 18,
@@ -123,11 +128,11 @@ const styles = StyleSheet.create({
     width: 200,
     height: 200,
   },
-  tituloDown:{
-    fontWeight:'bold',
-    fontSize:25
+  tituloDown: {
+    fontWeight: "bold",
+    fontSize: 25,
   },
-  subTitulo:{
-    fontSize:13
-  }
+  subTitulo: {
+    fontSize: 13,
+  },
 });

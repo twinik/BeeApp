@@ -23,7 +23,6 @@ import {
 } from "@expo/vector-icons";
 import UserCard from "../../../Components/userCard";
 import { CheckBox } from "react-native-elements";
-const { width, height } = Dimensions.get("window");
 import Boton from "../../../Components/Boton";
 import BotonSiguiente from "../../../Components/BotonSiguiente";
 import * as ImagePicker from "expo-image-picker";
@@ -34,13 +33,15 @@ import ContenidoRegistro from "./../../../Components/ContenidoRegistro";
 import { Isao, Fumi, Sae } from "react-native-textinput-effects";
 import DatePicker from "@dietime/react-native-date-picker";
 
+const { width, height } = Dimensions.get("window");
+
 export default function Datos({ navigation }) {
   const [date, setDate] = useState();
 
   return (
     <ContainerKeyboardView>
       <ImageBackground
-        style={{ flex: 1, backgroundColor: "white" }}
+        style={estilitos.container}
         source={require("../../../../assets/wallpaper.png")}
       >
         <>
@@ -49,7 +50,7 @@ export default function Datos({ navigation }) {
           </HeaderRegistro>
           <ContenidoRegistro addStyle={{ width: width / 1.2 }}>
             <Text style={estilitos.subtitulo}>
-              Porfavor ingrese su nombre, apellido y número de télefono
+              Porfavor, ingrese su nombre, apellido, número de teléfono y fecha de nacimiento
             </Text>
 
             <Sae
@@ -156,6 +157,7 @@ export default function Datos({ navigation }) {
 const estilitos = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor:'white'
   },
   containerHeader: {
     flex: 4,

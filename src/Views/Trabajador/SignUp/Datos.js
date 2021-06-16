@@ -13,28 +13,35 @@ import {
   TouchableWithoutFeedback,
   StatusBar,
   Keyboard,
+  ScrollView,
 } from "react-native";
-import { FontAwesome5 } from "@expo/vector-icons";
+import {
+  FontAwesome5,
+  FontAwesomeIcon,
+  MaterialCommunityIcons,
+  Ionicons,
+  AntDesign
+} from "@expo/vector-icons";
 import UserCard from "../../../Components/userCard";
 import { CheckBox } from "react-native-elements";
-const { width, height } = Dimensions.get("window");
 import Boton from "../../../Components/Boton";
 import BotonSiguiente from "../../../Components/BotonSiguiente";
 import * as ImagePicker from "expo-image-picker";
-import { AntDesign } from "@expo/vector-icons";
 import ContainerKeyboardView from "./../../../Components/ContainerKeyboardView";
 import HeaderRegistro from "./../../../Components/HeaderRegistro";
 import ContenidoRegistro from "./../../../Components/ContenidoRegistro";
-import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
-import { Isao } from "react-native-textinput-effects";
+import { Isao, Fumi, Sae } from "react-native-textinput-effects";
+import DatePicker from "@dietime/react-native-date-picker";
+
+const { width, height } = Dimensions.get("window");
 
 export default function Datos({ navigation }) {
-  const [isSelected, setSelection] = useState(false);
+  const [date, setDate] = useState();
 
   return (
     <ContainerKeyboardView>
       <ImageBackground
-        style={{ flex: 1, backgroundColor: "white" }}
+        style={estilitos.container}
         source={require("../../../../assets/wallpaper.png")}
       >
         <>
@@ -43,125 +50,84 @@ export default function Datos({ navigation }) {
           </HeaderRegistro>
           <ContenidoRegistro addStyle={{ width: width / 1.2 }}>
             <Text style={estilitos.subtitulo}>
-              Ingrese información básica sobre usted
+              Porfavor, ingrese su nombre, apellido, número de teléfono y fecha de nacimiento
             </Text>
-            <View style={{ flexDirection: "row" }}>
-              <Isao
-                label={"Nombre"}
-                activeColor={"#7936E4"}
-                borderHeight={8}
-                inputPadding={16}
-                labelHeight={24}
-                passiveColor={"#B3B3B3"}
-                inputStyle={{
-                  color: "black",
-                  fontSize: 16,
-                  fontWeight: "normal",
-                }}
-                style={{ flex: 1, marginRight: 10 }}
-              />
-              <Isao
-                label={"Apellido"}
-                activeColor={"#7936E4"}
-                borderHeight={8}
-                inputPadding={16}
-                labelHeight={24}
-                passiveColor={"#B3B3B3"}
-                inputStyle={{
-                  color: "black",
-                  fontSize: 16,
-                  fontWeight: "normal",
-                }}
-                style={{ flex: 1, marginLeft: 10 }}
-              />
-            </View>
 
-            <Isao
-              label={"Numero de Telefono"}
-              activeColor={"#7936E4"}
-              borderHeight={8}
+            <Sae
+              label={"Nombre"}
+              iconClass={FontAwesome5}
+              iconName={"user-alt"}
+              iconColor={"#7936E4"}
+              labelStyle={{ color: "#B3B3B3", fontWeight: "normal" }}
               inputPadding={16}
               labelHeight={24}
-              passiveColor={"#B3B3B3"}
+              borderHeight={2}
+              autoCorrect={false}
+              inputStyle={{
+                color: "black",
+                fontSize: 16,
+                fontWeight: "normal",
+              }}
+            />
+
+            <Sae
+              label={"Apellido"}
+              iconClass={FontAwesome5}
+              iconName={"user-alt"}
+              iconColor={"#7936E4"}
+              labelStyle={{ color: "#B3B3B3", fontWeight: "normal" }}
+              inputPadding={16}
+              labelHeight={24}
+              // active border height
+              borderHeight={2}
+              // TextInput props
+              autoCorrect={false}
+              inputStyle={{
+                color: "black",
+                fontSize: 16,
+                fontWeight: "normal",
+              }}
+            />
+
+            <Sae
+              label={"Número de Teléfono"}
+              iconClass={MaterialCommunityIcons}
+              iconName={"cellphone"}
+              iconColor={"#7936E4"}
+              labelStyle={{ color: "#B3B3B3", fontWeight: "normal" }}
+              inputPadding={16}
+              labelHeight={24}
+              borderHeight={2}
               dataDetectorTypes="phoneNumber"
               keyboardType="number-pad"
               maxLength={10}
+              autoCorrect={false}
               inputStyle={{
                 color: "black",
                 fontSize: 16,
                 fontWeight: "normal",
               }}
             />
-            <Isao
-              label={"Email"}
-              activeColor={"#7936E4"}
-              borderHeight={8}
+
+            <Sae
+              label={"Fecha de nacimiento"}
+              iconClass={Ionicons}
+              iconName={"md-calendar-outline"}
+              iconColor={"#7936E4"}
+              labelStyle={{ color: "#B3B3B3", fontWeight: "normal" }}
               inputPadding={16}
               labelHeight={24}
-              passiveColor={"#B3B3B3"}
-              keyboardType="email-address"
-              autoCapitalize={"none"}
+              borderHeight={2}
+              dataDetectorTypes="calendarEvent"
+              maxLength={10}
+              autoCorrect={false}
               inputStyle={{
                 color: "black",
                 fontSize: 16,
                 fontWeight: "normal",
               }}
             />
-            <View style={{ flexDirection: "row" }}>
-              <Isao
-                label={"Contraseña"}
-                activeColor={"#7936E4"}
-                borderHeight={8}
-                inputPadding={16}
-                labelHeight={24}
-                passiveColor={"#B3B3B3"}
-                autoCompleteType="password"
-                secureTextEntry={true}
-                inputStyle={{
-                  color: "black",
-                  fontSize: 16,
-                  fontWeight: "normal",
-                }}
-                style={{ flex: 1, marginRight: 10 }}
-              />
-              <Isao
-                label={"Confirme"}
-                activeColor={"#7936E4"}
-                borderHeight={8}
-                inputPadding={16}
-                labelHeight={24}
-                passiveColor={"#B3B3B3"}
-                autoCompleteType="password"
-                secureTextEntry={true}
-                inputStyle={{
-                  color: "black",
-                  fontSize: 16,
-                  fontWeight: "normal",
-                }}
-                style={{ flex: 1, marginLeft: 10 }}
-              />
-            </View>
 
-            <View
-              style={{
-                flex: 1,
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <CheckBox
-                title="Acepto los términos de uso"
-                checked={isSelected}
-                containerStyle={{
-                  borderWidth: 0,
-                  backgroundColor: "transparent",
-                }}
-                onPress={() =>
-                  isSelected ? setSelection(false) : setSelection(true)
-                }
-                titleProps={{ style: { color: "#1679C0" } }}
-              />
-            </View>
           </ContenidoRegistro>
 
           <View style={{ flex: 1, flexDirection: "row" }}>
@@ -176,7 +142,7 @@ export default function Datos({ navigation }) {
             <View style={estilitos.containerBoton}>
               <TouchableOpacity
                 style={estilitos.Boton}
-                onPress={() => navigation.navigate("verify")}
+                onPress={() => navigation.navigate("datos2")}
               >
                 <AntDesign name="right" size={32} color="#9E5FB0" />
               </TouchableOpacity>
@@ -191,6 +157,7 @@ export default function Datos({ navigation }) {
 const estilitos = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor:'white'
   },
   containerHeader: {
     flex: 4,

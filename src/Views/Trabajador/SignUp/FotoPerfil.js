@@ -85,8 +85,8 @@ export default function Verificacion({ navigation }) {
             </View>
             <View style={styles.containerTextPoints}>
               <Text style={{ fontSize: 18 }}>
-                • Foto actual{"\n"}• Fondo limpio y simple{"\n"}• Buena
-                iluminacion y foto no movida
+              • Foto de cara de frente y actual{"\n"}• Fondo limpio y simple{"\n"}• Buena
+                iluminacion y no movida
               </Text>
             </View>
           </View>

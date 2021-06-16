@@ -12,13 +12,20 @@ import {
   Platform,
   TouchableOpacity,
 } from "react-native";
+import {
+  FontAwesome5,
+  FontAwesomeIcon,
+  MaterialCommunityIcons,
+  Ionicons,
+  AntDesign,
+  SimpleLineIcons,
+} from "@expo/vector-icons";
 import BotonSiguiente from "../../../Components/BotonSiguiente";
-import { AntDesign } from "@expo/vector-icons";
 import ContainerKeyboardView from "./../../../Components/ContainerKeyboardView";
 import HeaderRegistro from "./../../../Components/HeaderRegistro";
 import ContenidoRegistro from "./../../../Components/ContenidoRegistro";
 import ModalDropdown from "react-native-modal-dropdown";
-import { Isao } from "react-native-textinput-effects";
+import { Isao, Sae, Fumi } from "react-native-textinput-effects";
 
 const { width, height } = Dimensions.get("window");
 
@@ -37,7 +44,8 @@ export default function Verificacion({ navigation }) {
 
         <ContenidoRegistro addStyle={{ width: width / 1.2 }}>
           <Text style={styles.text2}>
-            Esta información no será compartida con nadie
+            Porfavor, ingrese su dirección.{"\n"}Esta información no será
+            compartida con nadie
           </Text>
           <View style={styles.containerInputs}>
             <Isao
@@ -48,9 +56,14 @@ export default function Verificacion({ navigation }) {
               labelHeight={24}
               passiveColor={"#B3B3B3"}
               dataDetectorTypes="address"
-              inputStyle={{ color: "black", fontSize: 16, fontWeight:'normal' }}
+              inputStyle={{
+                color: "black",
+                fontSize: 16,
+                fontWeight: "normal",
+              }}
               style={{ width: "100%" }}
             />
+
             <Isao
               label={"Dirección 2 (opcional)"}
               activeColor={"#7936E4"}
@@ -59,7 +72,11 @@ export default function Verificacion({ navigation }) {
               labelHeight={24}
               passiveColor={"#B3B3B3"}
               dataDetectorTypes="address"
-              inputStyle={{ color: "black", fontSize: 16, fontWeight:'normal' }}
+              inputStyle={{
+                color: "black",
+                fontSize: 16,
+                fontWeight: "normal",
+              }}
               style={{ width: "100%" }}
             />
 
@@ -69,7 +86,7 @@ export default function Verificacion({ navigation }) {
               defaultTextStyle={{ color: "#939393" }}
               textStyle={{ color: "black", fontSize: 16 }}
               defaultValue="Provincia"
-              style={{width:'100%', margin: 10, padding: 10}}
+              style={{ width: "100%", margin: 10, padding: 10 }}
               options={[
                 "Buenos Aires",
                 "Capital Federal",

@@ -2,7 +2,7 @@
 import React,{useReducer,useState}from 'react'
 import AppReducer from './AppReducer'
 import AppContext from './AppContext'
-import {SET_TOKEN,DELETE_TOKEN} from './types'
+import {SET_TOKEN,DELETE_TOKEN,RESET} from './types'
 const AppState = (props) =>{
 
     const initialState= {
@@ -31,15 +31,15 @@ const AppState = (props) =>{
     const SignUp = ()=>{
 
         dispatch({
-            type:DELETE_TOKEN,
-            payload:null
+            type:RESET,
+            payload:""
         })
 
     }
 
 
     return (
-        <AppContext.Provider value={{User:state.user,Token:state.token,SignIn,SignOut}}>
+        <AppContext.Provider value={{User:state.user,Token:state.token,SignIn,SignOut,SignUp}}>
             {props.children}
         </AppContext.Provider>
     )

@@ -2,9 +2,9 @@ import React from 'react'
 import AppCliente from './AppCliente'
 import AppTrabajador from './AppTrabajador'
 
-export default function AppIndex  ({navigation,route})  {
+export default function AppIndex  ({rol})  {
   
- const {rol} = route.params
+ 
 
   return(
     rol=="Cliente" ? <AppCliente/> : <AppTrabajador/>

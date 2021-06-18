@@ -14,7 +14,7 @@ const { width, height } = Dimensions.get("window");
 
 export default function Verificacion({ navigation }) {
   
-const { signUp } = React.useContext(AppContext);
+const { SignUp } = React.useContext(AppContext);
   return (
     <ImageBackground
       style={styles.container}
@@ -28,7 +28,7 @@ const { signUp } = React.useContext(AppContext);
         <BotonSiguiente
           style={styles.Boton}
           title="Finalizar"
-          onPress={() => navigation.popToTop()}
+          onPress={() => navigation.replace('SignIn')}
         />
       </View>
     </ImageBackground>

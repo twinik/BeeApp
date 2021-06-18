@@ -33,7 +33,7 @@ export default function SignIn  ({navigation,route})  {
                                 <Boton title="Iniciar Sesion" onPress={() => SignIn()}></Boton>
                                 
                             </View>
-                            <TouchableOpacity style={{flex:.3}} onPress={()=> navigation.goBack()} >
+                            <TouchableOpacity style={{flex:.3}} onPress={()=> navigation.popToTop()} >
                                     <Text style={estilos.InicioSubtitulo}>Volver ...</Text>
                             </TouchableOpacity>
                         </View>

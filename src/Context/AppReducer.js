@@ -1,4 +1,4 @@
-import {DELETE_TOKEN,SET_TOKEN} from './types'
+import {DELETE_TOKEN,SET_TOKEN,RESET} from './types'
 
 
 
@@ -18,6 +18,12 @@ switch(type){
         return{
             ...state,
             token:null
+        };
+        case RESET:
+        console.log("TO")
+        return{
+            ...state,
+            token:"Reset"
         };
     
         

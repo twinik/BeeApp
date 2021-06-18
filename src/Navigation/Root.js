@@ -10,7 +10,7 @@ export default function RootStackScreen ({userToken}) {
     const {Token}=React.useContext(AppContext)
     return(
         
-       Token != null ? <AppIndex/> : <Auth/>
+       Token != null && Token != "Reset" ? <AppIndex rol="Cliente" /> : <Auth/>
         
     
     )

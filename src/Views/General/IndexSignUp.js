@@ -26,26 +26,26 @@ export default function SignUp({ navigation }) {
       <View style={estilos.containerTexto}>
         <Text style={estilos.titulo}>Crea tu{"\n"}cuenta</Text>
       </View>
-        <View style={estilos.contenedorCards}>
-          <Card
-            title="Cliente"
-            onPress={() => navigation.navigate("SignUp", { rol: "Cliente" })}
-            image="Cliente"
-          ></Card>
-          <Card2
-            title="Trabajador"
-            onPress={() => navigation.navigate("SignUp", { rol: "Trabajador" })}
-            image="as"
-          ></Card2>
-        </View>
-        <View style={estilos.containerVolver}>
-          <TouchableOpacity
-            style={estilos.Boton}
-            onPress={() => navigation.goBack()}
-          >
-            <AntDesign name="left" size={32} color="#9E5FB0" />
-          </TouchableOpacity>
-        </View>
+      <View style={estilos.contenedorCards}>
+        <Card
+          title="Cliente"
+          onPress={() => navigation.navigate("SignUp", { rol: "Cliente" })}
+          image="Cliente"
+        ></Card>
+        <Card2
+          title="Trabajador"
+          onPress={() => navigation.navigate("SignUp", { rol: "Trabajador" })}
+          image="as"
+        ></Card2>
+      </View>
+      <View style={estilos.containerVolver}>
+        <TouchableOpacity
+          style={estilos.Boton}
+          onPress={() => navigation.goBack()}
+        >
+          <AntDesign name="left" size={32} color="#9E5FB0" />
+        </TouchableOpacity>
+      </View>
     </ImageBackground>
   );
 }
@@ -53,7 +53,7 @@ export default function SignUp({ navigation }) {
 const estilos = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:'white'
+    backgroundColor: 'white'
   },
   containerTexto: {
     flex: 4,

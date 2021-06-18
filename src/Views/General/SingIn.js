@@ -1,16 +1,16 @@
 import React from 'react';
 import { Platform, View ,TextInput,StyleSheet, Text, KeyboardAvoidingView,Dimensions,TouchableWithoutFeedback,Keyboard,TouchableOpacity} from 'react-native'
 import Boton from '../../Components/Boton'
-import { AuthContext } from "../../AuthContext";
 
+import AppContext from '../../Context/AppContext';
 const {width,height} = Dimensions.get('window')
 
 export default function SignIn  ({navigation,route})  {
     
     const [username, setUsername] = React.useState('');
     const [password, setPassword] = React.useState('');
-    const { signIn } = React.useContext(AuthContext);
-    
+    /*const { signIn } = React.useContext(AuthContext);*/
+    const {SignIn}=React.useContext(AppContext)
     
         return(
             <KeyboardAvoidingView
@@ -30,7 +30,7 @@ export default function SignIn  ({navigation,route})  {
                                 <TouchableOpacity >
                                     <Text style={estilos.InicioSubtitulo}>¿Olvidaste tu Contraseña?</Text>
                                 </TouchableOpacity>
-                                <Boton title="Iniciar Sesion" onPress={() => signIn("Cliente")}></Boton>
+                                <Boton title="Iniciar Sesion" onPress={() => SignIn()}></Boton>
                                 
                             </View>
                             <TouchableOpacity style={{flex:.3}} onPress={()=> navigation.goBack()} >

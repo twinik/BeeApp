@@ -2,29 +2,17 @@ import React from 'react';
 import { createStackNavigator } from "@react-navigation/stack";
 import AppIndex from './App/AppIndex'
 import Auth from './Auth/Auth'
+import AppContext from '../Context/AppContext';
 
-const RootStack= createStackNavigator();
 
-export default function RootStackScreen ({userToken,userRol}) {
+export default function RootStackScreen ({userToken}) {
 
-    
+    const {Token}=React.useContext(AppContext)
     return(
-        <RootStack.Navigator headerMode="none" >
-        { userToken != null ? (
-            <RootStack.Screen 
-            name="App" 
-            component={AppIndex} 
-            options={{animationEnabled:false}}
-            initialParams={{ rol:userRol }}
-            />
-        ) :   ( <RootStack.Screen
-        name="Auth"
-        component={Auth}
-        options={{animationEnabled:false}}/>
-        )
-        }
         
-    </RootStack.Navigator>
+       Token != null ? <AppIndex/> : <Auth/>
+        
+    
     )
 
 }

@@ -7,12 +7,14 @@ import {
   ImageBackground,
 } from "react-native";
 import BotonSiguiente from "../../Components/BotonSiguiente";
+import AppContext from "../../Context/AppContext";
 
 const { width, height } = Dimensions.get("window");
-import { AuthContext } from "../../AuthContext";
+
+
 export default function Verificacion({ navigation }) {
   
-const { signUp } = React.useContext(AuthContext);
+const { signUp } = React.useContext(AppContext);
   return (
     <ImageBackground
       style={styles.container}
@@ -26,7 +28,7 @@ const { signUp } = React.useContext(AuthContext);
         <BotonSiguiente
           style={styles.Boton}
           title="Finalizar"
-          onPress={() => signUp()}
+          onPress={() => navigation.popToTop()}
         />
       </View>
     </ImageBackground>

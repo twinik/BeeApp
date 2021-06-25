@@ -15,6 +15,7 @@ import BotonSiguiente from "../../../Components/BotonSiguiente";
 import Picker from "../../../Components/ImagePicker";
 import PickerDocument from "../../../Components/DocumentPicker";
 import { AntDesign } from "@expo/vector-icons";
+import BotonNextBack from "../../../Components/BotonNextBack";
 import ContainerKeyboardView from "./../../../Components/ContainerKeyboardView";
 import HeaderRegistro from "./../../../Components/HeaderRegistro";
 import ContenidoRegistro from "./../../../Components/ContenidoRegistro";
@@ -69,24 +70,14 @@ export default function Verificacion({ navigation }) {
           </View>
         </ContenidoRegistro>
 
-        <View style={{ flex: 0.8, flexDirection: "row" }}>
-          <View style={styles.containerVolver}>
-            <TouchableOpacity
-              style={styles.Boton}
-              onPress={() => navigation.goBack()}
-            >
-              <AntDesign name="left" size={32} color="#9E5FB0" />
-            </TouchableOpacity>
+        <View style={{ flex: 1, flexDirection: "row" }}>
+            <View style={styles.containerVolver}>
+              <BotonNextBack title="Volver" color="#7936E4" onPress={() => navigation.goBack()}/>
+            </View>
+            <View style={styles.containerBoton}>
+            <BotonNextBack type="Next" title="Siguiente" color='#fff' onPress={() => navigation.navigate("finRegistro")}/>              
+            </View>
           </View>
-          <View style={styles.containerBoton}>
-            <TouchableOpacity
-              style={styles.Boton}
-              onPress={() => navigation.navigate("finRegistro")}
-            >
-              <AntDesign name="right" size={32} color="#9E5FB0" />
-            </TouchableOpacity>
-          </View>
-        </View>
       </ImageBackground>
     </ContainerKeyboardView>
   );

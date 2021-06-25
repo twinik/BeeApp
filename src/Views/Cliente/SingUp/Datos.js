@@ -23,10 +23,9 @@ import {
 } from "@expo/vector-icons";
 import UserCard from "../../../Components/userCard";
 import { CheckBox } from "react-native-elements";
-import Boton from "../../../Components/Boton";
-import BotonSiguiente from "../../../Components/BotonSiguiente";
 import * as ImagePicker from "expo-image-picker";
 import { AntDesign } from "@expo/vector-icons";
+import BotonNextBack from "../../../Components/BotonNextBack";
 import ContainerKeyboardView from "./../../../Components/ContainerKeyboardView";
 import HeaderRegistro from "./../../../Components/HeaderRegistro";
 import ContenidoRegistro from "./../../../Components/ContenidoRegistro";
@@ -50,7 +49,8 @@ export default function Datos({ navigation }) {
           </HeaderRegistro>
           <ContenidoRegistro addStyle={{ width: width / 1.2 }}>
             <Text style={estilitos.subtitulo}>
-              Porfavor, ingrese su nombre, apellido, número de teléfono y fecha de nacimiento
+              Porfavor, ingrese su nombre, apellido, número de teléfono y fecha
+              de nacimiento
             </Text>
 
             <Sae
@@ -127,25 +127,23 @@ export default function Datos({ navigation }) {
                 fontWeight: "normal",
               }}
             />
-
           </ContenidoRegistro>
 
           <View style={{ flex: 1, flexDirection: "row" }}>
             <View style={estilitos.containerVolver}>
-              <TouchableOpacity
-                style={estilitos.Boton}
+              <BotonNextBack
+                title="Volver"
+                color="#7936E4"
                 onPress={() => navigation.goBack()}
-              >
-                <AntDesign name="left" size={32} color="#9E5FB0" />
-              </TouchableOpacity>
+              />
             </View>
             <View style={estilitos.containerBoton}>
-              <TouchableOpacity
-                style={estilitos.Boton}
+              <BotonNextBack
+                type="Next"
+                title="Siguiente"
+                color="#fff"
                 onPress={() => navigation.navigate("Datos2")}
-              >
-                <AntDesign name="right" size={32} color="#9E5FB0" />
-              </TouchableOpacity>
+              />
             </View>
           </View>
         </>
@@ -157,7 +155,7 @@ export default function Datos({ navigation }) {
 const estilitos = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:'white'
+    backgroundColor: "white",
   },
   containerHeader: {
     flex: 4,
@@ -190,8 +188,8 @@ const estilitos = StyleSheet.create({
     justifyContent: "flex-end",
   },
   Boton: {
-    marginBottom: 20,
-    marginHorizontal: 20,
+    marginBottom: 10,
+    marginHorizontal: 10,
   },
   subtitulo: {
     fontSize: 16,

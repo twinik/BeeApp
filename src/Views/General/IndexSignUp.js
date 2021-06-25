@@ -74,7 +74,7 @@ const estilos = StyleSheet.create({
     marginHorizontal: "10%",
   },
   titulo: {
-    fontSize: 48,
+    fontSize: 43,
   },
   subtitulo: {
     textAlign: "center",

@@ -23,8 +23,7 @@ import {
 import UserCard from "../../../Components/userCard";
 import { CheckBox } from "react-native-elements";
 const { width, height } = Dimensions.get("window");
-import Boton from "../../../Components/Boton";
-import BotonSiguiente from "../../../Components/BotonSiguiente";
+import BotonNextBack from "../../../Components/BotonNextBack";
 import * as ImagePicker from "expo-image-picker";
 import { AntDesign } from "@expo/vector-icons";
 import ContainerKeyboardView from "./../../../Components/ContainerKeyboardView";
@@ -111,20 +110,10 @@ export default function Datos({ navigation }) {
 
           <View style={{ flex: 1, flexDirection: "row" }}>
             <View style={estilitos.containerVolver}>
-              <TouchableOpacity
-                style={estilitos.Boton}
-                onPress={() => navigation.goBack()}
-              >
-                <AntDesign name="left" size={32} color="#9E5FB0" />
-              </TouchableOpacity>
+              <BotonNextBack title="Volver" color="#7936E4" onPress={() => navigation.goBack()}/>
             </View>
             <View style={estilitos.containerBoton}>
-              <TouchableOpacity
-                style={estilitos.Boton}
-                onPress={() => navigation.navigate("verify")}
-              >
-                <AntDesign name="right" size={32} color="#9E5FB0" />
-              </TouchableOpacity>
+            <BotonNextBack type="Next" title="Siguiente" color='#fff' onPress={() => navigation.navigate("verify")}/>              
             </View>
           </View>
         </>

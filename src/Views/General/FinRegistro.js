@@ -6,8 +6,8 @@ import {
   Dimensions,
   ImageBackground,
 } from "react-native";
-import BotonSiguiente from "../../Components/BotonSiguiente";
 import AppContext from "../../Context/AppContext";
+import BotonNextBack from "../../Components/BotonNextBack";
 
 const { width, height } = Dimensions.get("window");
 
@@ -24,13 +24,15 @@ const { SignUp } = React.useContext(AppContext);
         <Text style={styles.text}>¡Listo!{"\n"}Bienvenido a Servbee</Text>
       </View>
 
-      <View style={styles.containerBoton}>
-        <BotonSiguiente
-          style={styles.Boton}
-          title="Finalizar"
-          onPress={() => navigation.replace('SignIn')}
-        />
+      <View style={{ flex: 1, flexDirection: "row" }}>
+            <View style={styles.containerVolver}>
+              <BotonNextBack title="Volver" color="#7936E4" onPress={() => navigation.goBack()}/>
+            </View>
+            <View style={styles.containerBoton}>
+              <BotonNextBack type="Next" title="Iniciar Sesión" color='#fff' onPress={() => navigation.replace("SignIn")}/>           
+            </View>
       </View>
+
     </ImageBackground>
   );
 }
@@ -50,6 +52,11 @@ const styles = StyleSheet.create({
   containerBoton: {
     flex: 1,
     alignItems: "flex-end",
+    justifyContent: "flex-end",
+  },
+
+  containerVolver: {
+    flex: 1,
     justifyContent: "flex-end",
   },
 

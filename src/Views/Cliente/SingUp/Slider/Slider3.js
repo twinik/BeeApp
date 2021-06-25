@@ -15,7 +15,7 @@ export default function Info({ navigation }) {
         />
       </View>
       <View style={{ flex: 2 }}>
-        <Text style={style.titulo}>Contrate a precios accesibles</Text>
+        <Text style={style.titulo}>Contrate a precios{"\n"}accesibles</Text>
         <Text style={style.subTitulo}>
           Contrate a los expertos que{"\n"}usted necesite a precios{"\n"}
           estandarizados y accesibles

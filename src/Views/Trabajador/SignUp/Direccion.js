@@ -25,6 +25,7 @@ import ContainerKeyboardView from "./../../../Components/ContainerKeyboardView";
 import HeaderRegistro from "./../../../Components/HeaderRegistro";
 import ContenidoRegistro from "./../../../Components/ContenidoRegistro";
 import ModalDropdown from "react-native-modal-dropdown";
+import BotonNextBack from "../../../Components/BotonNextBack";
 import { Isao, Sae, Fumi } from "react-native-textinput-effects";
 
 const { width, height } = Dimensions.get("window");
@@ -117,23 +118,13 @@ export default function Verificacion({ navigation }) {
         </ContenidoRegistro>
 
         <View style={{ flex: 1, flexDirection: "row" }}>
-          <View style={styles.containerVolver}>
-            <TouchableOpacity
-              style={styles.Boton}
-              onPress={() => navigation.goBack()}
-            >
-              <AntDesign name="left" size={32} color="#9E5FB0" />
-            </TouchableOpacity>
+            <View style={styles.containerVolver}>
+              <BotonNextBack title="Volver" color="#7936E4" onPress={() => navigation.goBack()}/>
+            </View>
+            <View style={styles.containerBoton}>
+            <BotonNextBack type="Next" title="Siguiente" color='#fff' onPress={() => navigation.navigate("servicio")}/>              
+            </View>
           </View>
-          <View style={styles.containerBoton}>
-            <TouchableOpacity
-              style={styles.Boton}
-              onPress={() => navigation.navigate("servicio")}
-            >
-              <AntDesign name="right" size={32} color="#9E5FB0" />
-            </TouchableOpacity>
-          </View>
-        </View>
       </ImageBackground>
     </ContainerKeyboardView>
   );

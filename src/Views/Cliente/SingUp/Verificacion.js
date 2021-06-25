@@ -16,6 +16,7 @@ import ContainerKeyboardView from "./../../../Components/ContainerKeyboardView";
 import HeaderRegistro from "./../../../Components/HeaderRegistro";
 import ContenidoRegistro from "./../../../Components/ContenidoRegistro";
 import BotonSiguiente from "../../../Components/BotonSiguiente";
+import BotonNextBack from "../../../Components/BotonNextBack";
 import { AntDesign } from "@expo/vector-icons";
 import {
   CodeField,
@@ -82,20 +83,10 @@ export default function Verificacion({ navigation }) {
 
           <View style={{ flex: 1, flexDirection: "row" }}>
             <View style={styles.containerVolver}>
-              <TouchableOpacity
-                style={styles.Boton}
-                onPress={() => navigation.goBack()}
-              >
-                <AntDesign name="left" size={32} color="#9E5FB0" />
-              </TouchableOpacity>
+              <BotonNextBack title="Volver" color="#7936E4" onPress={() => navigation.goBack()}/>
             </View>
             <View style={styles.containerBoton}>
-              <TouchableOpacity
-                style={styles.Boton}
-                onPress={() => navigation.navigate("Documentos")}
-              >
-                <AntDesign name="right" size={32} color="#9E5FB0" />
-              </TouchableOpacity>
+            <BotonNextBack type="Next" title="Siguiente" color='#fff' onPress={() => navigation.navigate("Documentos")}/>              
             </View>
           </View>
         </>

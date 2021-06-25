@@ -20,7 +20,7 @@ export default function card({ title, onPress, image }) {
 const estilitos = StyleSheet.create({
   container: {
     alignItems: "center",
-    width: '100%',
+    width: "100%",
     height: 65,
     backgroundColor: "#7936E4",
     borderRadius: 10,

@@ -9,12 +9,12 @@ import {
   TouchableOpacity,
   Touchable,
   ImageBackground,
-  StatusBar
+  StatusBar,
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
-import Card from "../../Components/card";
-import Card2 from "../../Components/card2";
-import BotonSiguiente from "../../Components/BotonSiguiente";
+import Card from "../../Components/Cards/card";
+import Card2 from "../../Components/Cards/card2";
+import BotonNextBack from "../../Components/BotonNextBack";
 const { width, height } = Dimensions.get("window");
 
 export default function SignUp({ navigation }) {
@@ -43,7 +43,7 @@ export default function SignUp({ navigation }) {
           style={estilos.Boton}
           onPress={() => navigation.goBack()}
         >
-          <AntDesign name="left" size={32} color="#9E5FB0" />
+          <AntDesign name="left" size={32} color="#7936E4" />
         </TouchableOpacity>
       </View>
     </ImageBackground>
@@ -53,7 +53,7 @@ export default function SignUp({ navigation }) {
 const estilos = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white'
+    backgroundColor: "white",
   },
   containerTexto: {
     flex: 4,
@@ -85,7 +85,7 @@ const estilos = StyleSheet.create({
   },
   containerVolver: {
     flex: 1,
-    justifyContent: "flex-end"
+    justifyContent: "flex-end",
   },
   Boton: {
     marginBottom: 20,

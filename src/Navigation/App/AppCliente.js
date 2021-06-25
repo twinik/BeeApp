@@ -10,7 +10,7 @@ import { Ionicons, Foundation, FontAwesome } from "@expo/vector-icons";
 import MenuCliente from "../../Components/Menu/MenuCliente";
 
 function setearColors(focused) {
-  return focused ? "#ABA1D8" : "#8073BB";
+  return focused ? "#AE81F4" : "#7936E4";
 }
 
 export default function App() {
@@ -39,13 +39,9 @@ export default function App() {
         options={{
           title: "Inicio",
           gestureEnabled: true,
-          gestureDirection: 'horizontal',
+          gestureDirection: "horizontal",
           drawerIcon: ({ focused, size }) => (
-            <Foundation
-              name="home"
-              size={size}
-              color={setearColors(focused)}
-            />
+            <Foundation name="home" size={size} color={setearColors(focused)} />
           ),
         }}
       />

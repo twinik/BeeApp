@@ -134,6 +134,7 @@ const estilos = StyleSheet.create({
   },
   titulo: {
     fontSize: 36,
+    fontWeight: "500",
   },
   containerInputs: {
     flex: 2,

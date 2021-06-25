@@ -2,24 +2,19 @@ import React from 'react';
 import { Platform, View, TextInput, StyleSheet, Text, KeyboardAvoidingView, ImageBackground, Dimensions, TouchableWithoutFeedback, Keyboard, TouchableOpacity } from 'react-native'
 import Boton from '../../Components/Boton'
 import ContainerKeyboardView from "./../../Components/ContainerKeyboardView";
-import HeaderRegistro from "./../../Components/HeaderRegistro";
-import ContenidoRegistro from "./../../Components/ContenidoRegistro";
 import AppContext from '../../Context/AppContext';
 import {
-    FontAwesome5,
-    FontAwesomeIcon,
-    MaterialCommunityIcons,
-    Ionicons,
+
     AntDesign
 } from "@expo/vector-icons";
 import { Sae, Isao } from "react-native-textinput-effects";
 
-const { width, height } = Dimensions.get('window')
+
 
 export default function SignIn({ navigation, route }) {
 
-    const [username, setUsername] = React.useState('');
-    const [password, setPassword] = React.useState('');
+    const [email, setEmail] = React.useState('');
+    const [contraseña, setContraseña] = React.useState('');
     /*const { signIn } = React.useContext(AuthContext);*/
     const { SignIn } = React.useContext(AppContext)
 
@@ -53,6 +48,7 @@ export default function SignIn({ navigation, route }) {
                                     fontSize: 16,
                                     fontWeight: "normal",
                                 }}
+                                onChangeText={(text)=>setEmail(text)}
                             />
 
                             <Isao
@@ -78,6 +74,7 @@ export default function SignIn({ navigation, route }) {
                                     fontSize: 16,
                                     fontWeight: "normal",
                                 }}
+                                onChangeText={(text)=>setContraseña(text)}
                             />
                             <TouchableOpacity onPress={() => alert("*Olvidaste la contraseña*")}>
                                 <Text style={estilos.olvidasteClave}>¿Olvidaste tu Contraseña?</Text>
@@ -97,7 +94,7 @@ export default function SignIn({ navigation, route }) {
                             </TouchableOpacity>
                         </View>
                         <View style={estilos.containerBoton}>
-                            <Boton style={estilos.Boton} title="Iniciar Sesion" onPress={() => SignIn()}></Boton>
+                            <Boton style={estilos.Boton} title="Iniciar Sesion" onPress={() => SignIn(email,contraseña)}></Boton>
                         </View>
                     </View>
 

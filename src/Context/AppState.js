@@ -3,6 +3,9 @@ import React,{useReducer,useState}from 'react'
 import AppReducer from './AppReducer'
 import AppContext from './AppContext'
 import {SET_TOKEN,DELETE_TOKEN,RESET} from './types'
+import Firebase from '../Firebase/Firebase'
+
+
 const AppState = (props) =>{
 
     const initialState= {
@@ -12,19 +15,37 @@ const AppState = (props) =>{
 
     const [state,dispatch] = useReducer(AppReducer,initialState)
 
-    const SignIn = () =>{
-        dispatch({
-            type:SET_TOKEN,
-            payload:"P234"
+    const SignIn = (email,password) =>{
+
+        console.log("e:"+email+",c="+password)
+        Firebase.auth()
+        .signInWithEmailAndPassword(email, password)
+        .then((userCredential)=>{
+            console.log(userCredential.user.uid)
+            dispatch({
+                type:SET_TOKEN,
+                payload:userCredential.user.uid
+            })
         })
+        .catch(error => console.log(error))
+
+        
         
     }
    
     const SignOut = ()=>{
-        dispatch({
-            type:DELETE_TOKEN,
-            payload:null
-        })
+
+        Firebase.auth().signOut().then(() => {
+            console.log("deslogeado")
+            dispatch({
+                type:DELETE_TOKEN,
+                payload:null
+            })
+            // Sign-out successful.
+          }).catch((error) => {
+            // An error happened.
+          });
+        
         
     }
 

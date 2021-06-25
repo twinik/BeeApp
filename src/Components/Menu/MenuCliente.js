@@ -1,10 +1,10 @@
 import React from 'react';
 import {Linking} from 'react-native'
 import {DrawerContentScrollView,DrawerItemList,DrawerItem } from '@react-navigation/drawer';
-import { View, Text, StyleSheet, Button ,Image,TouchableOpacity} from "react-native";
+import { View, Text, StyleSheet,TouchableOpacity} from "react-native";
 import { FontAwesome } from '@expo/vector-icons';
 import { Dimensions } from 'react-native';
-const windowWidth = Dimensions.get('window').width;
+
 const windowHeight = Dimensions.get('window').height;
 
 export default function CustomDrawerContent(props) {

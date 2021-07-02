@@ -2,8 +2,9 @@
 import React,{useReducer,useState}from 'react'
 import AppReducer from './AppReducer'
 import AppContext from './AppContext'
-import {SET_TOKEN,DELETE_TOKEN,RESET} from './types'
+import {SET_TOKEN,DELETE_TOKEN,RESET,SET_USER} from './types'
 import Firebase from '../Firebase/Firebase'
+import {obtenerUsuario} from '../Firebase/Utils/AuthConexion'
 
 
 const AppState = (props) =>{
@@ -17,14 +18,20 @@ const AppState = (props) =>{
 
     const SignIn = (email,password) =>{
 
-        console.log("e:"+email+",c="+password)
+        console.log("e:"+email+",c="+password.trim())
         Firebase.auth()
         .signInWithEmailAndPassword(email, password)
-        .then((userCredential)=>{
+        .then(async(userCredential)=>{
             console.log(userCredential.user.uid)
             dispatch({
                 type:SET_TOKEN,
                 payload:userCredential.user.uid
+            })
+            var user = await obtenerUsuario(userCredential.user.uid)
+            console.log(user)
+            dispatch({
+                type:SET_USER,
+                payload:user
             })
         })
         .catch(error => console.log(error))

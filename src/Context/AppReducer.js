@@ -1,4 +1,4 @@
-import {DELETE_TOKEN,SET_TOKEN,RESET} from './types'
+import {DELETE_TOKEN,SET_TOKEN,RESET,SET_USER} from './types'
 
 
 
@@ -25,6 +25,12 @@ switch(type){
             ...state,
             token:"Reset"
         };
+    case SET_USER:
+        return{
+            ...state,
+            user:payload
+        }
+
     
         
 }

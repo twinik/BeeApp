@@ -2,7 +2,6 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 const SingUpTrabajador = createStackNavigator();
 import Datos from "../../../Views/Trabajador/SignUp/Datos";
-import Datos2 from "../../../Views/Trabajador/SignUp/Datos2";
 import slider from "../../../Views/Trabajador/SignUp/slider";
 import verify from "../../../Views/Trabajador/SignUp/Verificacion";
 import fotoPerfil from "../../../Views/Trabajador/SignUp/FotoPerfil";
@@ -23,11 +22,6 @@ export default function RootStackScreen() {
         name="datos"
         component={Datos}
         options={{ title: "datos" }}
-      />
-      <SingUpTrabajador.Screen
-        name="datos2"
-        component={Datos2}
-        options={{ title: "datos2" }}
       />
       <SingUpTrabajador.Screen
         name="verify"

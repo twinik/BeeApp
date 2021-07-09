@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  Button,
   ImageBackground,
   Image,
   Platform,
@@ -22,6 +23,7 @@ import {
   Ionicons,
 } from "@expo/vector-icons";
 import UserCard from "../../../Components/userCard";
+import FormDatos from "../../../Components/Forms/FormDatos";
 import { CheckBox } from "react-native-elements";
 import * as ImagePicker from "expo-image-picker";
 import { AntDesign } from "@expo/vector-icons";
@@ -30,12 +32,25 @@ import ContainerKeyboardView from "./../../../Components/ContainerKeyboardView";
 import HeaderRegistro from "./../../../Components/HeaderRegistro";
 import ContenidoRegistro from "./../../../Components/ContenidoRegistro";
 import { Isao, Fumi, Sae } from "react-native-textinput-effects";
-import DatePicker from "@dietime/react-native-date-picker";
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 const { width, height } = Dimensions.get("window");
 
 export default function Datos({ navigation }) {
-  const [date, setDate] = useState();
+  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+
+  const showDatePicker = () => {
+    setDatePickerVisibility(true);
+  };
+
+  const hideDatePicker = () => {
+    setDatePickerVisibility(false);
+  };
+
+  const handleConfirm = (date) => {
+    console.warn("A date has been picked: ", date);
+    hideDatePicker();
+  };
 
   return (
     <ContainerKeyboardView>
@@ -49,84 +64,11 @@ export default function Datos({ navigation }) {
           </HeaderRegistro>
           <ContenidoRegistro addStyle={{ width: width / 1.2 }}>
             <Text style={estilitos.subtitulo}>
-              Porfavor, ingrese su nombre, apellido, número de teléfono y fecha
-              de nacimiento
+              Porfavor, ingrese su nombre, apellido, número de teléfono, fecha
+              de nacimiento, Email y contraseña
             </Text>
 
-            <Sae
-              label={"Nombre"}
-              iconClass={FontAwesome5}
-              iconName={"user-alt"}
-              iconColor={"#7936E4"}
-              labelStyle={{ color: "#B3B3B3", fontWeight: "normal" }}
-              inputPadding={16}
-              labelHeight={24}
-              borderHeight={2}
-              autoCorrect={false}
-              inputStyle={{
-                color: "black",
-                fontSize: 16,
-                fontWeight: "normal",
-              }}
-            />
-
-            <Sae
-              label={"Apellido"}
-              iconClass={FontAwesome5}
-              iconName={"user-alt"}
-              iconColor={"#7936E4"}
-              labelStyle={{ color: "#B3B3B3", fontWeight: "normal" }}
-              inputPadding={16}
-              labelHeight={24}
-              // active border height
-              borderHeight={2}
-              // TextInput props
-              autoCorrect={false}
-              inputStyle={{
-                color: "black",
-                fontSize: 16,
-                fontWeight: "normal",
-              }}
-            />
-
-            <Sae
-              label={"Número de Teléfono"}
-              iconClass={MaterialCommunityIcons}
-              iconName={"cellphone"}
-              iconColor={"#7936E4"}
-              labelStyle={{ color: "#B3B3B3", fontWeight: "normal" }}
-              inputPadding={16}
-              labelHeight={24}
-              borderHeight={2}
-              dataDetectorTypes="phoneNumber"
-              keyboardType="number-pad"
-              maxLength={10}
-              autoCorrect={false}
-              inputStyle={{
-                color: "black",
-                fontSize: 16,
-                fontWeight: "normal",
-              }}
-            />
-
-            <Sae
-              label={"Fecha de nacimiento"}
-              iconClass={Ionicons}
-              iconName={"md-calendar-outline"}
-              iconColor={"#7936E4"}
-              labelStyle={{ color: "#B3B3B3", fontWeight: "normal" }}
-              inputPadding={16}
-              labelHeight={24}
-              borderHeight={2}
-              dataDetectorTypes="calendarEvent"
-              maxLength={10}
-              autoCorrect={false}
-              inputStyle={{
-                color: "black",
-                fontSize: 16,
-                fontWeight: "normal",
-              }}
-            />
+            <FormDatos />
           </ContenidoRegistro>
 
           <View style={{ flex: 1, flexDirection: "row" }}>
@@ -142,7 +84,7 @@ export default function Datos({ navigation }) {
                 type="Next"
                 title="Siguiente"
                 color="#fff"
-                onPress={() => navigation.navigate("Datos2")}
+                onPress={() => navigation.navigate("verify")}
               />
             </View>
           </View>

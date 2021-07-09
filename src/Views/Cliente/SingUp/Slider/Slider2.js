@@ -17,7 +17,8 @@ export default function Info({ navigation }) {
       <View style={{ flex: 2 }}>
         <Text style={style.titulo}>Descubre trabajadores{"\n"}cerca tuyo</Text>
         <Text style={style.subTitulo}>
-        Encuentra las soluciones que{"\n"}usted necesita desde la{"\n"}comodidad de tu casa
+          Encuentra las soluciones que{"\n"}usted necesita desde la{"\n"}
+          comodidad de su casa
         </Text>
       </View>
     </View>

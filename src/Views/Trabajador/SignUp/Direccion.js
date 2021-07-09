@@ -24,7 +24,7 @@ import BotonSiguiente from "../../../Components/BotonSiguiente";
 import ContainerKeyboardView from "./../../../Components/ContainerKeyboardView";
 import HeaderRegistro from "./../../../Components/HeaderRegistro";
 import ContenidoRegistro from "./../../../Components/ContenidoRegistro";
-import ModalDropdown from "react-native-modal-dropdown";
+import FormDireccion from "../../../Components/Forms/FormDireccion";
 import BotonNextBack from "../../../Components/BotonNextBack";
 import { Isao, Sae, Fumi } from "react-native-textinput-effects";
 
@@ -49,82 +49,27 @@ export default function Verificacion({ navigation }) {
             compartida con nadie
           </Text>
           <View style={styles.containerInputs}>
-            <Isao
-              label={"Dirección"}
-              activeColor={"#7936E4"}
-              borderHeight={8}
-              inputPadding={16}
-              labelHeight={24}
-              passiveColor={"#B3B3B3"}
-              dataDetectorTypes="address"
-              inputStyle={{
-                color: "black",
-                fontSize: 16,
-                fontWeight: "normal",
-              }}
-              style={{ width: "100%" }}
-            />
-
-            <Isao
-              label={"Dirección 2 (opcional)"}
-              activeColor={"#7936E4"}
-              borderHeight={8}
-              inputPadding={16}
-              labelHeight={24}
-              passiveColor={"#B3B3B3"}
-              dataDetectorTypes="address"
-              inputStyle={{
-                color: "black",
-                fontSize: 16,
-                fontWeight: "normal",
-              }}
-              style={{ width: "100%" }}
-            />
-
-            <ModalDropdown
-              isFullWidth={true}
-              dropdownTextStyle={{ color: "black", fontSize: 16 }}
-              defaultTextStyle={{ color: "#939393" }}
-              textStyle={{ color: "black", fontSize: 16 }}
-              defaultValue="Provincia"
-              style={{ width: "100%", margin: 10, padding: 10 }}
-              options={[
-                "Buenos Aires",
-                "Capital Federal",
-                "Chaco",
-                "Chubut",
-                "Córdoba",
-                "Corrientes",
-                "Entre Ríos",
-                "Formosa",
-                "Jujuy",
-                "La Pampa",
-                "La Rioja",
-                "Mendoza",
-                "Misiones",
-                "Neuquén",
-                "Río Negro",
-                "Salta",
-                "San Juan",
-                "San Luis",
-                "Santa Cruz",
-                "Santa Fe",
-                "Santiago del Estero",
-                "Tierra del Fuego",
-                "Tucumán",
-              ]}
-            />
+            <FormDireccion />
           </View>
         </ContenidoRegistro>
 
         <View style={{ flex: 1, flexDirection: "row" }}>
-            <View style={styles.containerVolver}>
-              <BotonNextBack title="Volver" color="#7936E4" onPress={() => navigation.goBack()}/>
-            </View>
-            <View style={styles.containerBoton}>
-            <BotonNextBack type="Next" title="Siguiente" color='#fff' onPress={() => navigation.navigate("servicio")}/>              
-            </View>
+          <View style={styles.containerVolver}>
+            <BotonNextBack
+              title="Volver"
+              color="#7936E4"
+              onPress={() => navigation.goBack()}
+            />
           </View>
+          <View style={styles.containerBoton}>
+            <BotonNextBack
+              type="Next"
+              title="Siguiente"
+              color="#fff"
+              onPress={() => navigation.navigate("servicio")}
+            />
+          </View>
+        </View>
       </ImageBackground>
     </ContainerKeyboardView>
   );

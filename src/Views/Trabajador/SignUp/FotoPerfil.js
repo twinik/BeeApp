@@ -65,7 +65,8 @@ export default function Verificacion({ navigation }) {
 
         <ContenidoRegistro>
           <Text style={styles.text2}>
-            Necesitamos una foto suya para que{"\n"}podamos comprobar su identidad
+            Necesitamos una foto suya para que{"\n"}podamos comprobar su
+            identidad
           </Text>
           <View style={styles.containerFotoTexto}>
             <View style={styles.containerFoto}>
@@ -86,21 +87,30 @@ export default function Verificacion({ navigation }) {
             </View>
             <View style={styles.containerTextPoints}>
               <Text style={{ fontSize: 18 }}>
-              • Foto de cara de frente y actual{"\n"}• Fondo limpio y simple{"\n"}• Buena
-                iluminacion y no movida
+                • Foto de cara de frente y actual{"\n"}• Fondo limpio y simple
+                {"\n"}• Buena iluminacion y no movida
               </Text>
             </View>
           </View>
         </ContenidoRegistro>
 
         <View style={{ flex: 1, flexDirection: "row" }}>
-            <View style={styles.containerVolver}>
-              <BotonNextBack title="Volver" color="#7936E4" onPress={() => navigation.goBack()}/>
-            </View>
-            <View style={styles.containerBoton}>
-            <BotonNextBack type="Next" title="Siguiente" color='#fff' onPress={() => navigation.navigate("direccion")}/>              
-            </View>
+          <View style={styles.containerVolver}>
+            <BotonNextBack
+              title="Volver"
+              color="#7936E4"
+              onPress={() => navigation.goBack()}
+            />
           </View>
+          <View style={styles.containerBoton}>
+            <BotonNextBack
+              type="Next"
+              title="Siguiente"
+              color="#fff"
+              onPress={() => navigation.navigate("direccion")}
+            />
+          </View>
+        </View>
       </ImageBackground>
     </ContainerKeyboardView>
   );

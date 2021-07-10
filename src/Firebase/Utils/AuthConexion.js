@@ -1,11 +1,14 @@
 async function obtenerUsuario(uid) {
-    var resultado
-    await fetch(`http://192.168.0.12:8080/Auth/obtener/${uid}`).then((response) => response.json()).then((json) => {
-        resultado=json
-    }).catch((error) => {
-        console.error(error);
+  var resultado;
+  await fetch(`https://young-oasis-25559.herokuapp.com/Auth/obtener/${uid}`)
+    .then((response) => response.json())
+    .then((json) => {
+      resultado = json;
+    })
+    .catch((error) => {
+      console.error(error);
     });
-return resultado
+  return resultado;
 }
 
-export {obtenerUsuario};
+export { obtenerUsuario };

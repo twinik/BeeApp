@@ -15,6 +15,7 @@ import {
 import BotonNextBack from "../../Components/BotonNextBack";
 import ContainerKeyboardView from "./../../Components/ContainerKeyboardView";
 import AppContext from "../../Context/AppContext";
+import FormSignIn from "../../Components/Forms/FormSignIn";
 import {
   AntDesign,
   FontAwesome5,
@@ -41,6 +42,7 @@ export default function SignIn({ navigation, route }) {
           </View>
           <View style={estilos.containerContent}>
             <View style={estilos.containerInputs}>
+              {/* <FormSignIn /> */}
               <Sae
                 label={"Email"}
                 iconClass={MaterialIcons}

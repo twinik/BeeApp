@@ -46,7 +46,7 @@ export default function Profile({ navigation, onPressMenu, onPressHelp }) {
         <Text style={styles.nombreApellido}>
           {User.nombre} {User.apellido}
         </Text>
-        <Text style={styles.stars}>⭐ 4,92</Text>
+        <Text style={styles.stars}>⭐ {User.calificacion}</Text>
       </View>
     </View>
   );
@@ -55,7 +55,6 @@ export default function Profile({ navigation, onPressMenu, onPressHelp }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "red",
   },
   containerContenidoNavbar: {
     flex: 1,

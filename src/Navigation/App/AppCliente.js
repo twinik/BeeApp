@@ -19,21 +19,6 @@ export default function App() {
       drawerContent={(props) => <MenuCliente {...props} />}
     >
       <DrawerCliente.Screen
-        name="Home"
-        component={Home}
-        options={{
-          title: "Home",
-          drawerIcon: ({ focused, size }) => (
-            <FontAwesome
-              name="home"
-              size={size}
-              color={setearColors(focused)}
-            />
-          ),
-        }}
-      />
-
-      <DrawerCliente.Screen
         name="HomePro"
         component={HomePro}
         options={{

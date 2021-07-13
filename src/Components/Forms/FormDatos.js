@@ -6,6 +6,7 @@ import {
   Button,
   Text,
   TextInput,
+  Keyboard,
 } from "react-native";
 import {
   FontAwesome5,
@@ -26,8 +27,8 @@ export default function FormDatos() {
     setDatePickerVisibility(false);
   };
   const handleConfirm = (date) => {
-    Moment.locale("es");
-    setValor(Moment(date).format("d/MMM/YYYY"));
+    Moment.locale("en");
+    setValor(Moment(date).format("DD/MM/YYYY"));
     console.log("A date has been picked: ", date);
     hideDatePicker();
   };
@@ -97,27 +98,29 @@ export default function FormDatos() {
         onCancel={hideDatePicker}
       />
 
-      <Sae
-        onFocus={showDatePicker}
-        label={"Fecha de nacimiento"}
-        iconClass={Ionicons}
-        iconName={"md-calendar-outline"}
-        iconColor={"#7936E4"}
-        labelStyle={{ color: "#B3B3B3", fontWeight: "normal" }}
-        inputPadding={16}
-        labelHeight={24}
-        borderHeight={2}
-        dataDetectorTypes="all"
-        format
-        maxLength={10}
-        autoCorrect={false}
-        value={valor}
-        inputStyle={{
-          color: "black",
-          fontSize: 16,
-          fontWeight: "normal",
-        }}
-      />
+      <TouchableOpacity onPress={showDatePicker}>
+        <Sae
+          label={"Fecha de nacimiento"}
+          iconClass={Ionicons}
+          iconName={"md-calendar-outline"}
+          iconColor={"#7936E4"}
+          labelStyle={{ color: "#B3B3B3", fontWeight: "normal" }}
+          inputPadding={16}
+          labelHeight={24}
+          borderHeight={2}
+          dataDetectorTypes="all"
+          autoCorrect={false}
+          value={valor}
+          editable={false}
+          keyboardType={null}
+          inputStyle={{
+            color: "black",
+            fontSize: 16,
+            fontWeight: "normal",
+          }}
+        />
+      </TouchableOpacity>
+
       <Sae
         label={"Email"}
         iconClass={MaterialIcons}

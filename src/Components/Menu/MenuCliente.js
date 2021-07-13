@@ -6,12 +6,14 @@ import {
   DrawerItem,
 } from "@react-navigation/drawer";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import AppContext from "../../Context/AppContext";
 import { FontAwesome } from "@expo/vector-icons";
 import { Dimensions } from "react-native";
 
 const windowHeight = Dimensions.get("window").height;
 
 export default function CustomDrawerContent(props) {
+  const { User } = React.useContext(AppContext);
   return (
     <DrawerContentScrollView {...props}>
       <View style={estilos.header}>
@@ -21,7 +23,9 @@ export default function CustomDrawerContent(props) {
           </View>
         </View>
         <View style={estilos.container}>
-          <Text style={estilos.userName}>Galo Galotico</Text>
+          <Text style={estilos.userName}>
+            {User.nombre} {User.apellido}
+          </Text>
           <View style={{ flexDirection: "row" }}>
             <FontAwesome
               style={{ marginRight: 5, marginTop: 3 }}

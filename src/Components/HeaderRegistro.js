@@ -27,7 +27,7 @@ export default class containerHeader extends React.Component {
 
 const styles = StyleSheet.create({
   containerHeader: {
-    flex: 4,
+    flex: 3,
     marginHorizontal: "8%",
     justifyContent: "flex-end",
   },

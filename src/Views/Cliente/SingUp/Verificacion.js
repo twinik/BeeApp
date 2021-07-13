@@ -36,61 +36,65 @@ export default function Verificacion({ navigation }) {
     setValue,
   });
   return (
-    <ContainerKeyboardView>
-      <ImageBackground
-        style={styles.container}
-        source={require("../../../../assets/wallpaper.png")}
-      >
-        <>
-          <HeaderRegistro>
-            <View style={styles.containerTitulo}>
-              <Text style={styles.titulo}>Verificación</Text>
-            </View>
-          </HeaderRegistro>
-
-          <ContenidoRegistro>
-            <Text style={styles.text2}>
-              Hemos enviado un código de verificación a su celular.
-              {"\n"}Ingrese el código de 4 digitos que ha recibido
-            </Text>
-            <Text style={styles.text3}>¿No has recibido ningun codigo?</Text>
-            <TouchableOpacity onPress={() => alert("Vuelve a enviar")}>
-              <Text style={styles.text4}>Volver a enviar</Text>
-            </TouchableOpacity>
-            <View style={{ flex: 1, justifyContent:'center'}}>
-              <CodeField
-                ref={ref}
-                {...props}
-                // Use `caretHidden={false}` when users can't paste a text value, because context menu doesn't appear
-                value={value}
-                onChangeText={setValue}
-                cellCount={CELL_COUNT}
-                rootStyle={styles.codeFieldRoot}
-                keyboardType="number-pad"
-                textContentType="oneTimeCode"
-                renderCell={({ index, symbol, isFocused }) => (
-                  <Text
-                    key={index}
-                    style={[styles.cell, isFocused && styles.focusCell]}
-                    onLayout={getCellOnLayoutHandler(index)}
-                  >
-                    {symbol || (isFocused ? <Cursor /> : null)}
-                  </Text>
-                )}
-              />
-            </View>
-          </ContenidoRegistro>
-
-          <View style={{ flex: 1, flexDirection: "row" }}>
-            <View style={styles.containerVolver}>
-              <BotonNextBack title="Volver" color="#7936E4" onPress={() => navigation.goBack()}/>
-            </View>
-            <View style={styles.containerBoton}>
-            <BotonNextBack type="Next" title="Siguiente" color='#fff' onPress={() => navigation.navigate("Documentos")}/>              
-            </View>
+    <ContainerKeyboardView style>
+      <View style={styles.container}>
+        <HeaderRegistro>
+          <View style={styles.containerTitulo}>
+            <Text style={styles.titulo}>Verificación</Text>
           </View>
-        </>
-      </ImageBackground>
+        </HeaderRegistro>
+
+        <ContenidoRegistro>
+          <Text style={styles.text2}>
+            Hemos enviado un código de verificación a su celular.
+            {"\n"}Ingrese el código de 4 digitos que ha recibido
+          </Text>
+          <Text style={styles.text3}>¿No has recibido ningun codigo?</Text>
+          <TouchableOpacity onPress={() => alert("Vuelve a enviar")}>
+            <Text style={styles.text4}>Volver a enviar</Text>
+          </TouchableOpacity>
+          <View style={{ flex: 1, justifyContent: "center" }}>
+            <CodeField
+              ref={ref}
+              {...props}
+              // Use `caretHidden={false}` when users can't paste a text value, because context menu doesn't appear
+              value={value}
+              onChangeText={setValue}
+              cellCount={CELL_COUNT}
+              rootStyle={styles.codeFieldRoot}
+              keyboardType="number-pad"
+              textContentType="oneTimeCode"
+              renderCell={({ index, symbol, isFocused }) => (
+                <Text
+                  key={index}
+                  style={[styles.cell, isFocused && styles.focusCell]}
+                  onLayout={getCellOnLayoutHandler(index)}
+                >
+                  {symbol || (isFocused ? <Cursor /> : null)}
+                </Text>
+              )}
+            />
+          </View>
+        </ContenidoRegistro>
+
+        <View style={{ flex: 1, flexDirection: "row" }}>
+          <View style={styles.containerVolver}>
+            <BotonNextBack
+              title="Volver"
+              color="#7936E4"
+              onPress={() => navigation.goBack()}
+            />
+          </View>
+          <View style={styles.containerBoton}>
+            <BotonNextBack
+              type="Next"
+              title="Siguiente"
+              color="#fff"
+              onPress={() => navigation.navigate("Documentos")}
+            />
+          </View>
+        </View>
+      </View>
     </ContainerKeyboardView>
   );
 }
@@ -98,7 +102,7 @@ export default function Verificacion({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:'white'
+    backgroundColor: "white",
   },
 
   header: {

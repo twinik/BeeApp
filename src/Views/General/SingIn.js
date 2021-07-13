@@ -11,6 +11,7 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   TouchableOpacity,
+  StatusBar,
 } from "react-native";
 import BotonNextBack from "../../Components/BotonNextBack";
 import ContainerKeyboardView from "./../../Components/ContainerKeyboardView";
@@ -23,8 +24,12 @@ import {
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
 import { Sae, Isao } from "react-native-textinput-effects";
+import HeaderRegistro from "../../Components/HeaderRegistro";
+import LottieView from "lottie-react-native";
+const { width, height } = Dimensions.get("window");
 
 export default function SignIn({ navigation, route }) {
+  StatusBar.setBackgroundColor("#7936E4", true);
   const [email, setEmail] = React.useState("");
   const [contraseña, setContraseña] = React.useState("");
   /*const { signIn } = React.useContext(AuthContext);*/
@@ -32,14 +37,22 @@ export default function SignIn({ navigation, route }) {
 
   return (
     <ContainerKeyboardView>
-      <ImageBackground
-        style={estilos.container}
-        source={require("../../../assets/wallpaper.png")}
-      >
+      <View style={estilos.container}>
         <>
-          <View style={estilos.containerTexto}>
-            <Text style={estilos.titulo}>Inicio de{"\n"}sesión</Text>
+          <View style={estilos.containerLottie}>
+            <LottieView
+              source={require("../../../assets/Animaciones/background.json")}
+              autoPlay
+              loop
+              style={{ width: "100%", marginTop: "10%" }}
+            />
           </View>
+          <View style={{ flex: 2, alignItems: "center" }}>
+            <View style={estilos.containerTitulo}>
+              <Text style={estilos.titulo}>Inicio de{"\n"}Sesion</Text>
+            </View>
+          </View>
+
           <View style={estilos.containerContent}>
             <View style={estilos.containerInputs}>
               {/* <FormSignIn /> */}
@@ -113,7 +126,7 @@ export default function SignIn({ navigation, route }) {
             </View>
           </View>
         </>
-      </ImageBackground>
+      </View>
     </ContainerKeyboardView>
   );
 }
@@ -122,11 +135,24 @@ const estilos = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "white",
+    marginTop: StatusBar.currentHeight,
   },
   containerTexto: {
     flex: 5,
     justifyContent: "flex-end",
     marginHorizontal: "10%",
+  },
+  containerTitulo: {
+    flex: 1,
+    justifyContent: "flex-end",
+    width: width / 1.2,
+  },
+  containerLottie: {
+    flex: 2,
+    backgroundColor: "#7936E4",
+    alignItems: "flex-end",
+    justifyContent: "center",
+    flexDirection: "row",
   },
   containerContent: {
     flex: 4,

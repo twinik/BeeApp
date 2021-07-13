@@ -8,32 +8,43 @@ import {
 } from "react-native";
 import AppContext from "../../Context/AppContext";
 import BotonNextBack from "../../Components/BotonNextBack";
+import LottieView from "lottie-react-native";
 
 const { width, height } = Dimensions.get("window");
 
-
 export default function Verificacion({ navigation }) {
-  
-const { SignUp } = React.useContext(AppContext);
+  const { SignUp } = React.useContext(AppContext);
   return (
-    <ImageBackground
-      style={styles.container}
-      source={require("../../../assets/wallpaper.png")}
-    >
+    <View style={styles.container}>
+      <View style={styles.containerLottie}>
+        <LottieView
+          source={require("../../../assets/Animaciones/background.json")}
+          autoPlay
+          loop
+        />
+      </View>
       <View style={styles.containerTitulo}>
         <Text style={styles.text}>¡Listo!{"\n"}Bienvenido a Servbee</Text>
       </View>
 
       <View style={{ flex: 1, flexDirection: "row" }}>
-            <View style={styles.containerVolver}>
-              <BotonNextBack title="Volver" color="#7936E4" onPress={() => navigation.goBack()}/>
-            </View>
-            <View style={styles.containerBoton}>
-              <BotonNextBack type="Next" title="Iniciar Sesión" color='#fff' onPress={() => navigation.replace("SignIn")}/>           
-            </View>
+        <View style={styles.containerVolver}>
+          <BotonNextBack
+            title="Volver"
+            color="#7936E4"
+            onPress={() => navigation.goBack()}
+          />
+        </View>
+        <View style={styles.containerBoton}>
+          <BotonNextBack
+            type="Next"
+            title="Iniciar Sesión"
+            color="#fff"
+            onPress={() => navigation.replace("SignIn")}
+          />
+        </View>
       </View>
-
-    </ImageBackground>
+    </View>
   );
 }
 
@@ -41,12 +52,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "white",
-    flexDirection: "column",
   },
 
   containerTitulo: {
-    flex: 1.8,
-    justifyContent: "flex-end",
+    flex: 2.1,
+    justifyContent: "center",
   },
 
   containerBoton: {
@@ -58,6 +68,11 @@ const styles = StyleSheet.create({
   containerVolver: {
     flex: 1,
     justifyContent: "flex-end",
+  },
+
+  containerLottie: {
+    flex: 1,
+    justifyContent: "flex-start",
   },
 
   Boton: {

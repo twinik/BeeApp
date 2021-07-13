@@ -15,16 +15,24 @@ import { AntDesign } from "@expo/vector-icons";
 import Card from "../../Components/Cards/card";
 import Card2 from "../../Components/Cards/card2";
 import BotonNextBack from "../../Components/BotonNextBack";
+import LottieView from "lottie-react-native";
 const { width, height } = Dimensions.get("window");
 
 export default function SignUp({ navigation }) {
+  StatusBar.setBackgroundColor("#7936E4", true);
   return (
-    <ImageBackground
-      style={estilos.container}
-      source={require("../../../assets/wallpaper.png")}
-    >
-      <View style={estilos.containerTexto}>
-        <Text style={estilos.titulo}>Crea tu{"\n"}cuenta</Text>
+    <View style={estilos.container}>
+      <View style={estilos.containerLottie}>
+        <LottieView
+          source={require("../../../assets/Animaciones/background.json")}
+          autoPlay
+          loop
+        />
+      </View>
+      <View style={{ flex: 2 }}>
+        <View style={estilos.containerTitulo}>
+          <Text style={estilos.titulo}>Crea tu{"\n"}cuenta</Text>
+        </View>
       </View>
       <View style={estilos.contenedorCards}>
         <Card
@@ -46,7 +54,7 @@ export default function SignUp({ navigation }) {
           <AntDesign name="left" size={32} color="#7936E4" />
         </TouchableOpacity>
       </View>
-    </ImageBackground>
+    </View>
   );
 }
 
@@ -58,7 +66,14 @@ const estilos = StyleSheet.create({
   containerTexto: {
     flex: 4,
     justifyContent: "flex-end",
+  },
+  containerTitulo: {
+    flex: 1,
+    justifyContent: "flex-end",
     marginHorizontal: "10%",
+  },
+  containerLottie: {
+    flex: 2,
   },
   sobra: {
     flex: 2,
@@ -74,7 +89,7 @@ const estilos = StyleSheet.create({
     marginHorizontal: "10%",
   },
   titulo: {
-    fontSize: 43,
+    fontSize: 48,
   },
   subtitulo: {
     textAlign: "center",

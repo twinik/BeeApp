@@ -37,6 +37,8 @@ import DateTimePickerModal from "react-native-modal-datetime-picker";
 const { width, height } = Dimensions.get("window");
 
 export default function Datos({ navigation }) {
+  StatusBar.setBackgroundColor("#7936E4", true);
+
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
 
   const showDatePicker = () => {
@@ -54,42 +56,37 @@ export default function Datos({ navigation }) {
 
   return (
     <ContainerKeyboardView>
-      <ImageBackground
-        style={estilitos.container}
-        source={require("../../../../assets/wallpaper.png")}
-      >
-        <>
-          <HeaderRegistro>
-            <Text style={estilitos.titulo}>Datos</Text>
-          </HeaderRegistro>
-          <ContenidoRegistro addStyle={{ width: width / 1.2 }}>
-            <Text style={estilitos.subtitulo}>
-              Porfavor, ingrese su nombre, apellido, número de teléfono, fecha
-              de nacimiento, Email y contraseña
-            </Text>
+      <View style={estilitos.container}>
+        <HeaderRegistro>
+          <Text style={estilitos.titulo}>Datos</Text>
+        </HeaderRegistro>
+        <ContenidoRegistro addStyle={{ width: width / 1.2 }}>
+          <Text style={estilitos.subtitulo}>
+            Porfavor, ingrese su nombre, apellido, número de teléfono, fecha de
+            nacimiento, Email y contraseña
+          </Text>
 
-            <FormDatos />
-          </ContenidoRegistro>
+          <FormDatos />
+        </ContenidoRegistro>
 
-          <View style={{ flex: 1, flexDirection: "row" }}>
-            <View style={estilitos.containerVolver}>
-              <BotonNextBack
-                title="Volver"
-                color="#7936E4"
-                onPress={() => navigation.goBack()}
-              />
-            </View>
-            <View style={estilitos.containerBoton}>
-              <BotonNextBack
-                type="Next"
-                title="Siguiente"
-                color="#fff"
-                onPress={() => navigation.navigate("verify")}
-              />
-            </View>
+        <View style={{ flex: 1, flexDirection: "row" }}>
+          <View style={estilitos.containerVolver}>
+            <BotonNextBack
+              title="Volver"
+              color="#7936E4"
+              onPress={() => navigation.goBack()}
+            />
           </View>
-        </>
-      </ImageBackground>
+          <View style={estilitos.containerBoton}>
+            <BotonNextBack
+              type="Next"
+              title="Siguiente"
+              color="#fff"
+              onPress={() => navigation.navigate("verify")}
+            />
+          </View>
+        </View>
+      </View>
     </ContainerKeyboardView>
   );
 }

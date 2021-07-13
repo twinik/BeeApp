@@ -10,7 +10,7 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   TouchableOpacity,
-  StatusBar
+  StatusBar,
 } from "react-native";
 import BotonSiguiente from "../../../Components/BotonSiguiente";
 import Picker from "../../../Components/ImagePicker";
@@ -28,13 +28,9 @@ export default function Verificacion({ navigation }) {
     2: { estado: null, texto: "Foto trasera de su Dni" },
   });
 
-
   return (
     <ContainerKeyboardView>
-      <ImageBackground
-        style={styles.container}
-        source={require("../../../../assets/wallpaper.png")}
-      >
+      <View style={styles.container}>
         <HeaderRegistro>
           <View style={styles.containerTitulo}>
             <Text style={styles.titulo}>Identidad</Text>
@@ -43,7 +39,8 @@ export default function Verificacion({ navigation }) {
 
         <ContenidoRegistro>
           <Text style={[styles.text2]}>
-          Por ultimo necesitamos algunos documentos más para confirmar su identidad
+            Por ultimo necesitamos algunos documentos más para confirmar su
+            identidad
           </Text>
           <View
             style={{
@@ -58,14 +55,23 @@ export default function Verificacion({ navigation }) {
         </ContenidoRegistro>
 
         <View style={{ flex: 1, flexDirection: "row" }}>
-            <View style={styles.containerVolver}>
-              <BotonNextBack title="Volver" color="#7936E4" onPress={() => navigation.goBack()}/>
-            </View>
-            <View style={styles.containerBoton}>
-            <BotonNextBack type="Next" title="Siguiente" color='#fff' onPress={() => navigation.navigate("finRegistro")}/>              
-            </View>
+          <View style={styles.containerVolver}>
+            <BotonNextBack
+              title="Volver"
+              color="#7936E4"
+              onPress={() => navigation.goBack()}
+            />
           </View>
-      </ImageBackground>
+          <View style={styles.containerBoton}>
+            <BotonNextBack
+              type="Next"
+              title="Siguiente"
+              color="#fff"
+              onPress={() => navigation.navigate("finRegistro")}
+            />
+          </View>
+        </View>
+      </View>
     </ContainerKeyboardView>
   );
 }
@@ -74,7 +80,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    backgroundColor:'white'
+    backgroundColor: "white",
   },
 
   containerTitulo: {

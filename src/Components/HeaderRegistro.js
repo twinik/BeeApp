@@ -7,8 +7,9 @@ import {
   Keyboard,
   View,
   StyleSheet,
+  Dimensions,
 } from "react-native";
-
+import LottieView from "lottie-react-native";
 export default class containerHeader extends React.Component {
   constructor(props) {
     super(props);
@@ -21,14 +22,32 @@ export default class containerHeader extends React.Component {
   }
 
   render() {
-    return <View style={this.style}>{this.props.children}</View>;
+    return (
+      <View style={styles.container}>
+        <View style={styles.containerLottie}>
+          <LottieView
+            source={require("../../assets/Animaciones/background.json")}
+            autoPlay
+            loop
+          />
+        </View>
+
+        <View style={this.style}>{this.props.children}</View>
+      </View>
+    );
   }
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 2,
+  },
   containerHeader: {
-    flex: 3,
+    flex: 1,
     marginHorizontal: "8%",
     justifyContent: "flex-end",
+  },
+  containerLottie: {
+    flex: 5,
   },
 });

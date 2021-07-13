@@ -32,6 +32,7 @@ import BotonNextBack from "../../../Components/BotonNextBack";
 import ContainerKeyboardView from "./../../../Components/ContainerKeyboardView";
 import HeaderRegistro from "./../../../Components/HeaderRegistro";
 import ContenidoRegistro from "./../../../Components/ContenidoRegistro";
+import MenuNextBack from "../../../Components/Botones/MenuNextBack";
 import { Isao, Fumi, Sae } from "react-native-textinput-effects";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 
@@ -71,7 +72,6 @@ export default function Datos({ navigation }) {
 
             <FormDatos />
           </ContenidoRegistro>
-
           <View style={{ flex: 1, flexDirection: "row" }}>
             <View style={estilitos.containerVolver}>
               <BotonNextBack

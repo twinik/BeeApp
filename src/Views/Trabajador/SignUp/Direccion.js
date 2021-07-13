@@ -5,6 +5,7 @@ import {
   View,
   Dimensions,
   ImageBackground,
+  ScrollView,
   TextInput,
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
@@ -19,6 +20,7 @@ import {
   Ionicons,
   AntDesign,
   SimpleLineIcons,
+  Entypo,
 } from "@expo/vector-icons";
 import BotonSiguiente from "../../../Components/BotonSiguiente";
 import ContainerKeyboardView from "./../../../Components/ContainerKeyboardView";
@@ -27,6 +29,7 @@ import ContenidoRegistro from "./../../../Components/ContenidoRegistro";
 import FormDireccion from "../../../Components/Forms/FormDireccion";
 import BotonNextBack from "../../../Components/BotonNextBack";
 import { Isao, Sae, Fumi } from "react-native-textinput-effects";
+import ModalDropdown from "react-native-modal-dropdown";
 
 const { width, height } = Dimensions.get("window");
 
@@ -89,7 +92,7 @@ const styles = StyleSheet.create({
   },
 
   containerInputs: {
-    alignItems: "center",
+    flex: 1,
     width: width / 1.3,
   },
 

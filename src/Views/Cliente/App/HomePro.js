@@ -1,15 +1,10 @@
 import React from "react";
-import {
-  StyleSheet,
-  View,
-  StatusBar,
-} from "react-native";
+import { StyleSheet, View, StatusBar } from "react-native";
 
 import Navbar from "../../../Components/Menu/Navbar";
 
-
 export default function Bienvenido({ navigation }) {
-  StatusBar.setBackgroundColor('#7936E4', true);
+  StatusBar.setBackgroundColor("#7936E4", true);
   return (
     <View style={styles.container}>
       <Navbar
@@ -17,9 +12,7 @@ export default function Bienvenido({ navigation }) {
         onPressHelp={() => alert("*Chat*")}
         onPressSearch={() => navigation.navigate("Buscador")}
       />
-      <View style={styles.containerInterior}>
-        
-      </View>
+      <View style={styles.containerInterior}></View>
     </View>
   );
 }
@@ -32,9 +25,9 @@ const styles = StyleSheet.create({
   },
   containerInterior: {
     flex: 1,
-    backgroundColor: "red",
+    backgroundColor: "white",
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
-    paddingHorizontal:30
+    paddingHorizontal: 30,
   },
 });

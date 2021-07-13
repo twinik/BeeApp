@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { TouchableOpacity, StyleSheet, ScrollView } from "react-native";
+import {
+  TouchableOpacity,
+  StyleSheet,
+  ScrollView,
+  Button,
+  Text,
+  TextInput,
+} from "react-native";
 import {
   FontAwesome5,
   MaterialCommunityIcons,
@@ -8,22 +15,24 @@ import {
 } from "@expo/vector-icons";
 import { Sae } from "react-native-textinput-effects";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
+import Moment from "moment";
 
 export default function FormDatos() {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
-
   const showDatePicker = () => {
     setDatePickerVisibility(true);
   };
-
   const hideDatePicker = () => {
     setDatePickerVisibility(false);
   };
-
   const handleConfirm = (date) => {
-    console.warn("A date has been picked: ", date);
+    Moment.locale("es");
+    setValor(Moment(date).format("d/MMM/YYYY"));
+    console.log("A date has been picked: ", date);
     hideDatePicker();
   };
+
+  const [valor, setValor] = useState("");
 
   return (
     <ScrollView style={style.container}>
@@ -43,7 +52,6 @@ export default function FormDatos() {
           fontWeight: "normal",
         }}
       />
-
       <Sae
         label={"Apellido"}
         iconClass={FontAwesome5}
@@ -62,7 +70,6 @@ export default function FormDatos() {
           fontWeight: "normal",
         }}
       />
-
       <Sae
         label={"Número de Teléfono"}
         iconClass={MaterialCommunityIcons}
@@ -83,28 +90,6 @@ export default function FormDatos() {
         }}
       />
 
-      <TouchableOpacity onPress={showDatePicker}>
-        <Sae
-          onPress={showDatePicker}
-          label={"Fecha de nacimiento"}
-          iconClass={Ionicons}
-          iconName={"md-calendar-outline"}
-          iconColor={"#7936E4"}
-          labelStyle={{ color: "#B3B3B3", fontWeight: "normal" }}
-          inputPadding={16}
-          labelHeight={24}
-          borderHeight={2}
-          dataDetectorTypes="calendarEvent"
-          maxLength={10}
-          autoCorrect={false}
-          inputStyle={{
-            color: "black",
-            fontSize: 16,
-            fontWeight: "normal",
-          }}
-        />
-      </TouchableOpacity>
-
       <DateTimePickerModal
         isVisible={isDatePickerVisible}
         mode="date"
@@ -112,6 +97,27 @@ export default function FormDatos() {
         onCancel={hideDatePicker}
       />
 
+      <Sae
+        onFocus={showDatePicker}
+        label={"Fecha de nacimiento"}
+        iconClass={Ionicons}
+        iconName={"md-calendar-outline"}
+        iconColor={"#7936E4"}
+        labelStyle={{ color: "#B3B3B3", fontWeight: "normal" }}
+        inputPadding={16}
+        labelHeight={24}
+        borderHeight={2}
+        dataDetectorTypes="all"
+        format
+        maxLength={10}
+        autoCorrect={false}
+        value={valor}
+        inputStyle={{
+          color: "black",
+          fontSize: 16,
+          fontWeight: "normal",
+        }}
+      />
       <Sae
         label={"Email"}
         iconClass={MaterialIcons}
@@ -130,7 +136,6 @@ export default function FormDatos() {
           fontWeight: "normal",
         }}
       />
-
       <Sae
         label={"Contraseña"}
         iconClass={MaterialCommunityIcons}
@@ -151,7 +156,6 @@ export default function FormDatos() {
           fontWeight: "normal",
         }}
       />
-
       <Sae
         label={"Confirme la contraseña"}
         iconClass={MaterialCommunityIcons}

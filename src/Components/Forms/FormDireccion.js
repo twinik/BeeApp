@@ -15,22 +15,6 @@ export default function FormDatos() {
     <ScrollView style={style.container}>
       <Sae
         label={"Dirección"}
-        activeColor={"#7936E4"}
-        borderHeight={8}
-        inputPadding={16}
-        labelHeight={24}
-        passiveColor={"#B3B3B3"}
-        dataDetectorTypes="address"
-        inputStyle={{
-          color: "black",
-          fontSize: 16,
-          fontWeight: "normal",
-        }}
-        style={{ width: "100%" }}
-      />
-
-      <Sae
-        label={"Dirección"}
         iconClass={Entypo}
         iconName={"direction"}
         iconColor={"#7936E4"}

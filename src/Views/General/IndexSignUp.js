@@ -73,7 +73,7 @@ const estilos = StyleSheet.create({
     marginHorizontal: "10%",
   },
   containerLottie: {
-    flex: 2,
+    flex: 1,
   },
   sobra: {
     flex: 2,

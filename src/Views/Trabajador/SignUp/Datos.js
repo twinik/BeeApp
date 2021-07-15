@@ -56,10 +56,7 @@ export default function Datos({ navigation }) {
 
   return (
     <ContainerKeyboardView>
-      <ImageBackground
-        style={estilitos.container}
-        source={require("../../../../assets/wallpaper.png")}
-      >
+      <View style={estilitos.container}>
         <>
           <HeaderRegistro>
             <Text style={estilitos.titulo}>Datos</Text>
@@ -90,7 +87,7 @@ export default function Datos({ navigation }) {
             </View>
           </View>
         </>
-      </ImageBackground>
+      </View>
     </ContainerKeyboardView>
   );
 }

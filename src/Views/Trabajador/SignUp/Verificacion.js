@@ -36,10 +36,7 @@ export default function Verificacion({ navigation }) {
   });
   return (
     <ContainerKeyboardView>
-      <ImageBackground
-        style={{ flex: 1, backgroundColor: "white" }}
-        source={require("../../../../assets/wallpaper.png")}
-      >
+      <View style={styles.container}>
         <>
           <HeaderRegistro>
             <View style={styles.containerTitulo}>
@@ -56,7 +53,7 @@ export default function Verificacion({ navigation }) {
             <TouchableOpacity onPress={() => alert("Vuelve a enviar")}>
               <Text style={styles.text4}>Volver a enviar</Text>
             </TouchableOpacity>
-            <View style={{ flex: 1, justifyContent:'center'}}>
+            <View style={{ flex: 1, justifyContent: "center" }}>
               <CodeField
                 ref={ref}
                 {...props}
@@ -82,14 +79,23 @@ export default function Verificacion({ navigation }) {
 
           <View style={{ flex: 1, flexDirection: "row" }}>
             <View style={styles.containerVolver}>
-              <BotonNextBack title="Volver" color="#7936E4" onPress={() => navigation.goBack()}/>
+              <BotonNextBack
+                title="Volver"
+                color="#7936E4"
+                onPress={() => navigation.goBack()}
+              />
             </View>
             <View style={styles.containerBoton}>
-            <BotonNextBack type="Next" title="Siguiente" color='#fff' onPress={() => navigation.navigate("fotoPerfil")}/>              
+              <BotonNextBack
+                type="Next"
+                title="Siguiente"
+                color="#fff"
+                onPress={() => navigation.navigate("fotoPerfil")}
+              />
             </View>
           </View>
         </>
-      </ImageBackground>
+      </View>
     </ContainerKeyboardView>
   );
 }
@@ -98,6 +104,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
+    backgroundColor: "white",
   },
 
   header: {

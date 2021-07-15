@@ -15,10 +15,12 @@ export default function Info({ navigation }) {
         />
       </View>
       <View style={{ flex: 2 }}>
-        <Text style={style.titulo}>Cualquier trabajo que{"\n"}usted necesite</Text>
+        <Text style={style.titulo}>
+          Cualquier trabajo que{"\n"}usted necesite
+        </Text>
         <Text style={style.subTitulo}>
-          En Servbee puede encontrar el{"\n"}trabajador ideal para el{"\n"}problema que
-          usted necesite
+          En Servbee puede encontrar el{"\n"}trabajador ideal para el{"\n"}
+          problema que usted necesite
         </Text>
       </View>
     </View>
@@ -33,7 +35,7 @@ const style = StyleSheet.create({
     flex: 1,
   },
   titulo: {
-    fontWeight:"bold",
+    fontWeight: "bold",
     fontSize: 30,
     textAlign: "center",
   },

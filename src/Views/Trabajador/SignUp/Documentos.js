@@ -38,10 +38,7 @@ export default function Verificacion({ navigation }) {
 
   return (
     <ContainerKeyboardView>
-      <ImageBackground
-        style={styles.container}
-        source={require("../../../../assets/wallpaper.png")}
-      >
+      <View style={styles.container}>
         <HeaderRegistro>
           <View style={styles.containerTitulo}>
             <Text style={styles.titulo}>Identidad</Text>
@@ -71,14 +68,23 @@ export default function Verificacion({ navigation }) {
         </ContenidoRegistro>
 
         <View style={{ flex: 1, flexDirection: "row" }}>
-            <View style={styles.containerVolver}>
-              <BotonNextBack title="Volver" color="#7936E4" onPress={() => navigation.goBack()}/>
-            </View>
-            <View style={styles.containerBoton}>
-            <BotonNextBack type="Next" title="Siguiente" color='#fff' onPress={() => navigation.navigate("finRegistro")}/>              
-            </View>
+          <View style={styles.containerVolver}>
+            <BotonNextBack
+              title="Volver"
+              color="#7936E4"
+              onPress={() => navigation.goBack()}
+            />
           </View>
-      </ImageBackground>
+          <View style={styles.containerBoton}>
+            <BotonNextBack
+              type="Next"
+              title="Siguiente"
+              color="#fff"
+              onPress={() => navigation.navigate("finRegistro")}
+            />
+          </View>
+        </View>
+      </View>
     </ContainerKeyboardView>
   );
 }

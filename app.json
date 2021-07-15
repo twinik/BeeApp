@@ -4,9 +4,9 @@
     "slug": "BeeApp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/logo.png",
+    "icon": "./assets/Logos_ServBee/img/1080_png.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/Logos_ServBee/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

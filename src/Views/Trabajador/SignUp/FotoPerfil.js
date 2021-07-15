@@ -53,10 +53,7 @@ export default function Verificacion({ navigation }) {
 
   return (
     <ContainerKeyboardView>
-      <ImageBackground
-        style={styles.container}
-        source={require("../../../../assets/wallpaper.png")}
-      >
+      <View style={styles.container}>
         <HeaderRegistro>
           <View style={styles.containerTitulo}>
             <Text style={styles.titulo}>Foto de perfil</Text>
@@ -111,7 +108,7 @@ export default function Verificacion({ navigation }) {
             />
           </View>
         </View>
-      </ImageBackground>
+      </View>
     </ContainerKeyboardView>
   );
 }

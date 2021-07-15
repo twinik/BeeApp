@@ -27,10 +27,7 @@ import ContenidoRegistro from "./../../../Components/ContenidoRegistro";
 export default function Servicio({ navigation }) {
   return (
     <ContainerKeyboardView>
-      <ImageBackground
-        style={styles.container}
-        source={require("../../../../assets/wallpaper.png")}
-      >
+      <View style={styles.container}>
         <HeaderRegistro>
           <View style={styles.containerTitulo}>
             <Text style={styles.titulo}>Servicio</Text>
@@ -51,7 +48,7 @@ export default function Servicio({ navigation }) {
             style={styles.input2}
             options={["Sado masoquista", "Asesino", "Peluquero"]}
           />
-          <Text style={ styles.subTitulo }>
+          <Text style={styles.subTitulo}>
             Cuentenos porque quiere participar de este proyecto, no sea muy
             extenso por favor{" "}
           </Text>
@@ -59,14 +56,23 @@ export default function Servicio({ navigation }) {
         </ContenidoRegistro>
 
         <View style={{ flex: 1, flexDirection: "row" }}>
-            <View style={styles.containerVolver}>
-              <BotonNextBack title="Volver" color="#7936E4" onPress={() => navigation.goBack()}/>
-            </View>
-            <View style={styles.containerBoton}>
-            <BotonNextBack type="Next" title="Siguiente" color='#fff' onPress={() => navigation.navigate("documentos")}/>              
-            </View>
+          <View style={styles.containerVolver}>
+            <BotonNextBack
+              title="Volver"
+              color="#7936E4"
+              onPress={() => navigation.goBack()}
+            />
           </View>
-      </ImageBackground>
+          <View style={styles.containerBoton}>
+            <BotonNextBack
+              type="Next"
+              title="Siguiente"
+              color="#fff"
+              onPress={() => navigation.navigate("documentos")}
+            />
+          </View>
+        </View>
+      </View>
     </ContainerKeyboardView>
   );
 }
@@ -125,7 +131,7 @@ const styles = StyleSheet.create({
     width: "100%",
     backgroundColor: "#E5E5E5",
     borderRadius: 10,
-    marginVertical:10,
+    marginVertical: 10,
     padding: 10,
     fontSize: 16,
     height: 50,

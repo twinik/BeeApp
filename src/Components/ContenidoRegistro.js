@@ -16,10 +16,11 @@ export default class containerContenido extends React.Component {
   constructor(props) {
     super(props);
     this.style =
-      this.props.addStyle != undefined ? {...styles.containerContenido, ...this.props.addStyle} 
-      : this.props.style != undefined
+      this.props.addStyle != undefined
+        ? { ...styles.containerContenido, ...this.props.addStyle }
+        : this.props.style != undefined
         ? this.props.style
-            : styles.containerContenido
+        : styles.containerContenido;
   }
 
   render() {
@@ -29,7 +30,7 @@ export default class containerContenido extends React.Component {
 
 const styles = StyleSheet.create({
   containerContenido: {
-    flex: 5,
+    flex: 6,
     marginHorizontal: "8%",
   },
 });

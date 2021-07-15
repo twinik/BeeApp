@@ -21,6 +21,7 @@ export default function Verificacion({ navigation }) {
           source={require("../../../assets/Animaciones/background.json")}
           autoPlay
           loop
+          style={{ width: "100%" }}
         />
       </View>
       <View style={styles.containerTitulo}>
@@ -72,7 +73,6 @@ const styles = StyleSheet.create({
 
   containerLottie: {
     flex: 1,
-    justifyContent: "flex-start",
   },
 
   Boton: {

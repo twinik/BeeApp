@@ -1,8 +1,16 @@
 import React from "react";
-import { StyleSheet, View, StatusBar, SafeAreaView, Text } from "react-native";
+import {
+  StyleSheet,
+  View,
+  StatusBar,
+  SafeAreaView,
+  Text,
+  Button,
+} from "react-native";
 
 import Navbar from "../../../Components/Menu/Navbar";
 import RubrosContainer from "../../../Components/RubrosContainer";
+import BotonVerRubros from "../../../Components/Botones/BotonVerRubros";
 
 export default function Bienvenido({ navigation }) {
   StatusBar.setBackgroundColor("#7936E4", true);
@@ -15,15 +23,17 @@ export default function Bienvenido({ navigation }) {
       />
 
       <View style={styles.body}>
-        <View style={styles.seccionRubro}>
-          <Text style={styles.titulo}>Categorias</Text>
-          <RubrosContainer/>
+        <View style={styles.seccionCategorias}>
+          <View style={{ flexDirection: "row", marginVertical: 5 }}>
+            <Text style={styles.titulo}>Categorias</Text>
+            <BotonVerRubros title="Ver todos" />
+          </View>
+          <RubrosContainer />
         </View>
-        <View>
-          <Text>H</Text>
+        <View style={styles.seccionListView}>
+          <Text>RUBROS</Text>
         </View>
       </View>
-
     </SafeAreaView>
   );
 }
@@ -32,6 +42,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#7936E4",
+    marginTop: StatusBar.currentHeight,
   },
   body: {
     flex: 1,
@@ -39,14 +50,23 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     flexDirection: "column",
-    padding: 20,
+    paddingTop: 10,
+    paddingHorizontal: 25,
   },
-  seccionRubro: {
+  seccionCategorias: {
+    flex: 1,
+    backgroundColor: "red",
+  },
+  seccionListView: {
+    flex: 1,
+    backgroundColor: "orange",
+  },
+  titulo: {
+    flex: 1,
+    marginLeft: 10,
+    fontSize: 23,
+  },
+  btnVerTodos: {
     flex: 1,
   },
-  titulo:{
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  
 });

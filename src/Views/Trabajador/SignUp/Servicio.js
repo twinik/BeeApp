@@ -24,6 +24,8 @@ import ContainerKeyboardView from "./../../../Components/ContainerKeyboardView";
 import HeaderRegistro from "./../../../Components/HeaderRegistro";
 import ContenidoRegistro from "./../../../Components/ContenidoRegistro";
 
+import ListViewRubros from "../../../Components/Menu/ListViewRubros";
+
 export default function Servicio({ navigation }) {
   return (
     <ContainerKeyboardView>
@@ -39,20 +41,7 @@ export default function Servicio({ navigation }) {
             Elija que servicio provera usted. Puede elegir hasta tres de una
             categoria
           </Text>
-          <ModalDropdown
-            isFullWidth={true}
-            dropdownTextStyle={{ color: "black", fontSize: 16 }}
-            defaultTextStyle={{ color: "#939393" }}
-            textStyle={{ color: "black", fontSize: 16 }}
-            defaultValue="Rubro"
-            style={styles.input2}
-            options={["Sado masoquista", "Asesino", "Peluquero"]}
-          />
-          <Text style={styles.subTitulo}>
-            Cuentenos porque quiere participar de este proyecto, no sea muy
-            extenso por favor{" "}
-          </Text>
-          <TextInput placeholder="" style={styles.input3}></TextInput>
+          <ListViewRubros />
         </ContenidoRegistro>
 
         <View style={{ flex: 1, flexDirection: "row" }}>

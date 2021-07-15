@@ -1,15 +1,12 @@
 import React from "react";
-import { View, Text, StyleSheet ,Image} from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 
-export default function RubroCard({titulo,uri}) {
+export default function RubroCard({ titulo, uri }) {
   return (
-    <View style={styles.container}>
-      <Image
-        style={styles.tinyLogo}
-        source={{uri:uri}}
-      />
+    <TouchableOpacity style={styles.container}>
+      <Image style={styles.tinyLogo} source={{ uri: uri }} />
       <Text>{titulo}</Text>
-    </View>
+    </TouchableOpacity>
   );
 }
 
@@ -18,12 +15,13 @@ const styles = StyleSheet.create({
     flex: 1,
     flexShrink: 1,
     flexBasis: "40%",
-    margin: 10,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#FFF",
-    height: "30%",
-    borderRadius: 10,
+    height: "45%",
+    margin: 10,
+    borderRadius: 15,
+
     shadowColor: "#000",
     shadowOffset: {
       width: 0,

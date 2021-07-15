@@ -34,24 +34,6 @@ export default function Profile({ navigation }) {
       <View style={styles.containerInterior}></View>
     </View>
   );
-  /* return (
-    <View style={{ flex: 1, marginTop: "10%" }}>
-      <Text>Profile</Text>
-      <View
-        style={{
-          flex: 1,
-          backgroundColor: "red",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Text>{User.nombre}</Text>
-        <Text>{User.apellido}</Text>
-      </View>
-      <Button title="Drawer" onPress={() => navigation.toggleDrawer()} />
-      <Button title="Sign Out" onPress={() => SignOut()} />
-    </View>
-  ); */
 }
 
 const styles = StyleSheet.create({
@@ -65,7 +47,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
-    paddingHorizontal: 30,
+    backgroundColor: "red",
   },
   containerContenidoNavbar: {
     flex: 0.3,

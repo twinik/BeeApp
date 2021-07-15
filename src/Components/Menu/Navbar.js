@@ -58,7 +58,7 @@ export default Navbar;
 
 const styles = StyleSheet.create({
   menuHead: {
-    flex: 0.15,
+    flex: 0.20,
     alignItems: "center",
   },
   headerLeft: {

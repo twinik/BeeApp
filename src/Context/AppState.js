@@ -14,23 +14,31 @@ const AppState = (props) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
   const SignIn = async (email, password) => {
+    var result = true;
     console.log("e:" + email + ",c=" + password.trim());
-    await Firebase.auth()
-      .signInWithEmailAndPassword(email, password)
-      .then(async (userCredential) => {
-        console.log(userCredential.user.uid);
-        dispatch({
-          type: SET_TOKEN,
-          payload: userCredential.user.uid,
-        });
-        var user = await obtenerUsuario(userCredential.user.uid);
-        console.log(user);
-        dispatch({
-          type: SET_USER,
-          payload: user,
-        });
-      })
-      .catch((error) => console.log(error));
+
+    try {
+      var userCredential = await Firebase.auth().signInWithEmailAndPassword(
+        email,
+        password
+      );
+      console.log(userCredential.user.uid);
+      dispatch({
+        type: SET_TOKEN,
+        payload: userCredential.user.uid,
+      });
+      var user = await obtenerUsuario(userCredential.user.uid);
+      console.log(user);
+      dispatch({
+        type: SET_USER,
+        payload: user,
+      });
+    } catch (error) {
+      console.log(error);
+      result = false;
+    }
+
+    return result;
   };
 
   const SignOut = () => {

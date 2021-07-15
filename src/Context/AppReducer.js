@@ -8,7 +8,7 @@ const {payload,type}=action
 switch(type){
 
     case SET_TOKEN:
-        
+        console.log('SET_TOKEN')
         return{
             ...state,
             token:payload
@@ -26,6 +26,8 @@ switch(type){
             token:"Reset"
         };
     case SET_USER:
+        console.log("Set_User")
+
         return{
             ...state,
             user:payload

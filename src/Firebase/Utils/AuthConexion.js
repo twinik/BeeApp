@@ -1,14 +1,24 @@
-async function obtenerUsuario(uid) {
-  var resultado;
-  await fetch(`https://young-oasis-25559.herokuapp.com/Auth/obtener/${uid}`)
-    .then((response) => response.json())
-    .then((json) => {
-      resultado = json;
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-  return resultado;
-}
+ import { link } from '../config.json';
+ import axios from 'axios';
 
-export { obtenerUsuario };
+
+ // conectarse a api usando axios
+
+
+ async function obtenerUsuario(uid) {
+     var resultado;
+     var url = `${link}/Auth/obtener/${uid}`;
+     try {
+         var res = await axios.get(url)
+         if(res.status == 200){
+            resultado = res.data;
+         } else{
+          throw 0
+        }
+     } catch (error) {
+         throw error
+     }
+     return resultado;
+ }
+
+ export { obtenerUsuario };

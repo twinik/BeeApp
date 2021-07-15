@@ -1,38 +1,27 @@
 import React from "react";
 import {
-  Platform,
   View,
-  TextInput,
   StyleSheet,
   Text,
-  KeyboardAvoidingView,
-  ImageBackground,
   Dimensions,
-  TouchableWithoutFeedback,
-  Keyboard,
   TouchableOpacity,
   StatusBar,
 } from "react-native";
 import BotonNextBack from "../../Components/BotonNextBack";
 import ContainerKeyboardView from "./../../Components/ContainerKeyboardView";
 import AppContext from "../../Context/AppContext";
-import FormSignIn from "../../Components/Forms/FormSignIn";
 import {
-  AntDesign,
-  FontAwesome5,
   MaterialIcons,
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
-import { Sae, Isao } from "react-native-textinput-effects";
-import HeaderRegistro from "../../Components/HeaderRegistro";
+import { Sae } from "react-native-textinput-effects";
 import LottieView from "lottie-react-native";
-const { width, height } = Dimensions.get("window");
+const { width } = Dimensions.get("window");
 
 export default function SignIn({ navigation, route }) {
   StatusBar.setBackgroundColor("#7936E4", true);
   const [email, setEmail] = React.useState("");
   const [contraseña, setContraseña] = React.useState("");
-  /*const { signIn } = React.useContext(AuthContext);*/
   const { SignIn } = React.useContext(AppContext);
 
   return (
@@ -121,7 +110,11 @@ export default function SignIn({ navigation, route }) {
                 type="Next"
                 title="Iniciar Sesión"
                 color="#fff"
-                onPress={() => SignIn(email, contraseña)}
+                onPress={() => SignIn(email, contraseña).then(x=>{
+                  if(!x){
+                    alert("Error al iniciar sesión");
+                  }
+                })}
               />
             </View>
           </View>

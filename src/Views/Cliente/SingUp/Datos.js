@@ -65,7 +65,6 @@ export default function Datos({ navigation }) {
             Porfavor, ingrese su nombre, apellido, número de teléfono, fecha de
             nacimiento, Email y contraseña
           </Text>
-
           <FormDatos />
         </ContenidoRegistro>
 

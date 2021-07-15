@@ -1,183 +1,91 @@
 import React, { useState } from "react";
-import {
-  TouchableOpacity,
-  StyleSheet,
-  ScrollView,
-  Button,
-  Text,
-  TextInput,
-  Keyboard,
-} from "react-native";
+import {  StyleSheet, ScrollView, Text } from "react-native";
 import {
   FontAwesome5,
   MaterialCommunityIcons,
-  Ionicons,
   MaterialIcons,
 } from "@expo/vector-icons";
 import { Sae } from "react-native-textinput-effects";
-import DateTimePickerModal from "react-native-modal-datetime-picker";
-import Moment from "moment";
-
+import { useForm } from "react-hook-form";
+import FormItem from "./FormItem";
+import Boton from "../Boton";
+import DatePickes from "./DatePickes";
 export default function FormDatos() {
-  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
-  const showDatePicker = () => {
-    setDatePickerVisibility(true);
-  };
-  const hideDatePicker = () => {
-    setDatePickerVisibility(false);
-  };
-  const handleConfirm = (date) => {
-    Moment.locale("en");
-    setValor(Moment(date).format("DD/MM/YYYY"));
-    console.log("A date has been picked: ", date);
-    hideDatePicker();
-  };
+  
 
   const [valor, setValor] = useState("");
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  
+  const onSubmit = (data) => console.log(data);
+
+  const configSae = {
+    iconColor: "#7936E4",
+    labelStyle: { color: "#B3B3B3", fontWeight: "normal" },
+    inputPadding: 16,
+    labelHeight: 24,
+    borderHeight: 2,
+    autoCorrect: false,
+    inputStyle: { color: "black", fontSize: 16, fontWeight: "normal" },
+  };
 
   return (
     <ScrollView style={style.container}>
-      <Sae
-        label={"Nombre"}
-        iconClass={FontAwesome5}
-        iconName={"user-alt"}
-        iconColor={"#7936E4"}
-        labelStyle={{ color: "#B3B3B3", fontWeight: "normal" }}
-        inputPadding={16}
-        labelHeight={24}
-        borderHeight={2}
-        autoCorrect={false}
-        inputStyle={{
-          color: "black",
-          fontSize: 16,
-          fontWeight: "normal",
-        }}
-      />
-      <Sae
-        label={"Apellido"}
-        iconClass={FontAwesome5}
-        iconName={"user-alt"}
-        iconColor={"#7936E4"}
-        labelStyle={{ color: "#B3B3B3", fontWeight: "normal" }}
-        inputPadding={16}
-        labelHeight={24}
-        // active border height
-        borderHeight={2}
-        // TextInput props
-        autoCorrect={false}
-        inputStyle={{
-          color: "black",
-          fontSize: 16,
-          fontWeight: "normal",
-        }}
-      />
-      <Sae
-        label={"Número de Teléfono"}
-        iconClass={MaterialCommunityIcons}
-        iconName={"cellphone"}
-        iconColor={"#7936E4"}
-        labelStyle={{ color: "#B3B3B3", fontWeight: "normal" }}
-        inputPadding={16}
-        labelHeight={24}
-        borderHeight={2}
-        dataDetectorTypes="phoneNumber"
-        keyboardType="number-pad"
-        maxLength={10}
-        autoCorrect={false}
-        inputStyle={{
-          color: "black",
-          fontSize: 16,
-          fontWeight: "normal",
-        }}
-      />
-
-      <DateTimePickerModal
-        isVisible={isDatePickerVisible}
-        mode="date"
-        onConfirm={handleConfirm}
-        onCancel={hideDatePicker}
-      />
-
-      <TouchableOpacity onPress={showDatePicker}>
+      <FormItem control={control} label="Nombre">
         <Sae
-          label={"Fecha de nacimiento"}
-          iconClass={Ionicons}
-          iconName={"md-calendar-outline"}
-          iconColor={"#7936E4"}
-          labelStyle={{ color: "#B3B3B3", fontWeight: "normal" }}
-          inputPadding={16}
-          labelHeight={24}
-          borderHeight={2}
-          dataDetectorTypes="all"
-          autoCorrect={false}
-          value={valor}
-          editable={false}
-          keyboardType={null}
-          inputStyle={{
-            color: "black",
-            fontSize: 16,
-            fontWeight: "normal",
-          }}
+          label={"Nombre"}
+          iconClass={FontAwesome5}
+          iconName={"user-alt"}
+          {...configSae}
         />
-      </TouchableOpacity>
+      </FormItem>
+      {errors.Nombre ? <Text>This is required.</Text> : null}
+      <FormItem control={control} label="Apellido">
+        <Sae
+          label={"Apellido"}
+          iconClass={FontAwesome5}
+          iconName={"user-alt"}
+          {...configSae}
+        />
+      </FormItem>
+      <FormItem control={control} label="Telefono">
+        <Sae
+          label={"Número de Teléfono"}
+          iconClass={MaterialCommunityIcons}
+          iconName={"cellphone"}
+          {...configSae}
+        />
+      </FormItem>
+      <DatePickes setValor={setValor} configSae={configSae}/>
 
-      <Sae
-        label={"Email"}
-        iconClass={MaterialIcons}
-        iconName={"email"}
-        iconColor={"#7936E4"}
-        labelStyle={{ color: "#B3B3B3", fontWeight: "normal" }}
-        inputPadding={16}
-        labelHeight={24}
-        borderHeight={2}
-        autoCorrect={false}
-        keyboardType="email-address"
-        autoCapitalize={"none"}
-        inputStyle={{
-          color: "black",
-          fontSize: 16,
-          fontWeight: "normal",
-        }}
-      />
-      <Sae
-        label={"Contraseña"}
-        iconClass={MaterialCommunityIcons}
-        iconName={"form-textbox-password"}
-        iconColor={"#7936E4"}
-        labelStyle={{ color: "#B3B3B3", fontWeight: "normal" }}
-        inputPadding={16}
-        labelHeight={24}
-        borderHeight={2}
-        autoCorrect={false}
-        keyboardType="default"
-        autoCapitalize={"none"}
-        autoCompleteType="password"
-        secureTextEntry={true}
-        inputStyle={{
-          color: "black",
-          fontSize: 16,
-          fontWeight: "normal",
-        }}
-      />
-      <Sae
-        label={"Confirme la contraseña"}
-        iconClass={MaterialCommunityIcons}
-        iconName={"form-textbox-password"}
-        iconColor={"#7936E4"}
-        labelStyle={{ color: "#B3B3B3", fontWeight: "normal" }}
-        inputPadding={16}
-        labelHeight={24}
-        borderHeight={2}
-        keyboardType="default"
-        autoCapitalize={"none"}
-        autoCompleteType="password"
-        secureTextEntry={true}
-        inputStyle={{
-          color: "black",
-          fontSize: 16,
-          fontWeight: "normal",
-        }}
-      />
+      <FormItem control={control} label="Email">
+        <Sae
+          label={"Email"}
+          iconClass={MaterialIcons}
+          iconName={"email"}
+          {...configSae}
+        />
+      </FormItem>
+      <FormItem control={control} label="Contraseña">
+        <Sae
+          label={"Contraseña"}
+          iconClass={MaterialCommunityIcons}
+          iconName={"form-textbox-password"}
+          {...configSae}
+        />
+      </FormItem>
+      <FormItem control={control} label="2Contraseña">
+        <Sae
+          label={"Confirme la contraseña"}
+          iconClass={MaterialCommunityIcons}
+          iconName={"form-textbox-password"}
+          {...configSae}
+        />
+      </FormItem>
+      <Boton title="Enviar" onPress={handleSubmit(onSubmit)} />
     </ScrollView>
   );
 }

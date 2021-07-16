@@ -22,12 +22,16 @@ const AppState = (props) => {
         email,
         password
       );
-      console.log(userCredential.user.uid);
+      console.log(userCredential.user.getIdToken());
       dispatch({
         type: SET_TOKEN,
-        payload: userCredential.user.uid,
+        payload: userCredential.user.getIdToken(),
       });
-      var user = await obtenerUsuario(userCredential.user.uid);
+     var pl= 0
+     await userCredential.user.getIdToken(true).then((x)=>{
+      pl=x
+     })
+      var user = await obtenerUsuario(pl);
       console.log(user);
       dispatch({
         type: SET_USER,

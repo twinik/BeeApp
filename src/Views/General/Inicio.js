@@ -16,7 +16,7 @@ export default function Bienvenido({ navigation }) {
     <View style={estilos.container}>
       <View style={estilos.containerImage}>
         <Image
-          source={require("../../../assets/logo.png")}
+          source={require("../../../assets/Logos_ServBee/img/1080_png.png")}
           style={estilos.logo}
         />
       </View>
@@ -43,8 +43,8 @@ export default function Bienvenido({ navigation }) {
 
 const estilos = StyleSheet.create({
   logo: {
-    width: 120,
-    height: 120,
+    width: 150,
+    height: 150,
   },
   container: {
     flex: 1,

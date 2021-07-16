@@ -6,8 +6,16 @@ export default function RubrosContainer() {
     
     const [rubros, setRubros] = React.useState(null)
 
-    React.useEffect(async() => {
-         setRubros(await obtener4Rubros())
+    React.useEffect(() => {
+        (async () => {
+            async function fetchData() {
+                const response = await obtener4Rubros();
+                setRubros(response)
+              }
+              fetchData();
+            
+        })();
+         
     }, [])
     return (
         <View style={styles.RubrosContainer}>

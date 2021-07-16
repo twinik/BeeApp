@@ -9,17 +9,20 @@ import {
   LayoutAnimation,
   Platform,
   UIManager,
+  Image
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import RubrosConexio from '../../Firebase/Utils/RubrosConexio'
 
 const CONTENT = [
   {
     isExpanded: false,
     category_name: "Mascotas",
+    category_photo: 'https://i0.wp.com/upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Creative-Tail-Animal-dog.svg/1200px-Creative-Tail-Animal-dog.svg.png',
     subcategory: [
-      { id: 1, val: "Baño de mascotas" },
-      { id: 2, val: "Paseador" },
-      { id: 3, val: "Revision médica" },
+      { id: 1, val: "Baño de mascotas", photo:'https://image.flaticon.com/icons/png/512/1068/1068462.png'},
+      { id: 2, val: "Paseador", photo: 'https://i.pinimg.com/originals/8d/e3/17/8de317daa4a90876a5f451bf8de945bc.png'},
+      { id: 3, val: "Revision médica", photo: 'https://doctoravanevet.com/wp-content/uploads/2020/04/Servicios-vectores-consulta-integral.png'},
     ],
   },
   {
@@ -72,16 +75,28 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
   return (
     <View>
       <TouchableOpacity style={styles.item} onPress={onClickFunction}>
-        <Text style={styles.itemText}>{item.category_name}</Text>
+        <View style={{flex: 1, resizeMode: 'cover', justifyContent: 'center'}}>
+          <Image style={styles.category_photo} source={{ uri:item.category_photo}}></Image>
+        </View>
+        
+        <View style={{flex: 5, justifyContent: 'center'}}>
+          <Text style={styles.itemText}>{item.category_name}</Text>
+        </View>
+        
       </TouchableOpacity>
       <View style={{ height: layoutHeight, overflow: "hidden" }}>
         {item.subcategory.map((item, key) => (
           <TouchableOpacity key={key} style={styles.content}>
             <View style={{ flexDirection: "row" }}>
-              <Text style={styles.text}>{item.val}</Text>
-              <View style={styles.flecha}>
-                <AntDesign name="right" size={24} color="black" />
+
+              <View style={{flex: 1, resizeMode: 'cover', justifyContent: 'center'}}>
+                <Image style={styles.subcategory_photo} source={{ uri:item.photo}}/>
               </View>
+
+              <View style={{flex: 5, justifyContent: 'center'}}>
+                <Text style={styles.text}>{item.val}</Text>
+              </View>
+              
             </View>
 
             <View style={styles.separator} />
@@ -103,18 +118,6 @@ const ListViewRubros = () => {
   const updateLayout = (index) => {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     const array = [...listDataSource];
-    /*if (multiSelect) {
-      //if multiselect is  enabled
-      array[index]["isExpanded"] = !array[index]["isExpanded"];
-    } else {
-      //if single select is enabled
-      array.map((value, placeindex) =>
-        placeindex === index
-          ? (array[placeindex]["isExpanded"] = !array[index]["isExpanded"])
-          : (array[placeindex]["isExpanded"] = false)
-      );
-    } */
-
     //if single select is enabled
     array.map((value, placeindex) =>
       placeindex === index
@@ -125,18 +128,8 @@ const ListViewRubros = () => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "red" }}>
+    <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
-        {/* <View style={styles.header}>
-          <Text style={styles.titleText}>Expandable List View</Text>
-          <TouchableOpacity onPress={() => setmultiSelect(!multiSelect)}>
-            <Text style={styles.headerButton}>
-              {multiSelect
-                ? "Activar expansion \n simple"
-                : "Activar expansion \n multiple"}
-            </Text>
-          </TouchableOpacity>
-        </View> */}
         <ScrollView>
           {listDataSource.map((item, key) => (
             <ExpandableComponent
@@ -171,18 +164,29 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   item: {
-    padding: 20,
+    flexDirection: 'row',
+    paddingVertical: 20,
   },
   itemText: {
-    fontSize: 16,
+    fontSize: 18,
+    fontWeight: 'bold'
   },
   content: {
     paddingHorizontal: 10,
   },
   text: {
-    flex: 5,
     fontSize: 16,
     padding: 15,
+  },
+  category_photo:{
+    height: 40,
+    width: 40,
+    resizeMode: 'cover',
+  },
+  subcategory_photo:{
+    height: 40,
+    width: 40,
+    resizeMode: 'cover',
   },
   flecha: {
     flex: 1,

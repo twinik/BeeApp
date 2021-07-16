@@ -29,12 +29,12 @@ export default function SignIn({ navigation, route }) {
       <View style={estilos.container}>
         <>
           <View style={estilos.containerLottie}>
-            <LottieView
+            {/* <LottieView
               source={require("../../../assets/Animaciones/background.json")}
               autoPlay
               loop
-              style={{ width: "100%", marginTop: "10%" }}
-            />
+              style={{ width: "100%",  }}
+            /> */}
           </View>
           <View style={{ flex: 2, alignItems: "center" }}>
             <View style={estilos.containerTitulo}>
@@ -146,6 +146,7 @@ const estilos = StyleSheet.create({
     alignItems: "flex-end",
     justifyContent: "center",
     flexDirection: "row",
+    height: '20%'
   },
   containerContent: {
     flex: 4,

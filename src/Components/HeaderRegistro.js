@@ -29,7 +29,7 @@ export default class containerHeader extends React.Component {
             source={require("../../assets/Animaciones/background.json")}
             autoPlay
             loop
-            style={{ width: "100%" }}
+            /* style={{ width: "100%" }} */
           />
         </View>
 
@@ -49,6 +49,6 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
   },
   containerLottie: {
-    flex: 1,
+    flex: 3,
   },
 });

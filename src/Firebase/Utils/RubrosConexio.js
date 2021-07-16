@@ -47,13 +47,14 @@ async function obtener4Rubros() {
     }
 
     var resultado2 = response.data
+    
     var resultado = await obtener4Aleatorios(resultado2);
 
   } catch(error) {
     console.log(error);
     throw error
   }
-  console.log(resultado);
+
   return resultado;
 }
 

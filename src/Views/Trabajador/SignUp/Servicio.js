@@ -38,8 +38,9 @@ export default function Servicio({ navigation }) {
 
         <ContenidoRegistro>
           <Text style={styles.subTitulo}>
-            Elija que servicio provera usted. Puede elegir hasta tres de una
-            categoria
+            Elija que cateogría de servicios ofrecerá usted. 
+            Una vez seleccionada la categroría, usted podra ofrecer cualquiera de las sub-categorias
+            que pertenezcan a su elección
           </Text>
           <ListViewRubros />
         </ContenidoRegistro>

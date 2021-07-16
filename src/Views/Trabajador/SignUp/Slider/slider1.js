@@ -9,7 +9,7 @@ export default function Info() {
     <View style={{ flex: 1, marginTop: windowHeight / 10 }}>
       <View style={{ flex: 3 }}>
         <LottieView
-          source={require("../../../../../assets/Animaciones/services.json")}
+          source={require("../../../../../assets/Animaciones/splash.json")}
           autoPlay
           loop
         />

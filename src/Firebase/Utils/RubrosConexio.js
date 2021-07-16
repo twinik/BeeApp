@@ -17,16 +17,24 @@ async function obtenerRubro(id) {
 
 async function obtener4Rubros() {
   var resultado;
-  await fetch(`${link}/Rubro/obtenerTodos`)
-    .then((response) => response.json())
-    .then((json) => {
-      resultado = json;
-    })
-    .catch((error) => {
-      console.error(error);
+  try{
+    var response = await axios.get(`${link}/Rubro/obtenerTodos`);
+    resultado = response.data;
+    if(response.status != 200){
+      throw "Error al obtener los rubros";
+    }
+
+    resultado.map(function(item){
+      item.id = item.id;
+      item.nombre = item.nombre;
     });
+
+  } catch(error) {
+    throw error
+  }
+  console.log(resultado);
   return resultado;
 }
 
 
-export { obtenerRubro };
+export { obtenerRubro ,obtener4Rubros};

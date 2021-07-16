@@ -41,7 +41,7 @@ export default function Bienvenido({ navigation }) {
           </View>
 
           <View style={styles.headerCentral}>
-            <Text style={styles.titulo}>Servbee</Text>
+            <Text style={styles.titulo}>ServBee</Text>
           </View>
 
           <View style={styles.headerRight}></View>

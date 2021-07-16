@@ -60,10 +60,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    margin: 10,
+    marginHorizontal: 10,
+    marginBottom: 10,
   },
   menuHead: {
-    flex: 0.5,
+    flex: 0.4,
   },
   headerLeft: {
     flex: 1,

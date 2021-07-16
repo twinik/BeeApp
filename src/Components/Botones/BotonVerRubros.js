@@ -19,12 +19,23 @@ export default Boton;
 const estilos = StyleSheet.create({
   boton: {
     backgroundColor: "#7936E4",
-    marginTop: 20,
-    padding: 10,
+    //padding: 5,
     borderRadius: 10,
     color: "#fff",
     alignItems: "center",
-    width: 130,
+    justifyContent: "center",
+    width: "25%",
+    marginRight: 10,
+
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.65,
+
+    elevation: 8,
   },
   texto: {
     color: "#fff",

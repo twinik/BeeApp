@@ -28,7 +28,7 @@ class Navbar extends React.Component {
           </View>
 
           <View style={styles.headerCentral}>
-            <Text style={styles.titulo}>Servbee</Text>
+            <Text style={styles.titulo}>ServBee</Text>
           </View>
 
           <View style={styles.headerRight}>
@@ -43,9 +43,9 @@ class Navbar extends React.Component {
             <Searchbar
               editable={false}
               style={styles.Searchbar}
-              inputStyle={{fontSize:14}}
+              inputStyle={{ fontSize: 14 }}
               placeholder="¿Que servicio quiere contratar?"
-              placeholderTextColor='#7878AB'
+              placeholderTextColor="#7878AB"
             />
           </TouchableOpacity>
         </View>
@@ -58,7 +58,7 @@ export default Navbar;
 
 const styles = StyleSheet.create({
   menuHead: {
-    flex: 0.20,
+    flex: 0.2,
     alignItems: "center",
   },
   headerLeft: {

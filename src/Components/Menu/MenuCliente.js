@@ -13,7 +13,7 @@ import { Dimensions } from "react-native";
 const windowHeight = Dimensions.get("window").height;
 
 export default function CustomDrawerContent(props) {
-  const { User ,SignOut} = React.useContext(AppContext);
+  const { User, SignOut } = React.useContext(AppContext);
   return (
     <DrawerContentScrollView {...props}>
       <View style={estilos.header}>
@@ -33,7 +33,7 @@ export default function CustomDrawerContent(props) {
               size={16}
               color="#FFCB45"
             />
-            <Text style={estilos.stars}>4,92 </Text>
+            <Text style={estilos.stars}>{User.calificacion}</Text>
           </View>
         </View>
       </View>
@@ -43,10 +43,10 @@ export default function CustomDrawerContent(props) {
         onPress={() => Linking.openURL("https://mywebsite.com/help")}
       />
       <DrawerItem
-      label="Logout"
-      onPress={() => {
-        SignOut();
-      }}
+        label="Logout"
+        onPress={() => {
+          SignOut();
+        }}
       />
     </DrawerContentScrollView>
   );

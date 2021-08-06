@@ -4,7 +4,7 @@ import {
   Text,
   View,
   Dimensions,
-  ImageBackground,
+  StatusBar,
 } from "react-native";
 import AppContext from "../../Context/AppContext";
 import BotonNextBack from "../../Components/BotonNextBack";
@@ -52,6 +52,7 @@ export default function Verificacion({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: StatusBar.currentHeight,
     backgroundColor: "white",
   },
 

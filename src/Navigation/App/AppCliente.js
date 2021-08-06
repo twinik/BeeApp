@@ -5,6 +5,7 @@ const DrawerCliente = createDrawerNavigator();
 import Profile from "../../Views/Cliente/App/Profile";
 import HomePro from "../../Views/Cliente/App/HomePro";
 import Buscador from "../../Views/Cliente/App/Buscador";
+import EditProfile from "../../Views/Cliente/App/EditProfile"
 import { Ionicons, Foundation, FontAwesome } from "@expo/vector-icons";
 import MenuCliente from "../../Components/Menu/MenuCliente";
 import AppContext from "../../Context/AppContext";
@@ -46,6 +47,12 @@ export function App() {
         name="Buscador"
         component={Buscador}
         options={{ title: "Buscador" }}
+      />
+
+      <DrawerCliente.Screen
+        name="EditProfile"
+        component={EditProfile}
+        options={{ title: "EditProfile", presentation: 'modal' }}
       />
 
       <DrawerCliente.Screen

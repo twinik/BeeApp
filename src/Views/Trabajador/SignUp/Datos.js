@@ -69,7 +69,7 @@ export default function Datos({ navigation }) {
 
             <FormDatos />
           </ContenidoRegistro>
-          <View style={{ flex: 1, flexDirection: "row" }}>
+          <View style={{ flex: 0.5, flexDirection: "row" }}>
             <View style={estilitos.containerVolver}>
               <BotonNextBack
                 title="Volver"

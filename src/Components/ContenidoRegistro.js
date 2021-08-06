@@ -30,7 +30,7 @@ export default class containerContenido extends React.Component {
 
 const styles = StyleSheet.create({
   containerContenido: {
-    flex: 6,
+    flex: 4,
     marginHorizontal: "8%",
   },
 });

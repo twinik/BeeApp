@@ -10,6 +10,7 @@ import {
   Dimensions,
 } from "react-native";
 import LottieView from "lottie-react-native";
+import { BackgroundImage } from "react-native-elements/dist/config";
 export default class containerHeader extends React.Component {
   constructor(props) {
     super(props);
@@ -29,7 +30,7 @@ export default class containerHeader extends React.Component {
             source={require("../../assets/Animaciones/background.json")}
             autoPlay
             loop
-            /* style={{ width: "100%" }} */
+            style={{ width: "100%" }}
           />
         </View>
 
@@ -41,7 +42,8 @@ export default class containerHeader extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 2,
+    flex: 1.8,
+    marginTop: StatusBar.currentHeight,
   },
   containerHeader: {
     flex: 1,

@@ -14,6 +14,24 @@ const windowHeight = Dimensions.get("window").height;
 
 export default function CustomDrawerContent(props) {
   const { User, SignOut } = React.useContext(AppContext);
+  const filteredProps = {
+    ...props,
+    state: {
+      ...props.state,
+      routeNames: props.state.routeNames.filter(
+        // To hide single option
+        // (routeName) => routeName !== 'HiddenPage1',
+        // To hide multiple options you can add & condition
+        (routeName) => {
+          routeName !== 'Buscador' && routeName !== 'EditProfile';
+        }
+      ),
+      routes: props.state.routes.filter(
+        (route) =>
+          route.name !== 'Buscador' && route.name !== 'EditProfile'
+      ),
+    },
+  };
   return (
     <DrawerContentScrollView {...props}>
       <View style={estilos.header}>
@@ -37,7 +55,7 @@ export default function CustomDrawerContent(props) {
           </View>
         </View>
       </View>
-      <DrawerItemList {...props} />
+      <DrawerItemList {...filteredProps} />
       <DrawerItem
         label="Help"
         onPress={() => Linking.openURL("https://mywebsite.com/help")}

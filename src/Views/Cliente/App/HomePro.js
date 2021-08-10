@@ -19,7 +19,7 @@ export default function Bienvenido({ navigation }) {
       <Navbar
         onPressMenu={() => navigation.toggleDrawer()}
         onPressHelp={() => alert("*Chat*")}
-        onPressSearch={() => navigation.navigate("Buscador")}
+        onPressSearch={() => navigation.push("Buscador")}
       />
 
       <View style={styles.body}>

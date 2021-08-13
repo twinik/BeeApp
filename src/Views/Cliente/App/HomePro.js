@@ -6,11 +6,11 @@ import {
   SafeAreaView,
   Text,
   Button,
+  ScrollView
 } from "react-native";
 
 import Navbar from "../../../Components/Menu/Navbar";
-import RubrosContainer from "../../../Components/RubrosContainer";
-import BotonVerRubros from "../../../Components/Botones/BotonVerRubros";
+import BodyHome from '../../../Components/Content/BodyHome'
 
 export default function Bienvenido({ navigation }) {
   StatusBar.setBackgroundColor("#7936E4", true);
@@ -23,16 +23,7 @@ export default function Bienvenido({ navigation }) {
       />
 
       <View style={styles.body}>
-        <View style={styles.seccionCategorias}>
-          <View style={{ flexDirection: "row", marginVertical: 5 }}>
-            <Text style={styles.titulo}>Categorias</Text>
-            <BotonVerRubros title="Ver todos" />
-          </View>
-          <RubrosContainer />
-        </View>
-        <View style={styles.seccionListView}>
-          <Text>RUBROS</Text>
-        </View>
+        <BodyHome/>
       </View>
     </SafeAreaView>
   );
@@ -46,12 +37,11 @@ const styles = StyleSheet.create({
   },
   body: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: "blue",
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
-    flexDirection: "column",
     paddingTop: 10,
-    paddingHorizontal: 25,
+    paddingHorizontal: '5%',
   },
   seccionCategorias: {
     flex: 1,
@@ -60,6 +50,9 @@ const styles = StyleSheet.create({
   seccionListView: {
     flex: 1,
     backgroundColor: "orange",
+  },
+  seccionCarousel:{
+    flex:1
   },
   titulo: {
     flex: 1,

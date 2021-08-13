@@ -19,7 +19,7 @@ export default function RubrosContainer() {
     }, [])
     return (
         <View style={styles.RubrosContainer}>
-            {rubros != null ? rubros.map((rubro, i) => <RubroCard titulo={rubro.nombre} uri={rubro.imgUrl} key={i}/>) : <Text>CArgarngo</Text> }
+            {rubros != null ? rubros.map((rubro, i) => <RubroCard titulo={rubro.nombre} uri={rubro.imgUrl} key={i}/>) : <Text>Cargando</Text> }
           </View>
     )
 }

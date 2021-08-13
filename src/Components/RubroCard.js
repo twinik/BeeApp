@@ -13,13 +13,12 @@ export default function RubroCard({ titulo, uri }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexShrink: 1,
     flexBasis: "40%",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#FFF",
-    height: "45%",
-    margin: 10,
+    backgroundColor: "lightgrey",
+    height: 120,
+    margin: 5,
     borderRadius: 15,
 
     shadowColor: "#000",
@@ -33,7 +32,7 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   tinyLogo: {
-    width: 100,
-    height: 100,
+    width: 80,
+    height: 80,
   },
 });

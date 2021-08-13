@@ -1,5 +1,6 @@
 import React from "react";
 import { TouchableOpacity, Text, StyleSheet, Dimensions } from "react-native";
+import MyText from './MyText'
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
@@ -11,7 +12,7 @@ class BotonGrande extends React.Component {
         style={[estilos.boton, this.props.style]}
         onPress={this.props.onPress}
       >
-        <Text style={estilos.texto}>{this.props.title}</Text>
+        <MyText style={estilos.texto} text={this.props.title}></MyText>
       </TouchableOpacity>
     );
   }

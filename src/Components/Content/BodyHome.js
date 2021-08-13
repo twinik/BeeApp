@@ -11,6 +11,9 @@ import {
 
 import RubrosContainer from '../RubrosContainer'
 import BotonVerRubros from '../Botones/BotonVerRubros'
+import ListViewRubros from '../Menu/ListViewRubros'
+
+import MyText from '../MyText'
 
 const BodyHome = () => {
     return(
@@ -23,22 +26,15 @@ const BodyHome = () => {
             <RubrosContainer />
           </View>
           <View style={styles.seccionCarousel}>
-            <View style={{backgroundColor: 'lightgrey'}}>
-                <Image source={{uri: 'https://gst-online.com/wp-content/uploads/2018/07/Discount-1.png'}}/>
+            <View style={{backgroundColor: 'lightgrey', justifyContent: 'center', alignItems: 'center', borderRadius: 25, margin: 10}}>
+                <Image style={{width: 200, height: 100}} source={{uri: 'https://gst-online.com/wp-content/uploads/2018/07/Discount-1.png'}}/>
+                <MyText text="publi" fontStyle='QuicksandBold'/>
             </View>
           </View>
           <View style={styles.seccionListView}>
-            <Text>RUBROS</Text>
+            <ListViewRubros/>
           </View>
-          <View style={styles.seccionCategorias}>
-              <RubrosContainer/>
-          </View>
-          <View style={styles.seccionCategorias}>
-              <RubrosContainer/>
-          </View>
-          <View style={styles.seccionCategorias}>
-              <RubrosContainer/>
-          </View>
+          
     </ScrollView>
     )
 }

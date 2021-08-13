@@ -1,16 +1,18 @@
 import React from "react";
 import {
   View,
-  Text,
   StyleSheet,
   Button,
+  Text,
   Image,
   TouchableOpacity,
   StatusBar
 } from "react-native";
 import BotonGrande from "./../../Components/BotonGrande";
+import MyText from '../../Components/MyText'
 
 export default function Bienvenido({ navigation }) {
+
   StatusBar.setBackgroundColor('white', true);
   return (
     <View style={estilos.container}>
@@ -22,19 +24,19 @@ export default function Bienvenido({ navigation }) {
       </View>
 
       <View style={[estilos.containerTexto]}>
-        <Text style={estilos.titulo}>
-          Encontrá {"\n"} cualquier servicio {"\n"}que necesites en{"\n"}
-          cualquier momento
-        </Text>
+        <MyText style={estilos.titulo} 
+        text= {`Encontrá ${"\n"} cualquier servicio que necesites en cualquier momento`}
+        fontStyle='Medium'
+        />
         <BotonGrande
           title="Crear Cuenta"
           onPress={() => navigation.navigate("SignUpIndex")}
         ></BotonGrande>
       </View>
       <View style={estilos.row}>
-        <Text>¿Ya tenes una cuenta?</Text>
+        <MyText text="¿Ya tenes una cuenta?" fontStyle='Medium'/>
         <TouchableOpacity onPress={() => navigation.navigate("SignIn")}>
-          <Text style={estilos.link}>Iniciar sesión</Text>
+          <MyText style={estilos.link} text="Iniciar sesión" fontStyle='Medium'/>
         </TouchableOpacity>
       </View>
     </View>
@@ -58,7 +60,9 @@ const estilos = StyleSheet.create({
     justifyContent: "center",
   },
   containerTexto: {
-    flex: 4,
+    flex: 5,
+    alignItems: 'center',
+    marginHorizontal: '10%',
   },
   row: {
     flex: 0.6,
@@ -68,6 +72,7 @@ const estilos = StyleSheet.create({
     fontSize: 30,
     textAlign: "center",
     marginBottom: "10%",
+    color: 'black',
   },
   link: {
     color: "#1679C0",

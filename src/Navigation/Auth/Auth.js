@@ -13,7 +13,7 @@ export default function AuthStackScreen () {
    
 
     return(
-        <AuthStack.Navigator headerMode="none" >
+        <AuthStack.Navigator headerMode="none">
         
         
             <AuthStack.Screen 

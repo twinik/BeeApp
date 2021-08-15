@@ -6,14 +6,13 @@ import {
   Text,
   Image,
   TouchableOpacity,
-  StatusBar
+  StatusBar,
 } from "react-native";
 import BotonGrande from "./../../Components/BotonGrande";
-import MyText from '../../Components/MyText'
+import MyText from "../../Components/MyText";
 
 export default function Bienvenido({ navigation }) {
-
-  StatusBar.setBackgroundColor('white', true);
+  StatusBar.setBackgroundColor("white", true);
   return (
     <View style={estilos.container}>
       <View style={estilos.containerImage}>
@@ -24,9 +23,10 @@ export default function Bienvenido({ navigation }) {
       </View>
 
       <View style={[estilos.containerTexto]}>
-        <MyText style={estilos.titulo} 
-        text= {`Encontrá ${"\n"} cualquier servicio que necesites en cualquier momento`}
-        fontStyle='Medium'
+        <MyText
+          style={estilos.titulo}
+          text={`Encontrá ${"\n"} cualquier servicio que necesites en cualquier momento`}
+          fontStyle="Medium"
         />
         <BotonGrande
           title="Crear Cuenta"
@@ -34,9 +34,13 @@ export default function Bienvenido({ navigation }) {
         ></BotonGrande>
       </View>
       <View style={estilos.row}>
-        <MyText text="¿Ya tenes una cuenta?" fontStyle='Medium'/>
+        <MyText text="¿Ya tenes una cuenta?" fontStyle="Medium" />
         <TouchableOpacity onPress={() => navigation.navigate("SignIn")}>
-          <MyText style={estilos.link} text="Iniciar sesión" fontStyle='Medium'/>
+          <MyText
+            style={estilos.link}
+            text="Iniciar sesión"
+            fontStyle="Medium"
+          />
         </TouchableOpacity>
       </View>
     </View>
@@ -61,8 +65,8 @@ const estilos = StyleSheet.create({
   },
   containerTexto: {
     flex: 5,
-    alignItems: 'center',
-    marginHorizontal: '10%',
+    alignItems: "center",
+    marginHorizontal: "10%",
   },
   row: {
     flex: 0.6,
@@ -72,7 +76,7 @@ const estilos = StyleSheet.create({
     fontSize: 30,
     textAlign: "center",
     marginBottom: "10%",
-    color: 'black',
+    color: "black",
   },
   link: {
     color: "#1679C0",

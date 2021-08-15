@@ -6,11 +6,11 @@ import {
   SafeAreaView,
   Text,
   Button,
-  ScrollView
+  ScrollView,
 } from "react-native";
 
 import Navbar from "../../../Components/Menu/Navbar";
-import BodyHome from '../../../Components/Content/BodyHome'
+import BodyHome from "../../../Components/Content/BodyHome";
 
 export default function Bienvenido({ navigation }) {
   StatusBar.setBackgroundColor("#7936E4", true);
@@ -23,7 +23,7 @@ export default function Bienvenido({ navigation }) {
       />
 
       <View style={styles.body}>
-        <BodyHome/>
+        <BodyHome />
       </View>
     </SafeAreaView>
   );
@@ -37,11 +37,11 @@ const styles = StyleSheet.create({
   },
   body: {
     flex: 1,
-    backgroundColor: "blue",
+    backgroundColor: "white",
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     paddingTop: 10,
-    paddingHorizontal: '5%',
+    paddingHorizontal: "5%",
   },
   seccionCategorias: {
     flex: 1,
@@ -51,8 +51,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "orange",
   },
-  seccionCarousel:{
-    flex:1
+  seccionCarousel: {
+    flex: 1,
   },
   titulo: {
     flex: 1,

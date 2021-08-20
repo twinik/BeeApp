@@ -7,6 +7,7 @@ import {
   Text,
   ScrollView,
   Image,
+  TouchableOpacity
 } from "react-native";
 
 import RubrosContainer from "../RubrosContainer";
@@ -26,23 +27,23 @@ const BodyHome = () => {
         <RubrosContainer />
       </View>
       <View style={styles.seccionCarousel}>
-        <View
+        <TouchableOpacity
           style={{
             backgroundColor: "lightgrey",
             justifyContent: "center",
             alignItems: "center",
-            borderRadius: 25,
+            borderRadius: 15,
             margin: 10,
+            height: 100
           }}
         >
           <Image
-            style={{ width: 200, height: 100 }}
+            style={{ width: 200, height: 80 }}
             source={{
               uri: "https://gst-online.com/wp-content/uploads/2018/07/Discount-1.png",
             }}
           />
-          <MyText text="publi" fontStyle="Bold" />
-        </View>
+        </TouchableOpacity>
       </View>
       <View style={styles.seccionListView}>
         <ListViewRubros />

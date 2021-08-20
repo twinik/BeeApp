@@ -52,7 +52,7 @@ export default function RubrosContainer() {
 const styles = StyleSheet.create({
   RubrosContainer: {
     flex: 1,
-    backgroundColor: "orange",
+    backgroundColor: "white",
     flexDirection: "row",
     flexWrap: "wrap",
   },

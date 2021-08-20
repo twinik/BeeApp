@@ -12,7 +12,12 @@ export default function Busqueda({ searchQuery, Rubros, fc }) {
     rubrosFiltrados.map((x) => (
       <TouchableOpacity
         onPress={() => fc(x.nombre)}
-        style={{ backgroundColor: "#E9E3E9", marginTop: 5, padding: 10 ,flexDirection: "row" }}
+        style={{
+          backgroundColor: "#E9E3E9",
+          marginTop: 5,
+          padding: 10,
+          flexDirection: "row",
+        }}
         key={x.nombre}
       >
         <Image

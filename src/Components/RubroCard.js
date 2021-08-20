@@ -1,9 +1,15 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 export default function RubroCard({ titulo, uri }) {
+  const navigation = useNavigation();
+
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => navigation.push("Buscador", { busqueda: titulo })}
+    >
       <Image style={styles.tinyLogo} source={{ uri: uri }} />
       <Text>{titulo}</Text>
     </TouchableOpacity>

@@ -1,15 +1,13 @@
-import React from 'react'
-import {
-    View,
-    Text,
-    TouchableOpacity,
-    Image
-  } from "react-native";
+import React from "react";
+import { View, Text, TouchableOpacity, Image } from "react-native";
 
-export default function ContTrabajadores({ traba,func }) {
-    return traba == null ? (
-      <Text>No se han encontrado resultados</Text>
-    ) : (traba.map((x,i) => (
+export default function ContTrabajadores({ traba, func,rubro }) {
+  return traba == null ? (
+    <Text>No se han encontrado resultados</Text>
+  ) : (
+    <View>
+      <Text>{traba.length} Resultados en "{rubro}"</Text>
+      {traba.map((x,i) => (
       <TouchableOpacity key={i} style={{backgroundColor:'#ff3',padding:20,borderColor:"#DEDEDE",borderWidth:1,borderRadius:5,flexDirection:'row'}} onPress={()=>func.push("TrabajadorProfile",{data:x})}>
         <Image source={{uri:x.img}} style={{width:75,height:75,margin:10}}/>
         <View style={{justifyContent:'center'}}>
@@ -17,10 +15,12 @@ export default function ContTrabajadores({ traba,func }) {
         <Text>{x.apellido}</Text>
         </View>
       </TouchableOpacity>
-    )))
-  }
+    ))}
+    </View>
+  );
+}
 
-  /* 
+/* 
   {
     apellido": "macri",
     "calificacion": 5,

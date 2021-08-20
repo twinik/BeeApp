@@ -1,49 +1,33 @@
 import React from "react";
-import {
-  StyleSheet,
-  View,
-  StatusBar,
-  SafeAreaView,
-  Text,
-  ScrollView,
-  Image,
-  TouchableOpacity
-} from "react-native";
+import { StyleSheet, View, ScrollView } from "react-native";
 
 import RubrosContainer from "../RubrosContainer";
-import BotonVerRubros from "../Botones/BotonVerRubros";
 import ListViewRubros from "../Menu/ListViewRubros";
 
 import MyText from "../MyText";
+import CardPublicidad from "../Cards/CardPublicidad";
 
 const BodyHome = () => {
   return (
     <ScrollView>
       <View style={styles.seccionCategorias}>
-        <View style={{ flexDirection: "row", marginVertical: 5 }}>
-          <Text style={styles.titulo}>Categorias</Text>
-          <BotonVerRubros title="Ver todos" />
+        <View
+          style={{
+            flexDirection: "row",
+            marginVertical: 5,
+            alignItems: "center",
+          }}
+        >
+          <MyText
+            style={styles.titulo}
+            text="Servicios destacados"
+            fontStyle="SemiBold"
+          />
         </View>
         <RubrosContainer />
       </View>
       <View style={styles.seccionCarousel}>
-        <TouchableOpacity
-          style={{
-            backgroundColor: "lightgrey",
-            justifyContent: "center",
-            alignItems: "center",
-            borderRadius: 15,
-            margin: 10,
-            height: 100
-          }}
-        >
-          <Image
-            style={{ width: 200, height: 80 }}
-            source={{
-              uri: "https://gst-online.com/wp-content/uploads/2018/07/Discount-1.png",
-            }}
-          />
-        </TouchableOpacity>
+        <CardPublicidad />
       </View>
       <View style={styles.seccionListView}>
         <ListViewRubros />
@@ -66,8 +50,7 @@ const styles = StyleSheet.create({
   },
 
   titulo: {
-    flex: 1,
-    marginLeft: 10,
-    fontSize: 23,
+    fontSize: 20,
+    marginHorizontal: 5,
   },
 });

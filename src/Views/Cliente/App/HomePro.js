@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  StyleSheet,
-  View,
-  StatusBar,
-  SafeAreaView,
-  Text,
-  Button,
-  ScrollView,
-} from "react-native";
+import { StyleSheet, View, StatusBar, SafeAreaView } from "react-native";
 
 import Navbar from "../../../Components/Menu/Navbar";
 import BodyHome from "../../../Components/Content/BodyHome";
@@ -42,24 +34,5 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 25,
     paddingTop: 10,
     paddingHorizontal: "5%",
-  },
-  seccionCategorias: {
-    flex: 1,
-    backgroundColor: "red",
-  },
-  seccionListView: {
-    flex: 1,
-    backgroundColor: "orange",
-  },
-  seccionCarousel: {
-    flex: 1,
-  },
-  titulo: {
-    flex: 1,
-    marginLeft: 10,
-    fontSize: 23,
-  },
-  btnVerTodos: {
-    flex: 1,
   },
 });

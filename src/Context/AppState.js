@@ -12,7 +12,7 @@ const AppState = (props) => {
   };
 
   const [state, dispatch] = useReducer(AppReducer, initialState);
-/*
+  /*
   const SignIn = async (email, password) => {
     var result = true;
     console.log("e:" + email + ",c=" + password.trim());
@@ -51,10 +51,15 @@ const AppState = (props) => {
     });
     dispatch({
       type: SET_USER,
-      payload: {nombre:"PEPE",apellido:"juan",calificacion:5},
+      payload: {
+        nombre: "Lionel",
+        apellido: "Messi",
+        calificacion: 4.9,
+        mail: "pulga10@gmail.com",
+      },
     });
-    return true
-  }
+    return true;
+  };
 
   const SignOut = () => {
     Firebase.auth()

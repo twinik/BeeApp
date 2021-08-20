@@ -11,10 +11,7 @@ import BotonNextBack from "../../Components/BotonNextBack";
 import ContainerKeyboardView from "./../../Components/ContainerKeyboardView";
 import AppContext from "../../Context/AppContext";
 import MyText from "../../Components/MyText";
-import {
-  MaterialIcons,
-  MaterialCommunityIcons,
-} from "@expo/vector-icons";
+import { MaterialIcons, MaterialCommunityIcons } from "@expo/vector-icons";
 import { Sae } from "react-native-textinput-effects";
 import LottieView from "lottie-react-native";
 const { width } = Dimensions.get("window");
@@ -30,20 +27,20 @@ export default function SignIn({ navigation, route }) {
       <View style={estilos.container}>
         <>
           <View style={estilos.containerLottie}>
-            {/* <LottieView
+            <LottieView
               source={require("../../../assets/Animaciones/background.json")}
               autoPlay
               loop
-              style={{ width: "100%",  }}
-            /> */}
+              style={{ width: "100%", height: "120%" }}
+            />
           </View>
           <View style={{ flex: 2, alignItems: "center" }}>
             <View style={estilos.containerTitulo}>
-            <MyText
-            style={estilos.titulo}
-            text={`Inicio de\nSesion`}
-            fontStyle="Medium"
-          />
+              <MyText
+                style={estilos.titulo}
+                text={`Inicio de\nSesion`}
+                fontStyle="Medium"
+              />
             </View>
           </View>
 
@@ -95,11 +92,11 @@ export default function SignIn({ navigation, route }) {
               <TouchableOpacity
                 onPress={() => alert("*Olvidaste la contraseña*")}
               >
-                 <MyText
-            style={estilos.olvidasteClave}
-            text={`¿Olvidaste tu Contraseña?`}
-            fontStyle="Medium"
-          />
+                <MyText
+                  style={estilos.olvidasteClave}
+                  text={`¿Olvidaste tu Contraseña?`}
+                  fontStyle="Medium"
+                />
               </TouchableOpacity>
             </View>
           </View>
@@ -117,11 +114,13 @@ export default function SignIn({ navigation, route }) {
                 type="Next"
                 title="Iniciar Sesión"
                 color="#fff"
-                onPress={() => SignIn(email, contraseña).then(x=>{
-                  if(!x){
-                    alert("Error al iniciar sesión");
-                  }
-                })}
+                onPress={() =>
+                  SignIn(email, contraseña).then((x) => {
+                    if (!x) {
+                      alert("Error al iniciar sesión");
+                    }
+                  })
+                }
               />
             </View>
           </View>
@@ -151,9 +150,7 @@ const estilos = StyleSheet.create({
     flex: 2,
     backgroundColor: "#7936E4",
     alignItems: "flex-end",
-    justifyContent: "center",
     flexDirection: "row",
-    height: '20%'
   },
   containerContent: {
     flex: 4,

@@ -62,7 +62,6 @@ function obtener4Aleatorios(array) {
     var aleatorio = Math.floor(Math.random() * array.length);
 
     while (resultado.includes(array[aleatorio])) {
-      console.log("Repetido");
       aleatorio = Math.floor(Math.random() * array.length);
     }
     resultado.push(array[aleatorio]);

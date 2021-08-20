@@ -3,9 +3,10 @@ import { View, Text } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 const DrawerCliente = createDrawerNavigator();
 import Profile from "../../Views/Cliente/App/Profile";
-import Home from './Cliente/HomeStack'
+import Home from "./Cliente/HomeStack";
 import EditProfile from "../../Views/Cliente/App/EditProfile";
-import { Ionicons, Foundation } from "@expo/vector-icons";
+import Reservas from "../../Views/Cliente/App/Reservas";
+import { Ionicons, Foundation, MaterialIcons } from "@expo/vector-icons";
 import MenuCliente from "../../Components/Menu/MenuCliente";
 import AppContext from "../../Context/AppContext";
 
@@ -44,6 +45,21 @@ export function App() {
         name="EditProfile"
         component={EditProfile}
         options={{ title: "EditProfile", presentation: "modal" }}
+      />
+
+      <DrawerCliente.Screen
+        name="Reservas"
+        component={Reservas}
+        options={{
+          title: "Reservas",
+          drawerIcon: ({ focused, size }) => (
+            <MaterialIcons
+              name="my-library-add"
+              size={size}
+              color={setearColors(focused)}
+            />
+          ),
+        }}
       />
 
       <DrawerCliente.Screen

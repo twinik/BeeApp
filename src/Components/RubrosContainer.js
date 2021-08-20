@@ -38,13 +38,13 @@ export default function RubrosContainer() {
       ) : (
         <MyText text="Cargando" />
       )}
-      {/* 
-      <FlatList
+
+      {/*  <FlatList
         data={rubros}
         horizontal={true}
         renderItem={renderItem}
         keyExtractor={(item) => item.id.toString()}
-      />*/}
+      /> */}
     </View>
   );
 }
@@ -52,7 +52,6 @@ export default function RubrosContainer() {
 const styles = StyleSheet.create({
   RubrosContainer: {
     flex: 1,
-    backgroundColor: "white",
     flexDirection: "row",
     flexWrap: "wrap",
   },

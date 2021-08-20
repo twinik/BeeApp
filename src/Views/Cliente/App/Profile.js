@@ -1,40 +1,20 @@
 import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Dimensions,
-  TouchableOpacity,
-  StatusBar,
-  Image,
-} from "react-native";
+import { View, StyleSheet, StatusBar } from "react-native";
 import AppContext from "../../../Context/AppContext";
-import { Feather, Entypo } from "@expo/vector-icons";
 import MenuProfile from "../../../Components/Menu/MenuProfile";
-import { Use } from "react-native-svg";
-const { width, height } = Dimensions.get("window");
-import { Hoshi } from "react-native-textinput-effects";
-import ContentDatosPerfil from '../../../Components/Content/ContentDatosPerfil'
+import ContentDatosPerfil from "../../../Components/Content/ContentDatosPerfil";
 
 export default function Profile({ navigation }) {
-  const { User } = React.useContext(AppContext);
   const { SignOut } = React.useContext(AppContext);
-
-  /*   React.useEffect(() => {
-    alert(User.apellido);
-  }, []); */
-
   return (
     //Navbar
     <View style={styles.container}>
       <MenuProfile
         onPressMenu={() => navigation.toggleDrawer()}
-        onPressHelp={() => alert("*Chat*")}
+        onPressHelp={() => navigation.navigate("EditProfile")}
       />
       {/* Contenido */}
-      <ContentDatosPerfil
-        onPress={() => navigation.navigate('EditProfile')}
-      />
+      <ContentDatosPerfil />
     </View>
   );
 }
@@ -45,9 +25,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#7936E4",
     marginTop: StatusBar.currentHeight,
   },
-  containerBoton:{
-    flex:1,
-    alignItems:'center'
+  containerBoton: {
+    flex: 1,
+    alignItems: "center",
   },
   contenido: {
     flex: 2.5,
@@ -55,20 +35,20 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
   },
-  datos:{
-    flex:5,
-    marginHorizontal: '8%',
+  datos: {
+    flex: 5,
+    marginHorizontal: "8%",
   },
-  inputLabel:{
-    marginVertical: '2%'
+  inputLabel: {
+    marginVertical: "2%",
   },
-  titleDatos:{
-    fontWeight:'bold',
-    fontSize:18
+  titleDatos: {
+    fontWeight: "bold",
+    fontSize: 18,
   },
-  datoDatos:{
-    color: '#7936E4',
-    fontSize:16
+  datoDatos: {
+    color: "#7936E4",
+    fontSize: 16,
   },
   containerContenidoNavbar: {
     flex: 0.3,

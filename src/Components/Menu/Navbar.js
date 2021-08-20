@@ -1,18 +1,7 @@
 import React, { useState, state } from "react";
-import {
-  KeyboardAvoidingView,
-  TouchableWithoutFeedback,
-  Keyboard,
-  Platform,
-  StyleSheet,
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  Dimensions,
-  StatusBar,
-} from "react-native";
-import { Feather, MaterialIcons, Entypo } from "@expo/vector-icons";
+import { StyleSheet, View, TouchableOpacity, Dimensions } from "react-native";
+import MyText from "../MyText";
+import { Feather, Entypo } from "@expo/vector-icons";
 import { Searchbar } from "react-native-paper";
 const { width, height } = Dimensions.get("window");
 
@@ -28,7 +17,7 @@ class Navbar extends React.Component {
           </View>
 
           <View style={styles.headerCentral}>
-            <Text style={styles.titulo}>ServBee</Text>
+            <MyText style={styles.titulo} text="ServBee" fontStyle="Bold" />
           </View>
 
           <View style={styles.headerRight}>
@@ -83,7 +72,6 @@ const styles = StyleSheet.create({
   },
   titulo: {
     color: "white",
-    fontWeight: "bold",
     fontSize: 24,
   },
   Searchbar: {

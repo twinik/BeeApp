@@ -1,19 +1,15 @@
-import React from 'react'
+import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-const Stack= createStackNavigator();
-import HomePro from '../../../Views/Cliente/App/HomePro'
-import Buscador from '../../../Views/Cliente/App/Buscador'
-import TrabajadorProfile from '../../../Views/Cliente/App/TrabajadorProfile';
+const Stack = createStackNavigator();
+import HomePro from "../../../Views/Cliente/App/HomePro";
+import Buscador from "../../../Views/Cliente/App/Buscador";
+import TrabajadorProfile from "../../../Views/Cliente/App/TrabajadorProfile";
 import { Ionicons, Foundation, FontAwesome } from "@expo/vector-icons";
 
-
 export default function ClienteStack() {
-    return (
-        <Stack.Navigator  headerMode="none">
-            <Stack.Screen
-        name="HomePro"
-        component={HomePro}
-      />
+  return (
+    <Stack.Navigator headerMode="none">
+      <Stack.Screen name="HomePro" component={HomePro} />
       <Stack.Screen
         name="Buscador"
         component={Buscador}
@@ -24,6 +20,6 @@ export default function ClienteStack() {
         component={TrabajadorProfile}
         options={{ title: "Trabajador Profile" }}
       />
-        </Stack.Navigator>
-    )
+    </Stack.Navigator>
+  );
 }

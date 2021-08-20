@@ -8,7 +8,9 @@ import {
   Image,
 } from "react-native";
 import AppContext from "../../Context/AppContext";
-import { Feather, Entypo } from "@expo/vector-icons";
+import { Feather, Entypo, MaterialIcons } from "@expo/vector-icons";
+
+import MyText from "../MyText";
 
 export default function Profile({ navigation, onPressMenu, onPressHelp }) {
   const { User } = React.useContext(AppContext);
@@ -25,12 +27,12 @@ export default function Profile({ navigation, onPressMenu, onPressHelp }) {
           </View>
 
           <View style={styles.headerCentral}>
-            <Text style={styles.titulo}>Perfil</Text>
+            <MyText style={styles.titulo} text="Perfil" fontStyle="SemiBold" />
           </View>
 
           <View style={styles.headerRight}>
             <TouchableOpacity onPress={onPressHelp}>
-              <Entypo name="chat" size={22} color="white" />
+              <MaterialIcons name="mode-edit" size={22} color="white" />
             </TouchableOpacity>
           </View>
         </View>

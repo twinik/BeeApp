@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, Button, Dimensions } from "react-native";
 import LottieView from "lottie-react-native";
+import MyText from "../../../../Components/MyText"
 
 const windowHeight = Dimensions.get("window").height;
 
@@ -15,11 +16,16 @@ export default function Info({ navigation }) {
         />
       </View>
       <View style={{ flex: 2 }}>
-        <Text style={style.titulo}>Contrate a precios{"\n"}accesibles</Text>
-        <Text style={style.subTitulo}>
-          Contrate a los expertos que{"\n"}usted necesite a precios{"\n"}
-          estandarizados y accesibles
-        </Text>
+        <MyText
+            style={style.titulo}
+            text={`Contrate a precios\n accesibles`}
+            fontStyle="Medium"
+          />
+        <MyText
+            style={style.subTitulo}
+            text={` Contrate a los expertos que \n usted necesite a precios \n estandarizados y accesibles`}
+            fontStyle="Medium"
+            />
       </View>
     </View>
   );

@@ -1,4 +1,5 @@
 import React from "react";
+import MyText from "../../Components/MyText";
 import {
   StyleSheet,
   Text,
@@ -31,7 +32,12 @@ export default function SignUp({ navigation }) {
       </View>
       <View style={{ flex: 2 }}>
         <View style={estilos.containerTitulo}>
-          <Text style={estilos.titulo}>Crea tu{"\n"}cuenta</Text>
+          
+          <MyText
+            style={estilos.titulo}
+            text="Crea tu cuenta"
+            fontStyle="Medium"
+          />
         </View>
       </View>
       <View style={estilos.contenedorCards}>

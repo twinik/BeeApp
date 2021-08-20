@@ -10,6 +10,7 @@ import {
 import BotonNextBack from "../../Components/BotonNextBack";
 import ContainerKeyboardView from "./../../Components/ContainerKeyboardView";
 import AppContext from "../../Context/AppContext";
+import MyText from "../../Components/MyText";
 import {
   MaterialIcons,
   MaterialCommunityIcons,
@@ -38,7 +39,11 @@ export default function SignIn({ navigation, route }) {
           </View>
           <View style={{ flex: 2, alignItems: "center" }}>
             <View style={estilos.containerTitulo}>
-              <Text style={estilos.titulo}>Inicio de{"\n"}Sesion</Text>
+            <MyText
+            style={estilos.titulo}
+            text={`Inicio de\nSesion`}
+            fontStyle="Medium"
+          />
             </View>
           </View>
 
@@ -90,9 +95,11 @@ export default function SignIn({ navigation, route }) {
               <TouchableOpacity
                 onPress={() => alert("*Olvidaste la contraseña*")}
               >
-                <Text style={estilos.olvidasteClave}>
-                  ¿Olvidaste tu Contraseña?
-                </Text>
+                 <MyText
+            style={estilos.olvidasteClave}
+            text={`¿Olvidaste tu Contraseña?`}
+            fontStyle="Medium"
+          />
               </TouchableOpacity>
             </View>
           </View>

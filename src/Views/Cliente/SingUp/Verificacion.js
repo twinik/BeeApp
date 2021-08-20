@@ -18,6 +18,8 @@ import ContenidoRegistro from "./../../../Components/ContenidoRegistro";
 import BotonSiguiente from "../../../Components/BotonSiguiente";
 import BotonNextBack from "../../../Components/BotonNextBack";
 import { AntDesign } from "@expo/vector-icons";
+import MyText from "../../../Components/MyText";
+
 import {
   CodeField,
   Cursor,
@@ -40,18 +42,31 @@ export default function Verificacion({ navigation }) {
       <View style={styles.container}>
         <HeaderRegistro>
           <View style={styles.containerTitulo}>
-            <Text style={styles.titulo}>Verificación</Text>
+          <MyText
+            style={styles.titulo}
+            text={`Verificación`}
+            fontStyle="Medium"
+          />
           </View>
         </HeaderRegistro>
 
         <ContenidoRegistro>
-          <Text style={styles.text2}>
-            Hemos enviado un código de verificación a su celular.
-            {"\n"}Ingrese el código de 4 digitos que ha recibido
-          </Text>
-          <Text style={styles.text3}>¿No has recibido ningun codigo?</Text>
+          <MyText
+            style={styles.text2}
+            text={`Hemos enviado un código de verificación a su celular \nIngrese el código de 4 digitos que ha recibido`}
+            fontStyle="Medium"
+          />
+          <MyText
+            style={styles.text3}
+            text={`¿No has recibido ningun codigo?`}
+            fontStyle="Medium"
+          />
           <TouchableOpacity onPress={() => alert("Vuelve a enviar")}>
-            <Text style={styles.text4}>Volver a enviar</Text>
+            <MyText
+            style={styles.text4}
+            text={`Volver a enviar`}
+            fontStyle="Medium"
+          />
           </TouchableOpacity>
           <View style={{ flex: 1, justifyContent: "center" }}>
             <CodeField

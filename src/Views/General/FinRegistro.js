@@ -9,7 +9,7 @@ import {
 import AppContext from "../../Context/AppContext";
 import BotonNextBack from "../../Components/BotonNextBack";
 import LottieView from "lottie-react-native";
-
+import MyText from "../../Components/MyText"
 const { width, height } = Dimensions.get("window");
 
 export default function Verificacion({ navigation }) {
@@ -25,9 +25,13 @@ export default function Verificacion({ navigation }) {
         />
       </View>
       <View style={styles.containerTitulo}>
-        <Text style={styles.text}>¡Listo!{"\n"}Bienvenido a Servbee</Text>
+      <MyText
+            style={styles.text}
+            text={`¡Listo! \n Bienvenido a Servbee`}
+            fontStyle="Medium"
+          />
       </View>
-
+     
       <View style={{ flex: 1, flexDirection: "row" }}>
         <View style={styles.containerVolver}>
           <BotonNextBack

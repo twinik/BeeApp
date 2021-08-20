@@ -21,6 +21,7 @@ import HeaderRegistro from "./../../../Components/HeaderRegistro";
 import ContenidoRegistro from "./../../../Components/ContenidoRegistro";
 import BotonNextBack from "../../../Components/BotonNextBack";
 const { width, height } = Dimensions.get("window");
+import MyText from "../../../Components/MyText";
 
 export default function Verificacion({ navigation }) {
   const [selectedImage, setSelectedImage] = React.useState({
@@ -33,15 +34,20 @@ export default function Verificacion({ navigation }) {
       <View style={styles.container}>
         <HeaderRegistro>
           <View style={styles.containerTitulo}>
-            <Text style={styles.titulo}>Identidad</Text>
+          <MyText
+            style={styles.titulo}
+            text={`Identidad`}
+            fontStyle="Medium"
+          />            
           </View>
         </HeaderRegistro>
 
         <ContenidoRegistro>
-          <Text style={[styles.text2]}>
-            Por ultimo necesitamos algunos documentos más para confirmar su
-            identidad
-          </Text>
+          <MyText
+            style={[styles.text2]}
+            text={`Por ultimo necesitamos algunos documentos más para confirmar su identidad`}
+            fontStyle="Medium"
+          />
           <View
             style={{
               flex: 4,

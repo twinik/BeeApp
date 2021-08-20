@@ -14,7 +14,7 @@ import { Pages } from "react-native-pages";
 import Slider1 from "./Slider/Slider1";
 import Slider2 from "./Slider/Slider2";
 import Slider3 from "./Slider/Slider3";
-
+import MyText from "../../../Components/MyText"
 const windowHeight = Dimensions.get("window").height;
 const windowWidth = Dimensions.get("window").width;
 
@@ -35,17 +35,32 @@ export default function Slider({ navigation }) {
             title="Comenzar"
             onPress={() => navigation.navigate("Datos")}
           />
-          <Text style={style.textAgree}>
-            Continuando usted acepta estar de acuerdo con los
-          </Text>
+          <MyText
+            style={style.textAgree}
+            text={` Continuando usted acepta estar de acuerdo con los`}
+            fontStyle="Medium"
+          />
           <View style={{ flexDirection: "row", marginTop: -10 }}>
             <TouchableOpacity>
-              <Text style={style.InicioSubtitulo}>Términos de Servicio</Text>
+            <MyText
+            style={style.InicioSubtitulo}
+            text={`Términos de Servicio`}
+            fontStyle="Medium"
+          />
             </TouchableOpacity>
-            <Text style={{ fontSize: 12 }}> y las </Text>
+            <MyText
+            style={{ fontSize: 12,marginRight:2,marginLeft:2 }}
+            text={`y las`}
+            fontStyle="Medium"
+            />
             <TouchableOpacity>
-              <Text style={style.InicioSubtitulo}>Politicas de Privacidad</Text>
+            <MyText
+            style={style.InicioSubtitulo}
+            text={`Politicas de Privacidad`}
+            fontStyle="Medium"
+          />
             </TouchableOpacity>
+           
           </View>
         </View>
       </View>

@@ -33,7 +33,7 @@ import HeaderRegistro from "./../../../Components/HeaderRegistro";
 import ContenidoRegistro from "./../../../Components/ContenidoRegistro";
 import { Isao, Fumi, Sae } from "react-native-textinput-effects";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
-
+import MyText from "../../../Components/MyText"
 const { width, height } = Dimensions.get("window");
 
 export default function Datos({ navigation }) {
@@ -58,13 +58,18 @@ export default function Datos({ navigation }) {
     <ContainerKeyboardView>
       <View style={estilitos.container}>
         <HeaderRegistro>
-          <Text style={estilitos.titulo}>Datos</Text>
+          <MyText
+            style={estilitos.titulo}
+            text={`Datos`}
+            fontStyle="Medium"
+          />
         </HeaderRegistro>
         <ContenidoRegistro addStyle={{ width: width / 1.2 }}>
-          <Text style={estilitos.subtitulo}>
-            Porfavor, ingrese su nombre, apellido, número de teléfono, fecha de
-            nacimiento, Email y contraseña
-          </Text>
+        <MyText
+            style={estilitos.subtitulo}
+            text={`Porfavor, ingrese su nombre, apellido, número de teléfono, fecha de nacimiento, Email y contraseña`}
+            fontStyle="Medium"
+          />
           <FormDatos />
         </ContenidoRegistro>
 

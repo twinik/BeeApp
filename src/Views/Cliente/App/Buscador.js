@@ -64,7 +64,7 @@ export default function Bienvenido({ navigation, route }) {
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
+      <View style={styles.header}>        
         <View style={styles.HeaderIcons}>
           <Ionicons
             onPress={() => navigation.goBack()}
@@ -75,7 +75,6 @@ export default function Bienvenido({ navigation, route }) {
           />
           <Text style={[styles.titulo]}>ServBee</Text>
         </View>
-
         <View style={{ flex: 1 }}>
           <Searchbar
             style={styles.Searchbar}
@@ -85,6 +84,7 @@ export default function Bienvenido({ navigation, route }) {
             onChangeText={onChangeSearch}
             value={value}
             ref={ref}
+            autoFocus={true}
           />
         </View>
       </View>
@@ -101,7 +101,11 @@ export default function Bienvenido({ navigation, route }) {
               fc={buscarTrabajadores}
             />
           ) : (
-            <ContTrabajadores traba={trabajadores} func={navigation} rubro={searchQuery}/>
+            <ContTrabajadores
+              traba={trabajadores}
+              func={navigation}
+              rubro={searchQuery}
+            />
           )}
         </ScrollView>
       </View>
@@ -117,11 +121,11 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: "center",
-    flex: 0.2,
+    flex: 1,
     paddingHorizontal: "5%",
   },
   fragmentResultados: {
-    flex: 0.8,
+    flex: 3,
   },
   HeaderIcons: {
     flex: 1,

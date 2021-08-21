@@ -30,6 +30,11 @@ const BodyHome = () => {
         <CardPublicidad />
       </View>
       <View style={styles.seccionListView}>
+        <MyText
+          style={[styles.titulo, { marginTop: 10 }]}
+          text="Todos los servicios"
+          fontStyle="SemiBold"
+        />
         <ListViewRubros />
       </View>
     </ScrollView>

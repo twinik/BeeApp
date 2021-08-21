@@ -14,6 +14,7 @@ import { obtenerTrabajadoresFiltro } from "../../../Firebase/Utils/TrabajadoresC
 import Busqueda from "../../../Components/Busqueda/Busqueda";
 import Recomendados from "../../../Components/Busqueda/Recomendados";
 import ContTrabajadores from "../../../Components/Busqueda/ContTrabajadores";
+import MyText from "../../../Components/MyText";
 const { width, height } = Dimensions.get("window");
 
 export default function Bienvenido({ navigation, route }) {
@@ -64,7 +65,7 @@ export default function Bienvenido({ navigation, route }) {
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>        
+      <View style={styles.header}>
         <View style={styles.HeaderIcons}>
           <Ionicons
             onPress={() => navigation.goBack()}
@@ -73,7 +74,7 @@ export default function Bienvenido({ navigation, route }) {
             color="#7936E4"
             style={{ position: "absolute", left: 0 }}
           />
-          <Text style={[styles.titulo]}>ServBee</Text>
+          <MyText style={styles.titulo} text="ServBee" fontStyle="Bold" />
         </View>
         <View style={{ flex: 1 }}>
           <Searchbar
@@ -150,7 +151,6 @@ const styles = StyleSheet.create({
   },
   titulo: {
     color: "#7936E4",
-    fontWeight: "bold",
     fontSize: 26,
   },
   Searchbar: {

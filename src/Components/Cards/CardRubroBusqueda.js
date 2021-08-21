@@ -1,26 +1,35 @@
 import React from "react";
-import { StyleSheet, TouchableOpacity, View, Image } from "react-native";
+import {
+  StyleSheet,
+  TouchableOpacity,
+  View,
+  Image,
+  Dimensions,
+} from "react-native";
 import MyText from "../MyText";
+
+const width = Dimensions.get("window").width;
+const height = Dimensions.get("window").height;
 
 const CardRubroBusqueda = ({ fc, rubros }) => {
   return (
-    <View style={{ alignItems: "center" }} key={rubros.nombre}>
+    <View key={rubros.nombre}>
       <TouchableOpacity onPress={() => fc(rubros.nombre)} style={styles.card}>
-        <Image
-          style={styles.img}
-          source={{
-            uri: rubros.imgUrl,
-          }}
-        />
-        <View
-          style={{
-            flex: 3,
-            padding: 5,
-            marginLeft: 5,
-            justifyContent: "center",
-          }}
-        >
-          <MyText style={styles.title} text={rubros.nombre} />
+        <View style={{ flex: 3 }}>
+          <Image
+            style={styles.img}
+            source={{
+              uri: rubros.imgUrl,
+            }}
+          />
+        </View>
+
+        <View style={{ flex: 1, justifyContent: "center" }}>
+          <MyText
+            style={styles.title}
+            text={rubros.nombre}
+            fontStyle="Medium"
+          />
         </View>
       </TouchableOpacity>
     </View>
@@ -31,12 +40,12 @@ export default CardRubroBusqueda;
 
 const styles = StyleSheet.create({
   card: {
-    flexDirection: "row",
     backgroundColor: "white",
-    marginVertical: 7,
-    borderRadius: 10,
-    width: "90%",
-    height: 70,
+    width: width / 3 - 15,
+    height: 100,
+    margin: 5,
+    borderRadius: 5,
+    padding: 5,
 
     shadowColor: "#000",
     shadowOffset: {
@@ -46,19 +55,18 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
 
-    elevation: 4,
+    elevation: 5,
   },
 
   img: {
-    flex: 2,
-    width: 70,
-    height: 70,
-    borderTopLeftRadius: 10,
-    borderBottomLeftRadius: 10,
+    width: "100%",
+    height: "100%",
+    resizeMode: "cover",
   },
 
   title: {
     color: "black",
-    fontSize: 24,
+    fontSize: 14,
+    textAlign: "center",
   },
 });

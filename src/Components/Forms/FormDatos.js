@@ -61,6 +61,15 @@ export default function FormDatos() {
       </FormItem>
       <DatePickes setValor={setValor} configSae={configSae}/>
 
+      <FormItem control={control} label="Fecha de nacimiento">
+        <Sae
+          label={"Fecha de nacimiento"}
+          iconClass={MaterialIcons}
+          iconName={"calendar-today"}
+          {...configSae}
+        />
+      </FormItem>
+
       <FormItem control={control} label="Email">
         <Sae
           label={"Email"}

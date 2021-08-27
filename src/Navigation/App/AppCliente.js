@@ -2,8 +2,8 @@ import React from "react";
 import { View, Text } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 const DrawerCliente = createDrawerNavigator();
-import Profile from "../../Views/Cliente/App/Profile";
 import Home from "./Cliente/HomeStack";
+import Profile from "./Cliente/ProfileStack";
 import EditProfile from "../../Views/Cliente/App/EditProfile";
 import Reservas from "../../Views/Cliente/App/Reservas";
 import { Ionicons, Foundation, MaterialIcons } from "@expo/vector-icons";
@@ -42,6 +42,17 @@ export function App() {
       />
 
       <DrawerCliente.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          title: "Perfil",
+          drawerIcon: ({ focused, size }) => (
+            <Ionicons name="person" size={size} color={setearColors(focused)} />
+          ),
+        }}
+      />
+
+      <DrawerCliente.Screen
         name="EditProfile"
         component={EditProfile}
         options={{ title: "EditProfile", presentation: "modal" }}
@@ -58,17 +69,6 @@ export function App() {
               size={size}
               color={setearColors(focused)}
             />
-          ),
-        }}
-      />
-
-      <DrawerCliente.Screen
-        name="Profile"
-        component={Profile}
-        options={{
-          title: "Perfil",
-          drawerIcon: ({ focused, size }) => (
-            <Ionicons name="person" size={size} color={setearColors(focused)} />
           ),
         }}
       />

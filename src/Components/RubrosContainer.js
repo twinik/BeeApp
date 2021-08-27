@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import RubroCard from "./RubroCard";
-import { View, StyleSheet, FlatList } from "react-native";
+import { View, StyleSheet, ActivityIndicator } from "react-native";
 import { obtener4Rubros } from "../Firebase/Utils/RubrosConexio";
 import MyText from "./MyText";
 
@@ -36,7 +36,9 @@ export default function RubrosContainer() {
           <RubroCard titulo={rubro.nombre} uri={rubro.imgUrl} key={i} />
         ))
       ) : (
-        <MyText text="Cargando" />
+        <View>
+          <ActivityIndicator size="small" color="#7936E4" />
+        </View>
       )}
 
       {/*  <FlatList

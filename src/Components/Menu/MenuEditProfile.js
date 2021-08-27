@@ -12,7 +12,11 @@ import { Feather, Entypo, MaterialIcons } from "@expo/vector-icons";
 
 import MyText from "../MyText";
 
-export default function Profile({ navigation, onPressMenu, onPressHelp }) {
+export default function MenuEditProfile({
+  navigation,
+  onPressClose,
+  onPressSave,
+}) {
   const { User } = React.useContext(AppContext);
 
   return (
@@ -21,30 +25,37 @@ export default function Profile({ navigation, onPressMenu, onPressHelp }) {
       <View style={styles.menuHead}>
         <View style={styles.HeaderIcons}>
           <View style={styles.headerLeft}>
-            <TouchableOpacity onPress={onPressMenu}>
-              <Feather name="menu" size={24} color="white" />
+            <TouchableOpacity onPress={onPressClose}>
+              <MaterialIcons name="close" size={24} color="white" />
             </TouchableOpacity>
           </View>
 
           <View style={styles.headerCentral}>
-            <MyText style={styles.titulo} text="Perfil" fontStyle="SemiBold" />
+            <MyText style={styles.titulo} text="Editar" fontStyle="SemiBold" />
           </View>
 
           <View style={styles.headerRight}>
-            <TouchableOpacity onPress={onPressHelp}>
-              <MaterialIcons name="mode-edit" size={24} color="white" />
+            <TouchableOpacity onPress={onPressSave}>
+              <Feather name="check" size={24} color="white" />
             </TouchableOpacity>
           </View>
         </View>
       </View>
       {/* ContenidoNavbar */}
       <View style={styles.containerContenidoNavbar}>
-        <Image
-          source={{
-            uri: "https://www.pngall.com/wp-content/uploads/5/Profile-PNG-Clipart.png",
-          }}
-          style={styles.profilePhoto}
-        />
+        <TouchableOpacity style={{ alignItems: "flex-end" }}>
+          <Image
+            source={{
+              uri: "https://www.pngall.com/wp-content/uploads/5/Profile-PNG-Clipart.png",
+            }}
+            style={styles.profilePhoto}
+          />
+
+          <View style={{ position: "absolute" }}>
+            <MaterialIcons name="mode-edit" size={24} color="white" />
+          </View>
+        </TouchableOpacity>
+
         <Text style={styles.nombreApellido}>
           {User.nombre} {User.apellido}
         </Text>

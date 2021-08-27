@@ -1,80 +1,115 @@
-import React from 'react'
-import {View, Text, StyleSheet} from 'react-native'
-import BotonGrande from "../BotonGrande"
+import React, { useState } from "react";
+import { View, TextInput, StyleSheet, ScrollView } from "react-native";
+import AppContext from "../../Context/AppContext";
+import BotonGrande from "../BotonGrande";
+import MyText from "../MyText";
 
-function ContentDatosPerfilEdit ({ navigation }) {
-    return(
-        <View style={styles.contenido}>
+export function ContentDatosPerfilEdit() {
+  const { User } = React.useContext(AppContext);
+  const [mail, setMail] = useState(User.mail);
+
+  return (
+    <View style={styles.contenido}>
+      <ScrollView>
         <View style={styles.datos}>
-          <View style={[styles.inputLabel, {marginTop: 25}]}>
-            <Text style={styles.titleDatos}>Nombre</Text>
-            <Text style={styles.datoDatos}>Lionel</Text>
-          </View>
-
-          <View style={styles.inputLabel}>
-            <Text style={styles.titleDatos}>Apellido</Text>
-            <Text style={styles.datoDatos}>Messi</Text>
-          </View>
-
-          <View style={styles.inputLabel}>
-            <Text style={styles.titleDatos}>Número de teléfono</Text>
-            <Text style={styles.datoDatos}>+54 11 5139-7654</Text>
-          </View>
-
-          <View style={styles.inputLabel}>
-            <Text style={styles.titleDatos}>Correo electronico</Text>
-            <Text style={styles.datoDatos}>pulga@gmail.com</Text>
-          </View>
-
-          <View style={styles.inputLabel}>
-            <Text style={styles.titleDatos}>Dirección</Text>
-            <Text style={styles.datoDatos}>Av Lionel Andrés 100</Text>
-          </View>
-
-          <View style={styles.inputLabel}>
-            <Text style={styles.titleDatos}>Contraseña</Text>
-            <Text style={styles.datoDatos}>*******</Text>
-          </View>
-
-        </View>
-
-        <View style={styles.containerBoton}>
-            <BotonGrande
-            title="Guardar"
-            onPress={() => navigation.goBack()}
+          <View style={[styles.inputLabel, { marginTop: 25 }]}>
+            <MyText
+              style={styles.titleDatos}
+              text="Número de teléfono"
+              fontStyle="Bold"
             />
-        </View>
+            <MyText
+              style={styles.datoDatos}
+              text="+54 11 5139-7654"
+              fontStyle="SemiBold"
+            />
+          </View>
 
-      </View>
-    )
+          <View style={styles.inputLabel}>
+            <MyText
+              style={styles.titleDatos}
+              text="Correo electronico"
+              fontStyle="Bold"
+            />
+            <TextInput
+              onChange={(v) => setMail(v)}
+              value={mail}
+              placeholderTextColor="#CC95DA"
+              style={{
+                fontSize: 16,
+                borderBottomWidth: 2,
+                borderBottomColor: "#7936E4",
+                height: 45,
+              }}
+            />
+          </View>
+
+          <View style={styles.inputLabel}>
+            <MyText
+              style={styles.titleDatos}
+              text="Dirección"
+              fontStyle="Bold"
+            />
+            <TextInput
+              value="Av Lionel Andrés 100"
+              placeholderTextColor="#CC95DA"
+              style={{
+                fontSize: 16,
+                borderBottomWidth: 2,
+                borderBottomColor: "#7936E4",
+                height: 45,
+              }}
+            />
+          </View>
+
+          <View style={styles.inputLabel}>
+            <MyText
+              style={styles.titleDatos}
+              text="Contraseña"
+              fontStyle="Bold"
+            />
+            <TextInput
+              secureTextEntry={true}
+              placeholderTextColor="#CC95DA"
+              style={{
+                fontSize: 16,
+                borderBottomWidth: 2,
+                borderBottomColor: "#7936E4",
+                height: 45,
+              }}
+            />
+          </View>
+        </View>
+      </ScrollView>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-    contenido: {
-        flex: 2.5,
-        backgroundColor: "white",
-        borderTopLeftRadius: 25,
-        borderTopRightRadius: 25,
-    },  
-    containerBoton:{
-        flex:1,
-        alignItems:'center'
-    },
-    datos:{
-        flex:5,
-        marginHorizontal: '8%',
-    },
-    inputLabel:{
-        marginVertical: '2%'
-    },
-    titleDatos:{
-        fontWeight:'bold',
-        fontSize:18
-    },
-    datoDatos:{
-        color: '#CC95DA',
-        fontSize:16
-    },
-})
+  contenido: {
+    flex: 2,
+    backgroundColor: "white",
+    borderTopLeftRadius: 25,
+    borderTopRightRadius: 25,
+  },
+  containerBoton: {
+    flex: 1,
+    alignItems: "center",
+  },
+  datos: {
+    flex: 5,
+    marginHorizontal: "8%",
+  },
+  inputLabel: {
+    marginVertical: "2%",
+  },
+  titleDatos: {
+    fontSize: 18,
+  },
+  datoDatos: {
+    color: "#CC95DA",
+    fontSize: 16,
+  },
+});
 
-export default ContentDatosPerfilEdit
+export default ContentDatosPerfilEdit;

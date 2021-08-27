@@ -2,7 +2,7 @@ import React, { useState, state } from "react";
 import {
   StyleSheet,
   View,
-  Text,
+  ActivityIndicator,
   Dimensions,
   StatusBar,
   ScrollView,
@@ -92,7 +92,9 @@ export default function Bienvenido({ navigation, route }) {
       <View style={styles.fragmentResultados}>
         <ScrollView>
           {loading ? (
-            <Text>Cargando</Text>
+            <View>
+              <ActivityIndicator size="large" color="#7936E4" />
+            </View>
           ) : searchQuery == "" ? (
             <Recomendados fc={buscarTrabajadores} Rubros={rubros} />
           ) : trabajadores != null && trabajadores.length == 0 ? (

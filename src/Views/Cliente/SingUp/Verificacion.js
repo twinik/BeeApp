@@ -3,23 +3,15 @@ import {
   StyleSheet,
   Text,
   View,
-  Dimensions,
   TouchableOpacity,
-  ImageBackground,
-  KeyboardAvoidingView,
-  TouchableWithoutFeedback,
-  Keyboard,
-  Platform,
 } from "react-native";
 
 import ContainerKeyboardView from "./../../../Components/ContainerKeyboardView";
 import HeaderRegistro from "./../../../Components/HeaderRegistro";
 import ContenidoRegistro from "./../../../Components/ContenidoRegistro";
-import BotonSiguiente from "../../../Components/BotonSiguiente";
 import BotonNextBack from "../../../Components/BotonNextBack";
-import { AntDesign } from "@expo/vector-icons";
 import MyText from "../../../Components/MyText";
-
+import { generarVerificacionTelefono,verificarTelefono} from '../../../Firebase/Utils/AuthConexion'
 import {
   CodeField,
   Cursor,
@@ -28,15 +20,41 @@ import {
 } from "react-native-confirmation-code-field";
 const CELL_COUNT = 4;
 
-const { width, height } = Dimensions.get("window");
-
-export default function Verificacion({ navigation }) {
+export default function Verificacion({ navigation,route }) {
   const [value, setValue] = React.useState("");
   const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
   const [props, getCellOnLayoutHandler] = useClearByFocusCell({
     value,
     setValue,
   });
+  var data=route.params
+
+  React.useEffect(() => {
+    const fc = async() =>{
+      try {
+        await generarVerificacionTelefono(data.Telefono)
+      } catch (e){
+        alert(e)
+      }
+    }
+    fc()
+  }, []);
+
+  React.useEffect(() => {
+    const fc = async() =>{
+      try{
+       await verificarTelefono(data.Telefono,value)
+       alert('Verificacion exitosa')
+       navigation.push("Documentos")
+      } catch(e){
+        alert(e)
+      }}
+    if(value.length === 4){
+      fc()
+    }
+    }
+  , [value]);
+
   return (
     <ContainerKeyboardView style>
       <View style={styles.container}>
@@ -101,12 +119,7 @@ export default function Verificacion({ navigation }) {
             />
           </View>
           <View style={styles.containerBoton}>
-            <BotonNextBack
-              type="Next"
-              title="Siguiente"
-              color="#fff"
-              onPress={() => navigation.navigate("Documentos")}
-            />
+            
           </View>
         </View>
       </View>

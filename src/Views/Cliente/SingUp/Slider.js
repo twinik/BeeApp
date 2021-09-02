@@ -33,7 +33,7 @@ export default function Slider({ navigation }) {
         <View style={style.containerBoton}>
           <BotonGrande
             title="Comenzar"
-            onPress={() => navigation.navigate("Datos")}
+            onPress={() => navigation.push("Datos")}
           />
           <MyText
             style={style.textAgree}

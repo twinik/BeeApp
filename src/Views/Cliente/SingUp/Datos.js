@@ -33,44 +33,51 @@ import HeaderRegistro from "./../../../Components/HeaderRegistro";
 import ContenidoRegistro from "./../../../Components/ContenidoRegistro";
 import { Isao, Fumi, Sae } from "react-native-textinput-effects";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
-import MyText from "../../../Components/MyText"
+import { useForm } from "react-hook-form";
+
+import MyText from "../../../Components/MyText";
 const { width, height } = Dimensions.get("window");
 
 export default function Datos({ navigation }) {
   StatusBar.setBackgroundColor("#7936E4", true);
 
-  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-  const showDatePicker = () => {
-    setDatePickerVisibility(true);
-  };
-
-  const hideDatePicker = () => {
-    setDatePickerVisibility(false);
-  };
-
-  const handleConfirm = (date) => {
-    console.warn("A date has been picked: ", date);
-    hideDatePicker();
+  const VerificarDatos = (data) => {
+    const Filtros = {
+      mismaContraseña: (x, y) => {
+        return x === y;
+      },
+    };
+    try {
+      Object.keys(Filtros).forEach((filtro) => {
+        if (!Filtros[filtro](data.Contraseña, data["2Contraseña"])) {
+          throw "error";
+        }
+      });
+      navigation.push("verify",data);
+    } catch (e) {
+      alert(e);
+    }
   };
 
   return (
     <ContainerKeyboardView>
       <View style={estilitos.container}>
         <HeaderRegistro>
-          <MyText
-            style={estilitos.titulo}
-            text={`Datos`}
-            fontStyle="Medium"
-          />
+          <MyText style={estilitos.titulo} text={`Datos`} fontStyle="Medium" />
         </HeaderRegistro>
         <ContenidoRegistro addStyle={{ width: width / 1.2 }}>
-        <MyText
+          <MyText
             style={estilitos.subtitulo}
             text={`Porfavor, ingrese su nombre, apellido, número de teléfono, fecha de nacimiento, Email y contraseña`}
             fontStyle="Medium"
           />
-          <FormDatos />
+          <FormDatos control={control} errors={errors} />
         </ContenidoRegistro>
 
         <View style={{ flex: 1, flexDirection: "row" }}>
@@ -86,7 +93,7 @@ export default function Datos({ navigation }) {
               type="Next"
               title="Siguiente"
               color="#fff"
-              onPress={() => navigation.navigate("verify")}
+              onPress={handleSubmit(VerificarDatos)}
             />
           </View>
         </View>

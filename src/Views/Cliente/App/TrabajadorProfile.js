@@ -4,6 +4,7 @@ import ModalContrato from "../../../Components/ModalContrato";
 export default function TrabajadorProfile({ route, navigator }) {
   const { data } = route.params;
   const [modalVisible, setModalVisible] = React.useState(false);
+  
   React.useEffect(() => {}, []);
   return (
     <View style={{ flex: 1, marginTop: 50 }}>

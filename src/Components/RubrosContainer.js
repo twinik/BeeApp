@@ -8,27 +8,14 @@ export default function RubrosContainer() {
   const [rubros, setRubros] = useState(null);
 
   useEffect(() => {
-    (async () => {
       async function fetchData() {
         const response = await obtener4Rubros();
         setRubros(response);
       }
       fetchData();
-    })();
   }, []);
 
-  const renderItem = ({ item }) => {
-    /*  rubros != null ? (
-      <RubroCard titulo={item.nombre} uri={item.imgUrl} key={item.id} />
-    ) : (
-      <View style={{ justifyContent: "center", alignItems: "center" }}>
-        <Text>Cargando</Text>
-      </View>
-      ); */
-
-    <RubroCard item={item} key={item.id} />;
-  };
-
+  
   return (
     <View style={styles.RubrosContainer}>
       {rubros != null ? (
@@ -40,13 +27,6 @@ export default function RubrosContainer() {
           <ActivityIndicator size="small" color="#7936E4" />
         </View>
       )}
-
-      {/*  <FlatList
-        data={rubros}
-        horizontal={true}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id.toString()}
-      /> */}
     </View>
   );
 }

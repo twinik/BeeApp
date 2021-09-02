@@ -6,21 +6,13 @@ import {
   MaterialIcons,
 } from "@expo/vector-icons";
 import { Sae } from "react-native-textinput-effects";
-import { useForm } from "react-hook-form";
 import FormItem from "./FormItem";
-import Boton from "../Boton";
 import DatePickes from "./DatePickes";
-export default function FormDatos() {
+export default function FormDatos({control,errors}) {
   
 
   const [valor, setValor] = useState("");
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
   
-  const onSubmit = (data) => console.log(data);
 
   const configSae = {
     iconColor: "#7936E4",
@@ -94,7 +86,6 @@ export default function FormDatos() {
           {...configSae}
         />
       </FormItem>
-      <Boton title="Enviar" onPress={handleSubmit(onSubmit)} />
     </ScrollView>
   );
 }

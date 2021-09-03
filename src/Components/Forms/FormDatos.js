@@ -8,6 +8,7 @@ import {
 import { Sae } from "react-native-textinput-effects";
 import FormItem from "./FormItem";
 import DatePickes from "./DatePickes";
+import { useForm, Controller } from "react-hook-form";
 export default function FormDatos({control,errors}) {
   
 

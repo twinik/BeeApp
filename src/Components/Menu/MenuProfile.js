@@ -8,7 +8,7 @@ import {
   Image,
 } from "react-native";
 import AppContext from "../../Context/AppContext";
-import { Feather, Entypo, MaterialIcons } from "@expo/vector-icons";
+import { Feather, FontAwesome, MaterialIcons } from "@expo/vector-icons";
 
 import MyText from "../MyText";
 
@@ -45,10 +45,20 @@ export default function Profile({ navigation, onPressMenu, onPressHelp }) {
           }}
           style={styles.profilePhoto}
         />
-        <Text style={styles.nombreApellido}>
-          {User.nombre} {User.apellido}
-        </Text>
-        <Text style={styles.stars}>⭐ {User.calificacion}</Text>
+        <MyText
+          style={styles.nombreApellido}
+          text={User.nombre + " " + User.apellido}
+          fontStyle="SemiBold"
+        />
+        <View style={{ flexDirection: "row" }}>
+          <FontAwesome
+            style={{ marginRight: 5, marginTop: 3 }}
+            name="star"
+            size={16}
+            color="#FFCB45"
+          />
+          <MyText text={User.calificacion} style={styles.stars} fontStyle="Medium"/>
+        </View>
       </View>
     </View>
   );

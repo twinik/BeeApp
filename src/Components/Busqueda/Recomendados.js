@@ -15,7 +15,7 @@ export default function Recomendados({ Rubros, fc }) {
     /> */
     <View style={styles.container}>
       {Rubros.map((rubros) => (
-        <CardRubroBusqueda fc={fc} rubros={rubros} />
+        <CardRubroBusqueda fc={fc} rubros={rubros}/>
       ))}
     </View>
   );
@@ -23,8 +23,6 @@ export default function Recomendados({ Rubros, fc }) {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    marginHorizontal: "2%",
+    alignItems: "center",
   },
 });

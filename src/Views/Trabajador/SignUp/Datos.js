@@ -35,7 +35,7 @@ import ContenidoRegistro from "./../../../Components/ContenidoRegistro";
 import MenuNextBack from "../../../Components/Botones/MenuNextBack";
 import { Isao, Fumi, Sae } from "react-native-textinput-effects";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
-
+import { useForm } from "react-hook-form";
 const { width, height } = Dimensions.get("window");
 
 export default function Datos({ navigation }) {
@@ -53,6 +53,36 @@ export default function Datos({ navigation }) {
     console.warn("A date has been picked: ", date);
     hideDatePicker();
   };
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const VerificarDatos = (data) => {
+    const Filtros = {
+      mismaContraseña: (data) => {
+        return data.Contraseña === data["2Contraseña"]
+      },
+      telefonoValido: (data) => {
+        var regex = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g
+        return regex.test(data.Telefono) && data.Telefono.length >= 8 && data.Telefono.length <= 15
+      },emailValido: (data) => {
+        var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        return regex.test(data.Email)
+      }
+    };
+    try {
+      Object.keys(Filtros).forEach((filtro) => {
+        if (!Filtros[filtro](data)) {
+          throw filtro;
+        }
+      });
+      navigation.push("verify",data);
+    } catch (e) {
+      alert(e);
+    }
+  };
 
   return (
     <ContainerKeyboardView>
@@ -67,7 +97,7 @@ export default function Datos({ navigation }) {
               de nacimiento, Email y contraseña
             </Text>
 
-            <FormDatos />
+            <FormDatos control={control} errors={errors}/>
           </ContenidoRegistro>
           <View style={{ flex: 0.5, flexDirection: "row" }}>
             <View style={estilitos.containerVolver}>
@@ -82,7 +112,7 @@ export default function Datos({ navigation }) {
                 type="Next"
                 title="Siguiente"
                 color="#fff"
-                onPress={() => navigation.navigate("verify")}
+                onPress={handleSubmit(VerificarDatos)}
               />
             </View>
           </View>

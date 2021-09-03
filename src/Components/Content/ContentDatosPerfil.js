@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { View, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 import AppContext from "../../Context/AppContext";
 import BotonGrande from "../BotonGrande";
 import MyText from "../MyText";
@@ -70,23 +70,10 @@ export function ContentDatosPerfil() {
               fontStyle="SemiBold"
             />
           </View>
-
-          <View style={styles.inputLabel}>
-            <MyText
-              style={styles.titleDatos}
-              text="Contraseña"
-              fontStyle="Bold"
-            />
-            <MyText
-              style={styles.datoDatos}
-              text="*******"
-              fontStyle="SemiBold"
-            />
-          </View>
         </View>
 
         <View style={styles.containerBoton}>
-          <BotonGrande title="Log Out" />
+          <TouchableOpacity />
         </View>
       </ScrollView>
     </View>
@@ -103,6 +90,7 @@ const styles = StyleSheet.create({
   containerBoton: {
     flex: 1,
     alignItems: "center",
+    margin: 5,
   },
   datos: {
     flex: 5,

@@ -20,7 +20,7 @@ export default function Busqueda({ searchQuery, Rubros, fc }) {
   ) : (
     <View style={styles.container}>
       {rubrosFiltrados.map((x) => (
-        <CardRubroBusqueda fc={fc} rubros={x} />
+        <CardRubroBusqueda fc={fc} rubros={x} key={x.nombre} />
       ))}
     </View>
   );
@@ -28,8 +28,6 @@ export default function Busqueda({ searchQuery, Rubros, fc }) {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    marginHorizontal: "2%",
+    alignItems: "center",
   },
 });

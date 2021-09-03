@@ -7,28 +7,31 @@ import {
   Dimensions,
 } from "react-native";
 import MyText from "../MyText";
+import { Feather } from "@expo/vector-icons";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
 const CardRubroBusqueda = ({ fc, rubros }) => {
   return (
-    <View key={rubros.nombre}>
+    <View>
       <TouchableOpacity onPress={() => fc(rubros.nombre)} style={styles.card}>
-        <View style={{ flex: 3 }}>
-          <Image
-            style={styles.img}
-            source={{
-              uri: rubros.imgUrl,
-            }}
-          />
+        <View
+          style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+        >
+          <Feather name="search" size={20} color="black" />
         </View>
 
-        <View style={{ flex: 1, justifyContent: "center" }}>
+        <View style={{ flex: 5, alignItems: "flex-start" }}>
           <MyText
             style={styles.title}
             text={rubros.nombre}
-            fontStyle="Medium"
+            fontStyle="Bold"
+          />
+          <MyText
+            style={styles.subtitle}
+            text={rubros.descripcion}
+            fontStyle="Regular"
           />
         </View>
       </TouchableOpacity>
@@ -40,33 +43,28 @@ export default CardRubroBusqueda;
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: "white",
-    width: width / 3 - 15,
-    height: 100,
-    margin: 5,
+    flexDirection: "row",
+    width: '98%',
+    height: 50,
     borderRadius: 5,
     padding: 5,
-
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-
-    elevation: 5,
+    borderBottomWidth: 1,
+    borderBottomColor: "#EBEBEB",
   },
 
   img: {
     width: "100%",
     height: "100%",
-    resizeMode: "cover",
+    resizeMode: "contain",
   },
 
   title: {
     color: "black",
-    fontSize: 14,
-    textAlign: "center",
+    fontSize: 16,
   },
+
+  subtitle:{
+    color: "black",
+    fontSize: 14,
+  }
 });

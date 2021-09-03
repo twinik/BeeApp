@@ -1,8 +1,8 @@
 import React from 'react';
 import { createStackNavigator } from "@react-navigation/stack";
-const AppTrabajador= createStackNavigator();
+const AppTrabajador= createBottomTabNavigator();
 import Home from '../../Views/Trabajador/App/Home'
-
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 export default function App () {
 
    

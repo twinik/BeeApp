@@ -16,23 +16,12 @@ import {
   Keyboard,
   ScrollView,
 } from "react-native";
-import {
-  FontAwesome5,
-  FontAwesomeIcon,
-  MaterialCommunityIcons,
-  Ionicons,
-} from "@expo/vector-icons";
 import UserCard from "../../../Components/userCard";
 import FormDatos from "../../../Components/Forms/FormDatos";
-import { CheckBox } from "react-native-elements";
-import * as ImagePicker from "expo-image-picker";
-import { AntDesign } from "@expo/vector-icons";
 import BotonNextBack from "../../../Components/BotonNextBack";
 import ContainerKeyboardView from "./../../../Components/ContainerKeyboardView";
 import HeaderRegistro from "./../../../Components/HeaderRegistro";
 import ContenidoRegistro from "./../../../Components/ContenidoRegistro";
-import { Isao, Fumi, Sae } from "react-native-textinput-effects";
-import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { useForm } from "react-hook-form";
 
 import MyText from "../../../Components/MyText";
@@ -49,14 +38,21 @@ export default function Datos({ navigation }) {
 
   const VerificarDatos = (data) => {
     const Filtros = {
-      mismaContraseña: (x, y) => {
-        return x === y;
+      mismaContraseña: (data) => {
+        return data.Contraseña === data["2Contraseña"]
       },
+      telefonoValido: (data) => {
+        var regex = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g
+        return regex.test(data.Telefono) && data.Telefono.length >= 8 && data.Telefono.length <= 15
+      },emailValido: (data) => {
+        var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        return regex.test(data.Email)
+      }
     };
     try {
       Object.keys(Filtros).forEach((filtro) => {
-        if (!Filtros[filtro](data.Contraseña, data["2Contraseña"])) {
-          throw "error";
+        if (!Filtros[filtro](data)) {
+          throw filtro;
         }
       });
       navigation.push("verify",data);

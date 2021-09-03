@@ -1,7 +1,9 @@
 import React from "react";
 import AppCliente from "./AppCliente";
 import AppTrabajador from "./AppTrabajador";
-
-export default function AppIndex({ rol }) {
-  return rol == "Cliente" ? <AppCliente /> : <AppTrabajador />;
+import AppContext from "../../Context/AppContext";
+export default function AppIndex() {
+  const {User}=React.useContext(AppContext)
+  var rol = "T" 
+  return rol == "Cliente" ? <AppCliente /> : <AppTrabajador />
 }

@@ -5,12 +5,12 @@ import Auth from './Auth/Auth'
 import AppContext from '../Context/AppContext';
 
 
-export default function RootStackScreen ({userToken}) {
+export default function RootStackScreen () {
 
     const {Token}=React.useContext(AppContext)
     return(
         
-       Token != null && Token != "Reset" ? <AppIndex rol="Cliente" /> : <Auth/>
+       Token != null && Token != "Reset" ? <AppIndex  /> : <Auth/>
         
     
     )

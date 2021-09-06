@@ -1,8 +1,8 @@
 import React from "react";
-import { View, Text, ScrollView, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
-import { Subtitulo, TextoComun } from '../../../Atomos/Titulos/Textos/index'
-import { CircularSlider } from 'react-native-elements-universe';
+import { Subtitulo, TextoComun } from "../../../Atomos/Titulos/Textos/index";
+import CirculoProgreso from "../../../Atomos/CirculoProgreso";
 export default function HeaderData() {
   return (
     <View style={estilos.container}>
@@ -13,23 +13,42 @@ export default function HeaderData() {
           alignItems: "center",
         }}
       >
-        <Subtitulo style={{ color: "white" }}>Lo estás haciendo asi</Subtitulo>
+        <Subtitulo style={{ color: "white", fontSize: 18 }}>
+          Lo estás haciendo asi
+        </Subtitulo>
         <FontAwesome5 name="question-circle" size={24} color="white" />
       </View>
-      <View style={{ flexDirection: "row", marginTop: 10,height:60 }}>
-        <View style={{ flex: 1, justifyContent: 'space-between' }}>
-          <TextoComun style={{ color: 'white' }}>Nivel de vendedor</TextoComun>
-          <TextoComun style={{ color: 'white' }}>siguiente evaluación</TextoComun>
-          <TextoComun style={{ color: 'white' }}>Tiempo de respuesta</TextoComun>
+      <View style={{ flexDirection: "row", marginTop: 20, height: 75 }}>
+        <View style={{ flex: 1, justifyContent: "space-between" }}>
+          <TextoComun style={{ color: "white" }}>Nivel de vendedor</TextoComun>
+          <TextoComun style={{ color: "white" }}>
+            Siguiente evaluación
+          </TextoComun>
+          <TextoComun style={{ color: "white" }}>
+            Tiempo de respuesta
+          </TextoComun>
         </View>
-        <View style={{ flex: 1,alignItems:'flex-end', justifyContent: 'space-between' }}>
-          <TextoComun style={{ color: 'white', fontWeight: 'bold' }}>Nuevo Vendedor</TextoComun>
-          <TextoComun style={{ color: 'red' }}>24 de sep. de 2021</TextoComun>
-          <TextoComun style={{ color: 'green' }}>1 Horas</TextoComun>
+        <View
+          style={{
+            flex: 1,
+            alignItems: "flex-end",
+            justifyContent: "space-between",
+          }}
+        >
+          <TextoComun style={{ color: "white", fontWeight: "bold" }}>
+            Nuevo Vendedor
+          </TextoComun>
+          <TextoComun style={{ color: "#f85c5c" }}>
+            24 de sep. de 2021
+          </TextoComun>
+          <TextoComun style={{ color: "green" }}>1 Horas</TextoComun>
         </View>
       </View>
-      <View>
-      <CircularSlider value={100} onChange={(z)=>alert(z)} />;
+      <View style={{ marginTop: 40,flexDirection:'row',width:"100%" }}>
+        <CirculoProgreso value={100} label="Tasa de respuesta"/>
+        <CirculoProgreso value={0} label="Finalizacion del pedido"/>
+        <CirculoProgreso value={100} label="Entrega a tiempo"/>
+        <CirculoProgreso value={0} label="Calificacion positiva" contenido="N/A"/>
       </View>
     </View>
   );
@@ -37,9 +56,10 @@ export default function HeaderData() {
 
 const estilos = StyleSheet.create({
   container: {
-    flex: 0.7,
-    backgroundColor: "#343333",
+    flex: 0.5,
+    backgroundColor: "#313131",
     paddingVertical: 20,
     paddingHorizontal: 10,
+    justifyContent:'center'
   },
 });

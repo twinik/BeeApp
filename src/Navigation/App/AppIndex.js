@@ -4,6 +4,6 @@ import AppTrabajador from "./AppTrabajador";
 import AppContext from "../../Context/AppContext";
 export default function AppIndex() {
   const {User}=React.useContext(AppContext)
-  var rol = "Cliente" 
+  var rol = "Clientte" 
   return rol == "Cliente" ? <AppCliente /> : <AppTrabajador />
 }

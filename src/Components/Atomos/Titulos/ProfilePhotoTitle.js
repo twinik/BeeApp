@@ -1,6 +1,6 @@
 import React from 'react'
 import { View,StyleSheet} from "react-native";
-import {TituloNegrita} from './TitulosIndex'
+import TituloNegrita from './TituloNegrita'
 import ImageProfile from '../ImageProfile';
 
 export default function ProfilePhotoTitle({uri,label,style}) {

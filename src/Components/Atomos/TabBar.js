@@ -9,8 +9,8 @@ export default function MyTabBar({ state, descriptors, navigation }) {
           options.tabBarLabel !== undefined
             ? options.tabBarLabel
             : options.title !== undefined
-            ? options.title
-            : route.name;
+              ? options.title
+              : route.name;
 
         const isFocused = state.index === index;
 
@@ -36,15 +36,16 @@ export default function MyTabBar({ state, descriptors, navigation }) {
 
         return (
           <TouchableOpacity
+            key={route.name}
             accessibilityRole="button"
             accessibilityState={isFocused ? { selected: true } : {}}
             accessibilityLabel={options.tabBarAccessibilityLabel}
             testID={options.tabBarTestID}
             onPress={onPress}
             onLongPress={onLongPress}
-            style={{ flex: 1,height:50, justifyContent: 'center', alignItems: 'center',borderTopWidth:1,borderTopColor:'#ccc' }}
+            style={{ flex: 1, height: 50, justifyContent: 'center', alignItems: 'center', borderTopWidth: 1, borderTopColor: '#ccc' }}
           >
-            {options.tabBarIcon !== undefined ? options.tabBarIcon({ focused: isFocused ,size:28}) : null}
+            {options.tabBarIcon !== undefined ? options.tabBarIcon({ focused: isFocused, size: 28 }) : null}
           </TouchableOpacity>
         );
       })}

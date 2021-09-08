@@ -47,9 +47,10 @@ const estilos = StyleSheet.create({
   container: {
     backgroundColor: "white",
     padding: 10,
-    marginTop: 15,
     borderRadius: 10,
     flex: 1,
+    marginTop:15,
+    marginHorizontal:15
   },
   image: { width: 90, height: 60, borderRadius: 5 },
   container2: {

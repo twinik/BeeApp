@@ -9,9 +9,9 @@ import {
   StatusBar,
 } from "react-native";
 
-export default function SafeAreaViewHybrid({ children }) {
+export default function SafeAreaViewHybrid({ children,style }) {
   return (
-    <SafeAreaView style={estilo.AndroidSafeArea}>
+    <SafeAreaView style={[estilo.AndroidSafeArea,style]}>
       <StatusBar
         animated={true}
         barStyle={"dark-content"}

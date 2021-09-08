@@ -7,7 +7,7 @@ export default function ImageProfile({ size, uri ,style}) {
     height: size,
   };
   return (
-    <View style={{backgroundColor:'red',borderRadius:size/2, ...tamaño,...style}}>
+    <View style={{borderRadius:size/2, ...tamaño,...style}}>
         
       <ImageBackground
         source={{

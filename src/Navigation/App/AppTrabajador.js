@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { AntDesign,MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import MyTabBar from "../../Components/Atomos/TabBar";
-import {Home,Mensajes,Contratos} from '../../Views/Trabajador/App/index'
+import {Home,Mensajes,Contratos,Perfil} from '../../Views/Trabajador/App/index'
 const AppTrabajador = createBottomTabNavigator();
 
 export default function App() {
@@ -35,7 +35,7 @@ export default function App() {
       />
       <AppTrabajador.Screen
         name="Perfil"
-        component={Home}
+        component={Perfil}
         options={{ title: "",tabBarIcon: ({ focused,size }) => (<FontAwesome5 name="user-circle" size={size} color={focused ? activeColor : "#282a36"} />)}}
       />
     </AppTrabajador.Navigator>

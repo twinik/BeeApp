@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { AntDesign,MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import MyTabBar from "../../Components/Atomos/TabBar";
-import {Home,Mensajes} from '../../Views/Trabajador/App/index'
+import {Home,Mensajes,Contratos} from '../../Views/Trabajador/App/index'
 const AppTrabajador = createBottomTabNavigator();
 
 export default function App() {
@@ -30,7 +30,7 @@ export default function App() {
       />
       <AppTrabajador.Screen
         name="Pedidos"
-        component={Home}
+        component={Contratos}
         options={{ title: "",tabBarIcon: ({ focused,size }) => ( <MaterialCommunityIcons name="clipboard-text-outline" size={size} color={focused ? activeColor : "#282a36"} />)}}
       />
       <AppTrabajador.Screen

@@ -1,13 +1,13 @@
 import React from 'react'
-import { View,StyleSheet} from "react-native";
+import { View,StyleSheet,ViewPropTypes} from "react-native";
 import TituloNegrita from './TituloNegrita'
 import ImageProfile from '../ImageProfile';
 
-export default function ProfilePhotoTitle({uri,label,style}) {
+export default function ProfilePhotoTitle({uri,label,style,containerStyle,imageStyle,labelStyle,imageSize}) {
     return (
-        <View style={[estilos.container,style]}>
-            <ImageProfile uri={uri} size={30} style={{marginRight:10}}/>
-            <TituloNegrita>{label}</TituloNegrita>
+        <View style={[estilos.container,containerStyle]}>
+            <ImageProfile uri={uri} size={imageSize?imageSize:30} style={{marginRight:10,...imageStyle}}/>
+            <TituloNegrita style={{...labelStyle}}>{label}</TituloNegrita>
         </View>
     )
 }
@@ -20,3 +20,9 @@ const estilos = StyleSheet.create({
         alignItems:'center'
     }
 })
+
+ProfilePhotoTitle.propTypes = {
+    containerStyle: ViewPropTypes.style,
+    imageStyle: ViewPropTypes.style,
+    
+  };

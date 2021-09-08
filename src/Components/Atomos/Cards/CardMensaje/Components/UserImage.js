@@ -1,0 +1,41 @@
+import React from "react";
+import { View, ImageBackground, StyleSheet } from "react-native";
+
+export default function UserImage({ uri,status }) {
+  const background = status ? {backgroundColor:'green'} : {backgroundColor:'#c5c6c9'}
+  return (
+    <>
+      <View
+        style={{
+          borderRadius: 10,
+          width: 60,
+          height: 60,
+        }}
+      >
+        <ImageBackground
+          source={{
+            uri: uri,
+          }}
+          style={{ flex: 1 }}
+          imageStyle={{ borderRadius: 30 }}
+        />
+        <View
+        style={[estilos.circulo,background]}
+      />
+      </View>
+    </>
+  );
+}
+
+const estilos = StyleSheet.create({
+  circulo: {
+    borderWidth: 2,
+    borderColor: "white",
+    height: 17,
+    width: 17,
+    borderRadius: 10,
+    position: "absolute",
+    bottom: -1,
+    right:1
+  },
+});

@@ -1,8 +1,9 @@
 import React from "react";
 import { View, Text, ScrollView, StyleSheet } from "react-native";
-import CardExtras from "../../../Atomos/Cards/CardExtras/CardExtras";
+import CardExtras from "../../Atomos/Cards/CardExtras/CardExtras";
 import Ganancias from "./Components/Ganancias";
 import TareasPendientes from "./Components/TareasPendientes";
+import MisServicios from "./Components/MisServicios";
 export default function BodyData() {
   return (
     <View style={estilos.container}>
@@ -11,6 +12,9 @@ export default function BodyData() {
       </CardExtras>
       <CardExtras titulo="Tareas Pendientes" cardStyle={{flexDirection:'column'}}>
         <TareasPendientes/>
+      </CardExtras>
+      <CardExtras titulo="Mis servicios" cardStyle={{flexDirection:'column',marginBottom:20}}>
+        <MisServicios/>
       </CardExtras>
     </View>
   );

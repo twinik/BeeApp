@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import ItemCard from '../../../../Atomos/Cards/CardExtras/ItemCard'
+import ItemCard from '../../../Atomos/Cards/CardExtras/ItemCard'
 export default function Ganancias() {
   return (
     <>

@@ -1,8 +1,9 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
-import { Subtitulo, TextoComun } from "../../../Atomos/Titulos/Textos/index";
-import CirculoProgreso from "../../../Atomos/CirculoProgreso";
+import { Subtitulo, TextoComun } from "../../Atomos/Titulos/Textos/index";
+import CirculoProgreso from "../../Atomos/CirculoProgreso";
+
 export default function HeaderData() {
   return (
     <View style={estilos.container}>

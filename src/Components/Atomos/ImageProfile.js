@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Image, StyleSheet,ImageBackground } from "react-native";
+import { View, ImageBackground } from "react-native";
 
 export default function ImageProfile({ size, uri ,style}) {
   const tamaño = {

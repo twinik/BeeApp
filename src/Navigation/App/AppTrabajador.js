@@ -1,10 +1,10 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import Home from "../../Views/Trabajador/App/Home";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { AntDesign,MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import MyTabBar from "../../Components/Atomos/TabBar";
+import {Home,Mensajes} from '../../Views/Trabajador/App/index'
 const AppTrabajador = createBottomTabNavigator();
 
 export default function App() {
@@ -25,7 +25,7 @@ export default function App() {
       />
       <AppTrabajador.Screen
         name="Mensajes"
-        component={Home}
+        component={Mensajes}
         options={{ title: "",tabBarIcon: ({ focused,size }) => (<MaterialCommunityIcons name="email-outline" size={size} color={focused ? activeColor : "#282a36"} /> )}}
       />
       <AppTrabajador.Screen

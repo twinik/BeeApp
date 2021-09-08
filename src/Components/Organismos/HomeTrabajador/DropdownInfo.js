@@ -5,9 +5,9 @@ import {
   CollapseBody,
 } from "accordion-collapse-react-native";
 import { View, Text, StyleSheet } from "react-native";
-import { Subtitulo } from "../../../Atomos/Titulos/Textos/index";
+import { Subtitulo } from "../../Atomos/Titulos/Textos/index";
 import { MaterialIcons } from "@expo/vector-icons";
-import CardRequisito from "../../../Atomos/Cards/CardRequisito";
+import CardRequisito from "../../Atomos/Cards/CardRequisito";
 
 export default function DropdownInfo() {
   const [isOpen, setIsOpen] = React.useState(false);

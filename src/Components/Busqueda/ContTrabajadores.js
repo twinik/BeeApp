@@ -103,10 +103,10 @@ const styles = StyleSheet.create({
     height: "100%",
   },
 
-  resultados:{
+  resultados: {
     fontSize: 16,
-    marginBottom: 5
-  },  
+    marginBottom: 5,
+  },
 
   card: {
     width: "100%",
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
   },
 
   img: {
-    resizeMode: 'cover',
+    resizeMode: "cover",
     width: 80,
     height: 80,
     borderRadius: 40,

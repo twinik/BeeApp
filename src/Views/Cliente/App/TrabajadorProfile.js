@@ -1,13 +1,22 @@
 import React from "react";
-import { View, Text, Image, Button} from "react-native";
+import { View, Text, Image, StatusBar, StyleSheet } from "react-native";
 import ModalContrato from "../../../Components/ModalContrato";
-export default function TrabajadorProfile({ route, navigator }) {
+import SafeAreaViewHybrid from "../../../Components/Atomos/SafeAreaViewHybrid"
+
+import {Header, Body} from "../../../Components/Organismos/TrabajadorProfile/Index"
+
+export default function TrabajadorProfile({ route, navigation }) {
   const { data } = route.params;
   const [modalVisible, setModalVisible] = React.useState(false);
-  
+
   React.useEffect(() => {}, []);
   return (
-    <View style={{ flex: 1, marginTop: 50 }}>
+    <SafeAreaViewHybrid>
+      <Header data={data}/>
+      <Body data={data}/>
+    </SafeAreaViewHybrid>
+
+    /*     <View style={{ flex: 1, marginTop: 50 }}>
       <ModalContrato modalVisible={modalVisible} setModalVisible={setModalVisible} nombre={data.nombre+" "+data.apellido}/>
       <View style={{ flexDirection: "row" }}>
         <Image
@@ -25,6 +34,13 @@ export default function TrabajadorProfile({ route, navigator }) {
       <Text>{data.ubicacion}</Text>
       <Text>{data.descripcion}</Text>
       <Button title="Contratar" onPress={()=>setModalVisible(!modalVisible)}/>
-    </View>
+    </View> */
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: StatusBar.currentHeight,
+  },
+});

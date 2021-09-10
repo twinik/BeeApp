@@ -41,7 +41,6 @@ export default function Home() {
       </View>
       <View
         style={{
-          position: "relative",
           width: "90%",
           backgroundColor: "white",
           height: 50,

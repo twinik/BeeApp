@@ -9,7 +9,7 @@ export default function UserImage({ uri, status, style, disabled }) {
     <>
       <View
         style={{
-          borderRadius: 10,
+          borderRadius: 50,
           width: 60,
           height: 60,
           ...style,
@@ -20,7 +20,7 @@ export default function UserImage({ uri, status, style, disabled }) {
             uri: uri,
           }}
           style={{ flex: 1 }}
-          imageStyle={{ borderRadius: 30 }}
+          imageStyle={{ borderRadius: 100 }}
         />
         {!disabled ? <View style={[estilos.circulo, background]} /> : null}
       </View>

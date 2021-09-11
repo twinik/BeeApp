@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, TouchableOpacity, Image, StyleSheet } from "react-native";
 import MyText from "../MyText";
 import { FontAwesome, MaterialIcons } from "@expo/vector-icons";
+import TrabajadorList from "../Atomos/Cards/CardTrabajador/TrabajadorList";
 
 export default function ContTrabajadores({ traba, func, rubro }) {
   return traba == null ? (
@@ -22,7 +23,13 @@ export default function ContTrabajadores({ traba, func, rubro }) {
           fontStyle="SemiBold"
         />
         {traba.map((x, i) => (
-          <TouchableOpacity
+          <TrabajadorList
+            key={i}
+            data={x}
+            onPress={() => func.push("TrabajadorProfile", { data: x })}
+          />
+
+          /* <TouchableOpacity
             key={i}
             style={styles.card}
             onPress={() => func.push("TrabajadorProfile", { data: x })}
@@ -90,7 +97,7 @@ export default function ContTrabajadores({ traba, func, rubro }) {
                 style={{ fontSize: 14, color: "black" }}
               />
             </View>
-          </TouchableOpacity>
+          </TouchableOpacity> */
         ))}
       </View>
     </View>

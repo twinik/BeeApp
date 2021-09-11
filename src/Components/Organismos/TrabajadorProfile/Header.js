@@ -8,7 +8,7 @@ import {
   ImageBackground,
 } from "react-native";
 
-import UserImage from "../../Atomos/Cards/CardMensaje/Components/UserImage"
+import UserImage from "../../Atomos/Cards/CardMensaje/Components/UserImage";
 
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     height: "100%",
     alignItems: "center",
     justifyContent: "flex-start",
-    borderRadius: 100
+    borderRadius: 100,
   },
 
   imgProfile: {

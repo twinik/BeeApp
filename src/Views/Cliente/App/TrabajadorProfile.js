@@ -1,9 +1,12 @@
 import React from "react";
 import { View, Text, Image, StatusBar, StyleSheet } from "react-native";
 import ModalContrato from "../../../Components/ModalContrato";
-import SafeAreaViewHybrid from "../../../Components/Atomos/SafeAreaViewHybrid"
+import SafeAreaViewHybrid from "../../../Components/Atomos/SafeAreaViewHybrid";
 
-import {Header, Body} from "../../../Components/Organismos/TrabajadorProfile/Index"
+import {
+  Header,
+  Body,
+} from "../../../Components/Organismos/TrabajadorProfile/Index";
 
 export default function TrabajadorProfile({ route, navigation }) {
   const { data } = route.params;
@@ -12,8 +15,8 @@ export default function TrabajadorProfile({ route, navigation }) {
   React.useEffect(() => {}, []);
   return (
     <SafeAreaViewHybrid>
-      <Header data={data}/>
-      <Body data={data}/>
+      <Header data={data} onBack={() => navigation.goBack()} />
+      <Body data={data} />
     </SafeAreaViewHybrid>
 
     /*     <View style={{ flex: 1, marginTop: 50 }}>

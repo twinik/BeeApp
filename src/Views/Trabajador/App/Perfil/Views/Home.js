@@ -4,7 +4,11 @@ import { TituloNegrita } from "../../../../../Components/Atomos/Titulos/TitulosI
 import SafeAreaViewHybrid from "../../../../../Components/Atomos/SafeAreaViewHybrid";
 import { UserImage } from "../../../../../Components/Atomos/Cards/CardMensaje/Index";
 import { Fontisto } from "@expo/vector-icons";
+import AppContext from "../../../../../Context/AppContext";
+
 export default function Home() {
+  const {SignOut}=React.useContext(AppContext)
+
   return (
     <SafeAreaViewHybrid style={{backgroundColor:'#EEEEEE',justifyContent:'center'}}>
       <View
@@ -52,7 +56,11 @@ export default function Home() {
       <ScrollView
         style={{ flex: 1, backgroundColor: "#EEEEEE" }}
         contentContainerStyle={{}}
-      ></ScrollView>
+      >
+        <TouchableOpacity onPress={()=>{SignOut()}}>
+          <Text>Deslogearse</Text>
+        </TouchableOpacity>
+      </ScrollView>
     </SafeAreaViewHybrid>
   );
 }

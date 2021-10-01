@@ -9,8 +9,9 @@ import { Subtitulo } from "../../Atomos/Titulos/Textos/index";
 import { MaterialIcons } from "@expo/vector-icons";
 import CardRequisito from "../../Atomos/Cards/CardRequisito";
 
-export default function DropdownInfo() {
+export default function DropdownInfo({estadisticas,User}) {
   const [isOpen, setIsOpen] = React.useState(false);
+  var tiempo= User.fechaCreacion? Date.now()- parseInt(User.fechaCreacion.replace(".","")) : 0
   return (
     <View style={estilos.container}>
       <Collapse
@@ -44,21 +45,21 @@ export default function DropdownInfo() {
             <CardRequisito
               titulo="Antigüedad en Ventas"
               descripcion="Completa al menos 60 días como Nuevo Vendedor"
-              valor={60}
+              valor={new Date(tiempo).getDay()}
               valorMaximo={60}
               separador
             />
             <CardRequisito
               titulo="Pedidos"
               descripcion="Recibir y Completar al menos 10 pedidos (en total)"
-              valor={0}
+              valor={estadisticas.Contrataciones.pedidos.completados}
               valorMaximo={10}
               separador
             />
             <CardRequisito
               titulo="Ganancias"
               descripcion="Ganar al menos $ 400 de los pedidos completados (en total)"
-              valor={0}
+              valor={estadisticas.Contrataciones.ganancias}
               valorMaximo={400}
               valorSign="$"
               separador

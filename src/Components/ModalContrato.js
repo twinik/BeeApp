@@ -13,6 +13,7 @@ export default function ModalContrato({
   const { control, handleSubmit, formState: { errors } } = useForm();
   const onSubmit = (data) => {
     data= {...data,fechaCreacion:Date.now()}
+    alert(data)
   }
   return (
     <Modal

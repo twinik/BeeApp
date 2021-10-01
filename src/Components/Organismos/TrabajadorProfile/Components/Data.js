@@ -54,9 +54,7 @@ const Data = ({ data }) => {
       </View>
       <View style={{ marginTop: 5 }}>
         <MyText
-          text="Soy tecnico electricista especializado
-                en electronica. Recibido en la Unviersidad de Buenos Aires.
-                Consulte presupuesto por cualquier tipo de servicio electronico"
+          text={data.descripcion}
         />
       </View>
     </View>
@@ -69,5 +67,6 @@ const styles = StyleSheet.create({
   data: {
     flex: 2.5,
     marginTop: 20,
+    marginBottom: 20
   },
 });

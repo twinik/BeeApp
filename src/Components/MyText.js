@@ -23,7 +23,6 @@ const MyText = ({ text, fontStyle, style, size }) => {
         style,
         {
           fontFamily: fontStyle == null ? "Regular" : fontStyle,
-          fontSize: size,
         },
       ]}
     >

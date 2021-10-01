@@ -12,7 +12,7 @@ const AppState = (props) => {
   };
 
   const [state, dispatch] = useReducer(AppReducer, initialState);
-  /*
+  
   const SignIn = async (email, password) => {
     var result = true;
     console.log("e:" + email + ",c=" + password.trim());
@@ -26,15 +26,16 @@ const AppState = (props) => {
      await userCredential.user.getIdToken(true).then((x)=>{
       pl=x
      })
-      dispatch({
-        type: SET_TOKEN,
-        payload: pl,
-      });
+      
      
       var user = await obtenerUsuario(pl);
       dispatch({
         type: SET_USER,
         payload: user,
+      });
+      dispatch({
+        type: SET_TOKEN,
+        payload: pl,
       });
     } catch (error) {
       console.log(error);
@@ -42,8 +43,8 @@ const AppState = (props) => {
     }
 
     return result;
-  };*/
-  
+  };
+  /*
   const SignIn = async (email, password) => {
     dispatch({
       type: SET_TOKEN,
@@ -59,7 +60,7 @@ const AppState = (props) => {
       },
     });
     return true;
-  };
+  };*/
 
   const SignOut = () => {
     Firebase.auth()

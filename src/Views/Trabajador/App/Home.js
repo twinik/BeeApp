@@ -18,6 +18,7 @@ export default function Home({ navigation }) {
       try{
         var estadisticas = await obtenerEstadisticas(Token);
         setEstadisticas(estadisticas);
+        console.log(estadisticas)
       } catch(error){
         console.log(error);
       }
@@ -38,9 +39,9 @@ export default function Home({ navigation }) {
         style={{ flex: 1, backgroundColor: "#EEEEEE" }}
         contentContainerStyle={{}}
       >
-        <Header />
-        <Dropdown />
-        <Body />
+        <Header estadisticas={estadisticas}/>
+        <Dropdown estadisticas={estadisticas} User={User}/>
+        <Body estadisticas={estadisticas}/>
       </ScrollView>
     </SafeAreaViewHybrid>) : (<Text>Cargando</Text>)
     

@@ -4,7 +4,8 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { Subtitulo, TextoComun } from "../../Atomos/Titulos/Textos/index";
 import CirculoProgreso from "../../Atomos/CirculoProgreso";
 
-export default function HeaderData() {
+export default function HeaderData({estadisticas}) {
+  var promventas= estadisticas.Contrataciones ? estadisticas.Contrataciones.pedidos.completados / estadisticas.Contrataciones.pedidos.completados+estadisticas.Contrataciones.pedidos.cancelados : 32
   return (
     <View style={estilos.container}>
       <View
@@ -37,17 +38,17 @@ export default function HeaderData() {
           }}
         >
           <TextoComun style={{ color: "white", fontWeight: "bold" }}>
-            Nuevo Vendedor
+            {estadisticas.Nivel?estadisticas.Nivel:""}
           </TextoComun>
           <TextoComun style={{ color: "#f85c5c" }}>
-            24 de sep. de 2021
+            24 de sep. de 2022
           </TextoComun>
-          <TextoComun style={{ color: "green" }}>1 Horas</TextoComun>
+          <TextoComun style={{ color: "green" }}>{estadisticas.PromedioRespuesta == null?"nan":""}</TextoComun>
         </View>
       </View>
       <View style={{ marginTop: 40,flexDirection:'row',width:"100%" }}>
         <CirculoProgreso value={100} label="Tasa de respuesta"/>
-        <CirculoProgreso value={0} label="Finalizacion del pedido"/>
+        <CirculoProgreso value={promventas} label="Finalizacion del pedido"/>
         <CirculoProgreso value={100} label="Entrega a tiempo"/>
         <CirculoProgreso value={0} label="Calificacion positiva" contenido="N/A"/>
       </View>

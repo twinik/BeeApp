@@ -1,6 +1,7 @@
 import React from "react";
 import { Alert, Modal, StyleSheet, Text, TextInput, View } from "react-native";
 import FormItem from "../Forms/FormItem";
+import MyText from "../MyText";
 export default function InputModal2({
   titulo,
   placeholder,
@@ -14,7 +15,7 @@ export default function InputModal2({
   }
   return (
     <View style={{ display: "flex", flexDirection: "column" }}>
-      <Text style={{ fontWeight: "bold", letterSpacing: 2 }}>{titulo}</Text>
+      <MyText text={titulo} style={{ letterSpacing: 2 }} fontStyle="Bold" />
       {disabled ? (
         <TextInput
           placeholder={placeholder}

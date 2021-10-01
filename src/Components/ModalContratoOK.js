@@ -45,14 +45,14 @@ export default function ModalContrato({ modalVisible, setModalVisible, data }) {
               />
               <TextAreaModal
                 titulo="Descripcion"
-                placeholder="Breve Descripcion"
+                placeholder="Describa su solicitud"
                 control={control}
               />
               <View style={{ marginTop: 10 }}>
-                <Text>
-                  Elija una franja de dias en los que podria llegar a recibir el
-                  servicio.
-                </Text>
+                <MyText
+                  text="Elija una franja de dias en los que podria llegar a recibir el
+                  servicio."
+                />
                 <View
                   style={{
                     flexDirection: "row",
@@ -62,7 +62,6 @@ export default function ModalContrato({ modalVisible, setModalVisible, data }) {
                   }}
                 >
                   <InputDate titulo="Fecha" placeholder="11/10/23" disabled />
-                  <Text>|</Text>
                   <InputDate
                     titulo="Fecha"
                     placeholder="21/10/23"

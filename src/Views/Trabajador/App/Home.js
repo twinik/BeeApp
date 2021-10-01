@@ -1,33 +1,48 @@
 import React from "react";
-import { View,ScrollView } from "react-native";
+import { View, ScrollView,Text } from "react-native";
 import { IconoTitulo } from "../../../Components/Atomos/Titulos/TitulosIndex";
 import SafeAreaViewHybrid from "../../../Components/Atomos/SafeAreaViewHybrid";
 import {
   Header,
   Body,
-  Dropdown
+  Dropdown,
 } from "../../../Components/Organismos/HomeTrabajador/index";
-
+import { obtenerEstadisticas } from "../../../Firebase/Utils/TrabajadoresConexion";
+import AppContext from "../../../Context/AppContext";
 export default function Home({ navigation }) {
-  
-  return (
-    <SafeAreaViewHybrid>
+  const { Token,User } = React.useContext(AppContext);
+
+  const [estadisticas,setEstadisticas] = React.useState(null);
+  React.useEffect(() => {
+    const f = async () => {
+      try{
+        var estadisticas = await obtenerEstadisticas(Token);
+        setEstadisticas(estadisticas);
+      } catch(error){
+        console.log(error);
+      }
+    };
+    f();
+  }, []);
+  return ( 
+    estadisticas != null ?  (<SafeAreaViewHybrid>
       <View
         style={{ flex: 0.08, justifyContent: "center", alignItems: "center" }}
       >
         <IconoTitulo
-          label="gfalotico"
-          uri="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4yvLSX6Y5O14sFJ-CdJ3K3nzRfuqrW0rs7Q&usqp=CAU"
+          label={User.nombre+" "+User.apellido}
+          uri={User.imgPerfil}
         />
       </View>
       <ScrollView
         style={{ flex: 1, backgroundColor: "#EEEEEE" }}
-        contentContainerStyle={{ }}
+        contentContainerStyle={{}}
       >
         <Header />
-        <Dropdown/>
+        <Dropdown />
         <Body />
       </ScrollView>
-    </SafeAreaViewHybrid>
+    </SafeAreaViewHybrid>) : (<Text>Cargando</Text>)
+    
   );
 }

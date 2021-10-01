@@ -7,11 +7,12 @@
 
  async function obtenerUsuario(uid) {
      var resultado;
-     console.log(uid)
      var url = `${link}/Auth/obtener`;
      try {
          var res = await axios.get(url, {
-             
+            params: {
+                token: uid
+            }
          })
          if (res.status == 200) {
              resultado = res.data;

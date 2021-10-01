@@ -5,25 +5,49 @@ import { link } from '../config.json';
 async function obtenerTrabajadoresFiltro(filtro) {
     var url = `${link}/Trabajador/obtenerPorFiltro`;
     var resultado;
-    
+
     try {
-      var res = await axios.get(`${link}/Trabajador/obtenerPorFiltro/`, {
-        params: {
-          filtros: { rubro: filtro },
-        },
-      });
-      console.log(res.data)
-      if (res.data.error) {
-        resultado = null;
-      } else if(res.data.length == 0){
-        resultado = null;
-      } else {
-        resultado = res.data;
-      }
-      return resultado;
+        var res = await axios.get(`${link}/Trabajador/obtenerPorFiltro/`, {
+            params: {
+                filtros: { rubro: filtro },
+            },
+        });
+        console.log(res.data)
+        if (res.data.error) {
+            resultado = null;
+        } else if (res.data.length == 0) {
+            resultado = null;
+        } else {
+            resultado = res.data;
+        }
+        return resultado;
     } catch (error) {
-      throw error;
+        throw error;
     }
-  }
-  
- export { obtenerTrabajadoresFiltro };
+}
+
+
+async function obtenerEstadisticas(token) {
+    var url = `${link}/Trabajador/obtenerEstadisticas`;
+    var resultado;
+
+    try {
+        var res = await axios.get(url, {
+            params: {
+                token: token,
+            },
+        });
+        console.log(res.data)
+        if (res.data.error) {
+            resultado = null;
+        } else if (res.data.length == 0) {
+            resultado = null;
+        } else {
+            resultado = res.data;
+        }
+        return resultado;
+    } catch (error) {
+        throw error;
+    }
+}
+export { obtenerTrabajadoresFiltro ,obtenerEstadisticas};

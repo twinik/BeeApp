@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import MyText from "../../../MyText";
-import { FontAwesome, MaterialIcons } from "@expo/vector-icons";
+import { FontAwesome, Ionicons } from "@expo/vector-icons";
 
 const Data = ({ data }) => {
   return (
@@ -40,6 +40,25 @@ const Data = ({ data }) => {
           />
         </View>
       </View>
+      <View style={{ flexDirection: "row", marginTop: 5 }}>
+        <Ionicons
+          name="location-sharp"
+          size={24}
+          color="#7936E4"
+          style={{ marginRight: 5, marginLeft: -2 }}
+        />
+        <MyText
+          style={{ fontSize: 18, color: "black" }}
+          text={data.ubicacion}
+        />
+      </View>
+      <View style={{ marginTop: 5 }}>
+        <MyText
+          text="Soy tecnico electricista especializado
+                en electronica. Recibido en la Unviersidad de Buenos Aires.
+                Consulte presupuesto por cualquier tipo de servicio electronico"
+        />
+      </View>
     </View>
   );
 };
@@ -48,8 +67,7 @@ export default Data;
 
 const styles = StyleSheet.create({
   data: {
-    flex: 1,
-    width: "90%",
+    flex: 2.5,
     marginTop: 20,
   },
 });

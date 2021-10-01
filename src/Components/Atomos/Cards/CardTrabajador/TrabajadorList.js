@@ -2,12 +2,7 @@ import React from "react";
 import { StyleSheet, TouchableOpacity, View, Image, Text } from "react-native";
 import MyText from "../../../MyText";
 import Star from "react-native-star-view";
-import {
-  MaterialIcons,
-  Feather,
-  Ionicons,
-  FontAwesome,
-} from "@expo/vector-icons";
+import { MaterialIcons, Ionicons, FontAwesome5 } from "@expo/vector-icons";
 
 const TrabajadorList = ({ key, data, onPress }) => {
   return (
@@ -29,7 +24,7 @@ const TrabajadorList = ({ key, data, onPress }) => {
       >
         <View style={styles.body}>
           <View style={{ flexDirection: "row" }}>
-            <View style={{ flex: 5 }}>
+            <View style={{ flex: 10, paddingTop: 5 }}>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <Ionicons
                   name="md-person-sharp"
@@ -44,11 +39,11 @@ const TrabajadorList = ({ key, data, onPress }) => {
                 />
               </View>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
-                <Feather
-                  name="tool"
-                  size={14}
+                <FontAwesome5
+                  name="toolbox"
+                  size={13}
                   color="black"
-                  style={{ marginRight: 5 }}
+                  style={{ marginRight: 6 }}
                 />
                 <MyText
                   style={{ fontSize: 15, color: "black" }}
@@ -56,11 +51,11 @@ const TrabajadorList = ({ key, data, onPress }) => {
                 />
               </View>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
-                <FontAwesome
-                  name="map-marker"
+                <Ionicons
+                  name="location-sharp"
                   size={16}
                   color="black"
-                  style={{ marginRight: 5 }}
+                  style={{ marginRight: 5, marginLeft: -2 }}
                 />
                 <MyText
                   style={{ fontSize: 15, color: "black" }}
@@ -70,30 +65,26 @@ const TrabajadorList = ({ key, data, onPress }) => {
             </View>
             <View
               style={{
-                flex: 4,
-                justifyContent: "flex-end",
+                flex: 2,
                 alignItems: "flex-end",
-                height: "96%",
+                height: "100%",
               }}
             >
               <View
                 style={{
-                  flex: 3,
-                  alignItems: "center",
+                  flex: 1,
+                  alignItems: "flex-end",
                   width: "100%",
-                  justifyContent: "center",
+                  justifyContent: "flex-end",
+                  marginTop: 5,
+                  flexDirection: "row",
                 }}
               >
-                <MaterialIcons name="verified" size={38} color="black" />
-                <MyText
-                  text="Certificado"
-                  fontStyle="SemiBold"
-                  style={{ fontSize: 12, color: "black" }}
-                />
+                <MaterialIcons name="verified" size={22} color="blue" />
               </View>
               <View
                 style={{
-                  flex: 1,
+                  flex: 3,
                   flexDirection: "row",
                   alignItems: "flex-end",
                 }}
@@ -118,7 +109,7 @@ export default TrabajadorList;
 const styles = StyleSheet.create({
   card: {
     width: "100%",
-    height: 200,
+    height: 180,
     marginVertical: 5,
     borderRadius: 10,
     backgroundColor: "white",
@@ -173,7 +164,7 @@ const styles = StyleSheet.create({
     width: 90,
     height: 90,
     borderRadius: 100,
-    top: 15,
+    top: 10,
     borderWidth: 2,
     borderColor: "white",
   },

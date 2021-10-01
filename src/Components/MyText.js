@@ -2,7 +2,7 @@ import React from "react";
 import { Text } from "react-native";
 import { useFonts } from "expo-font";
 
-const MyText = ({ text, fontStyle, style }) => {
+const MyText = ({ text, fontStyle, style, size }) => {
   const [loaded] = useFonts({
     Bold: require("../../assets/Fonts/Quicksand/Quicksand-Bold.ttf"),
     Light: require("../../assets/Fonts/Quicksand/Quicksand-Light.ttf"),
@@ -19,7 +19,13 @@ const MyText = ({ text, fontStyle, style }) => {
 
   return (
     <Text
-      style={[style, { fontFamily: fontStyle == null ? "Regular" : fontStyle }]}
+      style={[
+        style,
+        {
+          fontFamily: fontStyle == null ? "Regular" : fontStyle,
+          fontSize: size,
+        },
+      ]}
     >
       {text}
     </Text>

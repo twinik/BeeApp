@@ -1,6 +1,6 @@
 import React from "react";
 import { TouchableOpacity, Text, StyleSheet, Dimensions } from "react-native";
-import MyText from './MyText'
+import MyText from "./MyText";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
@@ -12,7 +12,11 @@ class BotonGrande extends React.Component {
         style={[estilos.boton, this.props.style]}
         onPress={this.props.onPress}
       >
-        <MyText style={estilos.texto} text={this.props.title}></MyText>
+        <MyText
+          style={estilos.texto}
+          fontStyle={this.props.font}
+          text={this.props.title}
+        ></MyText>
       </TouchableOpacity>
     );
   }
@@ -28,7 +32,7 @@ const estilos = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 100,
-    width: (windowWidth / 5) * 3.5,
+    width: (windowWidth / 5) * 3.6,
     height: 50,
     shadowColor: "#000",
     shadowOffset: {
@@ -37,7 +41,7 @@ const estilos = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-    
+
     elevation: 5,
   },
   texto: {

@@ -63,13 +63,16 @@ const styles = StyleSheet.create({
   imgProfile: {
     width: 130,
     height: 130,
-    borderRadius: 100,
+    borderRadius: 200,
+    borderWidth: 2,
+    borderColor: "white",
   },
 
   img: {
     resizeMode: "cover",
     width: "100%",
     height: "100%",
+    borderRadius: 20,
   },
 
   icons: {

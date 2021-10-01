@@ -10,7 +10,7 @@ const Body = ({ data }) => {
   const [modalVisible, setModalVisible] = React.useState(false);
   return (
     <View style={styles.body}>
-      <ModalContrato
+      <ModalContratoOK
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
         data={data}

@@ -12,22 +12,21 @@ const AppState = (props) => {
   };
 
   const [state, dispatch] = useReducer(AppReducer, initialState);
-  
+
   const SignIn = async (email, password) => {
     var result = true;
-    console.log("e:" + email + ",c=" + password.trim());
+    console.log("e:" + email + "c:" + password.trim());
 
     try {
       var userCredential = await Firebase.auth().signInWithEmailAndPassword(
         email,
         password
       );
-      var pl
-     await userCredential.user.getIdToken(true).then((x)=>{
-      pl=x
-     })
-      
-     
+      var pl;
+      await userCredential.user.getIdToken(true).then((x) => {
+        pl = x;
+      });
+
       var user = await obtenerUsuario(pl);
       dispatch({
         type: SET_USER,
@@ -66,7 +65,7 @@ const AppState = (props) => {
     Firebase.auth()
       .signOut()
       .then(() => {
-        console.log("deslogeado");
+        console.log("Sign Out");
         dispatch({
           type: DELETE_TOKEN,
           payload: null,
